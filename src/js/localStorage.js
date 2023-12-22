@@ -18,8 +18,6 @@ function removeFromStorageCart(id) {
   updatedData.splice(deleteItemId, 1);
 
   localStorage.setItem('cart', JSON.stringify(updatedData));
-
-  console.log(localStorage.getItem('cart'));
 }
 
 function isExistInCart(id) {
