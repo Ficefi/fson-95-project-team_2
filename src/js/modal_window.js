@@ -11,16 +11,7 @@ const content = document.querySelector('.modal-content');
 
 
 button.addEventListener('click', openModal);
-window.addEventListener('keydown', handlePress);
 
-
-
-
-function handlePress(e) {
-  if (e.key === 'Escape') {
-    modal.classList.add('is-hidden');
-  }
-}
 
 
 export async function openModal() {
@@ -63,6 +54,14 @@ export async function openModal() {
   `;
 
     ////////MODAL CLOSE LOGIC///////
+
+    window.addEventListener('keydown', handlePress);
+
+    function handlePress(e) {
+      if (e.key === 'Escape') {
+        modal.classList.add('is-hidden');
+      }
+    }
 
     window.onclick = function(event) {
       if (event.target === modal) {
