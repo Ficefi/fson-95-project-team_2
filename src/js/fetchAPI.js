@@ -1,30 +1,30 @@
 import axios from 'axios';
 
-export { getAllProducs, getCategoriesProducs, getDiscountProducs,
-  getPopularProducs, getProductById, createNewOrder, sendSubscription };
+export { getAllProducts, getCategoriesProducts, getDiscountProducts,
+  getPopularProducts, getProductById, createNewOrder, sendSubscription };
 
-async function getAllProducs() {
+async function getAllProducts() {
   const response = await axios.get(
     'https://food-boutique.b.goit.study/api/products',
   );
   return response.data;
 }
 
-async function getPopularProducs() {
+async function getPopularProducts() {
   const response = await axios.get(
     'https://food-boutique.b.goit.study/api/products/popular',
   );
   return response.data;
 }
 
-async function getDiscountProducs() {
+async function getDiscountProducts() {
   const response = await axios.get(
     'https://food-boutique.b.goit.study/api/products/discount',
   );
   return response.data;
 }
 
-async function getCategoriesProducs() {
+async function getCategoriesProducts() {
   const response = await axios.get(
     'https://food-boutique.b.goit.study/api/products/categories',
   );
