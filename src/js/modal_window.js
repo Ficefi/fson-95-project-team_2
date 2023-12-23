@@ -1,10 +1,8 @@
 import { getProductById } from './fetchAPI.js';
 import { addToStorageCart, removeFromStorageCart, isExistInCart} from './localStorage.js';
 
-
 const modal = document.querySelector('.js-modal');
 const content = document.querySelector('.modal-content');
-
 
 export async function openModal(id) {
 
