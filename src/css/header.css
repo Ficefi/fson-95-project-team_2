@@ -1,18 +1,23 @@
-.container {
-  width: 375px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
+@media screen and (max-width: 376px) {
+  .header-cart {
+    display: none;
+  }
+}
+@media screen and (min-width: 376px) {
+  .header__logo {
+    margin-left: 8px;
+  }
+  .nav-list {
+    gap: 16px;
+  }
 }
 
 .header__logo {
-  margin-left: 8px;
+  margin-left: 4px;
   font-family: Fontspring-DEMO-quincycf-black;
   font-size: 18px;
   font-weight: 900;
   line-height: 20px;
-  letter-spacing: -2%;
 }
 
 .header {
@@ -33,4 +38,25 @@
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 77px;
+  height: 38px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+
+  border-radius: 30px;
+  background-color: var(--light_green);
+}
+
+.header-cart {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
 }
