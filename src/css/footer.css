@@ -1,4 +1,8 @@
-
+@font-face {
+    font-family: Neue Montreal;
+    src: url("../font/NeueMontreal-Regular.otf") format(truetype);
+  }
+  
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                     container
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -27,11 +31,12 @@
 
 footer {
     background: var(--light_green);
+    font-family: Neue Montreal;
 }
 .footer-container {
+    min-height: 652px;
     padding-top: 40px;
     padding-bottom: 20px;
-
 }
 .footer-nav {
 }
@@ -63,12 +68,12 @@ footer {
 .footer-logo-text {
     color: var(--gray);
     
-        font-family: ;
-        font-size: 24px;
+        font-family: FONTSPRING DEMO - Quincy CF Black;
+        font-size: 18px;
         font-style: normal;
         font-weight: 900;
         line-height: 1;
-        letter-spacing: 1em;
+        letter-spacing: 0.02em;;
 }
 .footer-social {
     padding-bottom: 40px;
@@ -117,15 +122,15 @@ footer {
 }
 .footer-title-text {
     color: var(--gray);
-        font-size: 40px;
+        font-size: 24px;
         font-weight: 500;
         font-style: normal;
         line-height: 1.1;
-        letter-spacing: 1em;
+        letter-spacing: 0.02em;;
 }
 .footer-text-desc {
     color: rgba(232, 232, 226, 0.70);
-        font-size: 18px;
+        font-size: 14px;
         font-style: normal;
         line-height: 1.33;
 }
@@ -153,10 +158,11 @@ footer {
 }
 .form-input {
     display: flex;
-    padding: 12px 284px 12px 18px;
+    padding-left: 12px;
     align-items: center;
     gap: 10px;
-    max-width: 100%;
+    width: 335px;
+    height: 42px;
     border-radius: 30px;
     border: 1px solid var(--gray);
     outline: transparent;
@@ -177,8 +183,8 @@ input:focus::placeholder {
 }
 .btn-form {
     display: flex;
-    max-width: 100%;
-    padding: 12px 149px;
+    width: 335px;
+    height: 42px;
     justify-content: center;
     align-items: center;
     gap: 8px;
@@ -226,10 +232,16 @@ input:focus::placeholder {
 
 
 @media only screen and (min-width: 768px) {
+    .footer-container {
+        min-height: 602px;
+    }
     .social-icon {
             width: 28px;
             height: 28px;
         }
+    .footer-logo-text {
+        font-size: 24px;
+    }
     .social-links-item {
         width: 44px;
         height: 44px;
@@ -252,9 +264,13 @@ input:focus::placeholder {
         }
         .footer-title {
             padding-bottom: 64px;
-        }
-        .footer-title {
             gap: 20px;
+        }
+        .footer-title-text {
+            font-size: 40px;
+        }
+        .footer-text-desc {
+            font-size: 18px;
         }
         .footer-form {
             padding-bottom: 120px;
@@ -265,10 +281,18 @@ input:focus::placeholder {
         }
         .form-input{
             width: 336px;
+            height: 48px;
           }
+          .btn-form {
+            font-size: 16px;
+            height: 48px;
+        }
 }
 
 @media only screen and (min-width: 1268px) {
+    .footer-container {
+        min-height: 386px;
+    }
     .footer-second {
         flex-direction: row;
     }
