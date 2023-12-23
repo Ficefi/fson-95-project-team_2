@@ -70,5 +70,4 @@ async function sendSubscription(email){
 
 export { getAllProducts, getCategoriesProducts, getDiscountProducts,
   getPopularProducts, getProductById, createNewOrder, sendSubscription };
-}
 
