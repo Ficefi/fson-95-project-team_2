@@ -1,8 +1,5 @@
 import axios from 'axios';
 
-export { getAllProducts, getCategoriesProducts, getDiscountProducts,
-  getPopularProducts, getProductById, createNewOrder, sendSubscription };
-
 async function getAllProducts() {
   const response = await axios.get(
     'https://food-boutique.b.goit.study/api/products',
@@ -70,3 +67,8 @@ async function sendSubscription(email){
   }
 
 }
+
+export { getAllProducts, getCategoriesProducts, getDiscountProducts,
+  getPopularProducts, getProductById, createNewOrder, sendSubscription };
+}
+
