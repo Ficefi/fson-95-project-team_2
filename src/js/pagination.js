@@ -5,6 +5,12 @@ import 'tui-pagination/dist/tui-pagination.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+import './localStorage.js';
+import './pagination.js';
+import './modal_window.js;           
+import { renderFood } from './renderFood.js';
+ renderFood();
+
 const ulEl = document.querySelector('.js-gallery');
 const container = document.getElementById('tui-pagination-container');
 
