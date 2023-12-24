@@ -1,58 +1,77 @@
-import {Pagination} from 'tui-pagination';
-// CommonJS:
-const Pagination = require('tui-pagination');
+// Let link = document.getElementsByClassName("link-item");
 
-const container = document.getElementById('tui-pagination-container');
-const myPagination = new Pagination(container, { 
-      // options here
-});
+// let currentValue = 1;
 
-//All default configuration options.
+// function activeLink() {
+//   for (1 of link) {
+//     1.classList.remove("active");
+//   }
+//   event.target.classList.add("active");
+//   currentValue = event.value;
+// }
+ async function getData() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const data = await response.json();
+  return data;
+}
 
-const myPaginations = new Pagination(container, { 
-      // Total number of items
-      totalItems: 10,
-      // Items per page
-      itemsPerPage: 10,
-      // Visible pages
-      visiblePages: 10,
-      // Current page
-      page: 1,
-      // center aligned
-      centerAlign: false,
-      // default classes
-      firstItemClassName: 'tui-first-child',
-      lastItemClassName: 'tui-last-child',
-      // enable usage statistics
-      usageStatistics: true
-      
-});
-//API methods.
-  
-// gets the current page
-myPagination.getCurrentPage();
-// goes to page x
-myPagination.movePageTo(targetPage);
-// resets the pagination
-myPagination.reset(totalItems);
-// sets the number of items per page
-myPagination.gsetItemsPerPage(itemCount);
-// sets the total number of items
-myPagination.setTotalItems(itemCount);
+async function main() {
+  const postsData = await getData();
+  let currentPage = 1;
+  let rows = 10;
 
-//Event handlers available.
+  function displayList(arrData, rowPerPage, page) {
+    const postsEl = document.querySelector('.posts');
+    postsEl.innerHTML = "";
+    page--;
 
-// after move
-myPagination.on('afterMove', function(eventData) {
-  var currentPage = eventData.page;
-  console.log(currentPage);
-});
-// before move move
-myPagination.on('beforeMove', function(eventData) {
-  var currentPage = eventData.page;
-  if (currentPage === 10) {
-    return false;
-    // return true;
+    const start = rowPerPage * page;
+    const end = start + rowPerPage;
+    const paginatedData = arrData.slice(start, end);
+
+    paginatedData.forEach((el) => {
+      const postEl = document.createElement("div");
+      postEl.classList.add("post");
+      postEl.innerText = `${el.title}`;
+      postsEl.appendChild(postEl);
+    })
   }
-});
-   
+
+  function displayPagination(arrData, rowPerPage) {
+    const paginationEl = document.querySelector('.pagination');
+    const pagesCount = Math.ceil(arrData.length / rowPerPage);
+    const ulEl = document.createElement("ul");
+    ulEl.classList.add('pagination__list');
+
+    for (let i = 0; i < pagesCount; i++) {
+      const liEl = displayPaginationBtn(i + 1);
+      ulEl.appendChild(liEl)
+    }
+    paginationEl.appendChild(ulEl)
+  }
+
+  function displayPaginationBtn(page) {
+    const liEl = document.createElement("li");
+    liEl.classList.add('pagination__item')
+    liEl.innerText = page
+
+    if (currentPage == page) liEl.classList.add('pagination__item--active');
+
+    liEl.addEventListener('click', () => {
+      currentPage = page
+      displayList(postsData, rows, currentPage)
+
+      let currentItemLi = document.querySelector('li.pagination__item--active');
+      currentItemLi.classList.remove('pagination__item--active');
+
+      liEl.classList.add('pagination__item--active');
+    })
+
+    return liEl;
+  }
+
+  displayList(postsData, rows, currentPage);
+  displayPagination(postsData, rows);
+}
+
+main();  
