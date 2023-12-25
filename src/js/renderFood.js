@@ -1,4 +1,86 @@
+import { getProducts, getCategoriesProducts } from './fetchAPI';
+// import SlimSelect from "slim-select"
+
 const list = document.querySelector('.list-product');
+
+const formSearch = document.querySelector(".form-search");
+const errors = document.querySelector(".error");
+const selected = document.querySelector("#selected")
+
+errors.style.display = "none";
+
+export let keywords;
+export let selectedForm;
+
+
+formSearch.addEventListener("submit", handleSubmit);
+
+function handleSubmit(event) {
+    event.preventDefault();
+
+   const { search } = event.currentTarget.elements;
+    keywords = search.value
+
+   localStorage.setItem("SaveFilters", JSON.stringify(keywords) || null);
+//    localStorage.setItem("savetext", key.keywords);
+//    console.log(searchForm)
+renderFood()
+// console.log(keys)
+console.log(keywords)
+
+}
+
+formSearch.elements.search.value = localStorage.getItem("savetext");
+
+renderFood()  
+
+selected.addEventListener("change", handleChange);
+
+function handleChange(event) {
+  const select = event.target.value
+   const selecteds = event.target.value;
+   selectedForm = selecteds;
+    console.log(selected.value)
+        selectedForm = selecteds
+   localStorage.setItem("SaveCategpries", JSON.stringify(selectedForm) || null);
+//    localStorage.setItem("saveselected", categories.selectedForm);
+//    console.log(categories.selectedForm)
+console.log(select)
+console.log(selectedForm)
+renderFood()
+}
+
+formSearch.elements.selecteds.value = localStorage.getItem("saveselected");
+
+function renderCategory() {
+      // const category = null;
+  getCategoriesProducts()
+  .then(data => {
+    const category = data.map((data) => {
+      return `<option value="${data}">${data}</option>`;
+    }).join("")
+            selected.insertAdjacentHTML("beforeend", category)
+  })
+  .catch(error => {
+    console.log(error)
+  }
+  )
+}
+
+renderCategory()
+
+function renderFood() {
+  getProducts()
+    .then(foodImages => {
+      if (foodImages.results.length === 0) {
+        errors.style.display = "flex"
+      }
+      createMarkup(foodImages.results);
+    })
+    .catch(error => {
+      throw new Error(error);
+    });
+}
 
 function createMarkup(array) {
   const markup = array
