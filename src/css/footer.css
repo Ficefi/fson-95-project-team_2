@@ -1,29 +1,25 @@
-@font-face {
-    font-family: Neue Montreal;
-    src: url("../font/NeueMontreal-Regular.otf") format(truetype);
-  }
-  
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                    container
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-   .container {
+.container {
     min-width: 320px;
     max-width: 375px;
     padding: 0 20px;
     margin: 0 auto;
 }
+
 @media only screen and (min-width: 768px) {
     .container {
         max-width: 768px;
+        padding: 0 32px;
     }
 }
-@media only screen and (min-width: 1158px) {
+
+@media only screen and (min-width: 1440px) {
     .container {
-        max-width: 1268px;
-        padding: 0 15px;
+        max-width: 1440px;
+        padding: 0 100px;
     }
 }
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                         footer
@@ -31,20 +27,13 @@
 
 footer {
     background: var(--light_green);
-    font-family: Neue Montreal;
+    font-family: Neue Montreal Regular;
 }
 .footer-container {
-    min-height: 652px;
     padding-top: 40px;
     padding-bottom: 20px;
 }
-.footer-nav {
-}
-.footer-first {
-}
-.footer-first-container {
 
-}
 .footer-block-logo {
     display: flex;
         justify-content: flex-start;
@@ -57,8 +46,8 @@ footer {
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
         background-color: var(--gray);
         transition: background-color 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
 }
@@ -68,7 +57,7 @@ footer {
 .footer-logo-text {
     color: var(--gray);
     
-        font-family: FONTSPRING DEMO - Quincy CF Black;
+        font-family: FONTSPRING DEMO Regular;
         font-size: 18px;
         font-style: normal;
         font-weight: 900;
@@ -111,13 +100,13 @@ footer {
     opacity: 0.8;
 }
 .footer-second {
+    max-width: 335px;
 }
 .footer-title {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     gap: 14px;
-    max-width: 335px;
     padding-bottom: 80px;
 }
 .footer-title-text {
@@ -126,7 +115,7 @@ footer {
         font-weight: 500;
         font-style: normal;
         line-height: 1.1;
-        letter-spacing: 0.02em;;
+        letter-spacing: 0.01em;;
 }
 .footer-text-desc {
     color: rgba(232, 232, 226, 0.70);
@@ -147,21 +136,21 @@ footer {
 }
 .footer-form-title {
     color: var(--gray);
-    font-family: Neue Montreal;
+    font-family: Neue Montreal Regular;
     font-size: 14px;
     font-style: normal;
     line-height: 1.28;
     padding-bottom: 20px;
 }
 .footer-label {
-    width: 100%;
+    width: 95%;
 }
 .form-input {
     display: flex;
     padding-left: 12px;
     align-items: center;
     gap: 10px;
-    width: 335px;
+    width: 100%;
     height: 42px;
     border-radius: 30px;
     border: 1px solid var(--gray);
@@ -171,7 +160,7 @@ footer {
 }
 input::placeholder {
     color: rgba(232, 232, 226, 0.60);
-    font-family: Neue Montreal;
+    font-family: Neue Montreal Regular;
     font-size: 14px;
     font-style: normal;
     line-height: 1.28;
@@ -183,7 +172,7 @@ input:focus::placeholder {
 }
 .btn-form {
     display: flex;
-    width: 335px;
+    width: 100%;
     height: 42px;
     justify-content: center;
     align-items: center;
@@ -193,7 +182,6 @@ input:focus::placeholder {
     background: var(--gray);
     color: var(--black);
     font-size: 14px;
-    font-family: Neue Montreal;
     font-weight: 500;
     font-style: normal;
     line-height: 1.28;
@@ -210,7 +198,6 @@ input:focus::placeholder {
 }
 .footer-privaci-text {
     color: var(--gray);
-        font-family: Neue Montreal;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
@@ -222,7 +209,6 @@ input:focus::placeholder {
     flex-direction: row;
     justify-content: flex-start;
     color: var(--gray);
-        font-family: Neue Montreal;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
@@ -232,15 +218,21 @@ input:focus::placeholder {
 
 
 @media only screen and (min-width: 768px) {
-    .footer-container {
-        min-height: 602px;
+    .footer-logo {
+        width: 20px;
+        height: 20px;
     }
     .social-icon {
             width: 28px;
             height: 28px;
         }
+    .footer-icon-logo {
+        width: 32px;
+        height: 32px;
+    }
     .footer-logo-text {
         font-size: 24px;
+        font-family: FONTSPRING DEMO Black;
     }
     .social-links-item {
         width: 44px;
@@ -272,6 +264,9 @@ input:focus::placeholder {
         .footer-text-desc {
             font-size: 18px;
         }
+        .footer-form-title {
+            font-size: 18px;
+        }
         .footer-form {
             padding-bottom: 120px;
             max-width: 336px;
@@ -279,8 +274,11 @@ input:focus::placeholder {
         .footer-form-authorization {
             gap: 20px;
         }
+        input::placeholder {
+            font-size: 16px;
+        }
         .form-input{
-            width: 336px;
+            width: 100%;
             height: 48px;
           }
           .btn-form {
@@ -289,14 +287,18 @@ input:focus::placeholder {
         }
 }
 
-@media only screen and (min-width: 1268px) {
-    .footer-container {
-        min-height: 386px;
+@media only screen and (min-width: 1440px) {
+    .footer-first {
+        padding-right: 149px;
     }
     .footer-second {
         flex-direction: row;
     }
+    .footer-nav {
+        display: inline-flex;
+    }
     .footer-title {
+        min-width: 410px;
         padding-right: 148px;
         padding-bottom: 128px;
     }
@@ -308,5 +310,6 @@ input:focus::placeholder {
     }
     .btn-form {
         font-size: 16px;
+        width: 336px;
     }
 }
