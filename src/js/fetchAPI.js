@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-async function getAllProducts() {
+async function getAllProducts(page) {
   const response = await axios.get(
-    'https://food-boutique.b.goit.study/api/products',
+    `https://food-boutique.b.goit.study/api/products/?page=${page}`,
   );
   return response.data;
 }

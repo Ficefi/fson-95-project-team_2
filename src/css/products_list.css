@@ -75,6 +75,7 @@
 .sell-container{
     height: 34px;
     display: flex;
+    justify-content: space-between;
 }
 
 .svg-container{
@@ -82,7 +83,7 @@
     height: 34px;
     border-radius: 50%;
     background-color: var(--light_green);
-    margin-left: 40px;
+    cursor: pointer;
 }
 .svg-container:hover{
     background-color: var(--dark_green);
@@ -91,4 +92,9 @@
 .svg{
     fill: var(--gray);
     padding: 8px;
+}
+
+.discount-svg{
+    position: absolute;
+    transform: translate(205px, -20px);
 }
