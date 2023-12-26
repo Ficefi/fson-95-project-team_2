@@ -18,7 +18,7 @@
   --black: #010101;
   --gray_oppacity: rgba(1, 1, 1, 0.30);
 
-  font-family: Neue Montreal Regular;
+  font-family: Neue Montreal Medium;
   font-size: 18px;
   line-height: 24px;
 
@@ -31,15 +31,18 @@
   padding: 0 20px;
   margin: 0 auto;
 }
+
 @media only screen and (min-width: 768px) {
   .container {
       max-width: 768px;
+      padding: 0 32px;
   }
 }
-@media only screen and (min-width: 1158px) {
+
+@media only screen and (min-width: 1440px) {
   .container {
-      max-width: 1268px;
-      padding: 0 15px;
+      max-width: 1440px;
+      padding: 0 100px;
   }
 }
 
@@ -58,6 +61,14 @@
 @font-face {
   font-family: Neue Montreal Bold;
   src: url("../font/NeueMontreal-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: FONTSPRING DEMO Regular;
+  src: url("../font/Fontspring-DEMO-quincycf-regular.otf") format("opentype");
+}
+@font-face {
+  font-family: FONTSPRING DEMO Black;
+  src: url("../font/Fontspring-DEMO-quincycf-black.otf") format("opentype");
 }
 
 /* transition: *argument* 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3); - standart animation delay for project  */
