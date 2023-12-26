@@ -5,7 +5,7 @@ const button = document.querySelector('.basket');
 console.log(button);
 const card = document.querySelector('.card')
 
-
+console.log('og');
 
 function createMarkup(images, names) {
   const res = images.map(({img, price}, index)=>
