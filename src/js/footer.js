@@ -4,14 +4,8 @@ registerForm.addEventListener("submit", handleSubmit);
 
 function handleSubmit(event) {
     event.preventDefault();
-    const form = event.target;
-    const email = form.elements.email.value;
 
-    if (email === "email = email на сервері") {
-    return modalWindowError();
-    }
-
-    modalWindowDone();
-
+    subscriptionModal(form.input.value);
+    
     form.reset();
 }
