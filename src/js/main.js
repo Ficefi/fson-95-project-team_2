@@ -1,3 +1,7 @@
+
+import './fetchAPI.js'
+import './localStorage.js'
+import './renderFood.js'
 import './fetchAPI.js';
 import './localStorage.js';
 import './pagination.js';
