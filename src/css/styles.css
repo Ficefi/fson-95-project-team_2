@@ -25,9 +25,7 @@
   background-color: var(--gray);
 }
 
-<<<<<<< HEAD
-
-=======
+/*
 .container {
   min-width: 320px;
   max-width: 375px;
@@ -47,35 +45,11 @@
       max-width: 1440px;
       padding: 0 100px;
   }
-}
->>>>>>> main
+}*/
 
 @font-face {
   font-family: Neue Montreal Light;
   src: url("../font/NeueMontreal-Light.otf") format("opentype");
-<<<<<<< HEAD
-=======
-}
-@font-face {
-  font-family: Neue Montreal Regular;
-  src: url("../font/NeueMontreal-Regular.otf") format("opentype");
-}
-@font-face {
-  font-family: Neue Montreal Medium;
-  src: url("../font/NeueMontreal-Medium.otf") format("opentype");
-}
-@font-face {
-  font-family: Neue Montreal Bold;
-  src: url("../font/NeueMontreal-Bold.otf") format("opentype");
-}
-@font-face {
-  font-family: FONTSPRING DEMO Regular;
-  src: url("../font/Fontspring-DEMO-quincycf-regular.otf") format("opentype");
-}
-@font-face {
-  font-family: FONTSPRING DEMO Black;
-  src: url("../font/Fontspring-DEMO-quincycf-black.otf") format("opentype");
->>>>>>> main
 }
 
 @font-face {
