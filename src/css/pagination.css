@@ -150,6 +150,7 @@ body {
   margin: 0 auto;
   margin-bottom: 10rem;
   margin-top: 10rem;
+
 }
 
 .btn,
@@ -178,7 +179,7 @@ body {
   background-color: #e67e22;
 }
 
-/* //////////////////////// */
+
 
 .btn {
   background-color: #fff;
@@ -189,9 +190,7 @@ body {
   align-items: center;
   justify-content: center;
   display: flex;
-  /* box-shadow: 0 12px 24px rgb(0, 0, 0, 0.2); */
-
-  /* position: absolute; */
+  
 
   cursor: pointer;
 }
@@ -272,19 +271,28 @@ button {
   cursor: pointer;
 }
 
+
 .page-btn {
-  background: #ddd;
+
+background: #ddd;
   color: #2c303a;
-  height: 35px;
-  border-radius: 2px;
-  padding: 0 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transition: background 0.3s ease;
-  margin: 0 2px;
+ 
+  margin: 0 2px; 
+  gap: 8px;
   display: flex;
-  align-items: center;
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  background: #FAFAFA;
+  box-shadow: rgb(109, 132, 52, 1) -1px -1px 1px, rgba(185, 228, 201, 0.773) 1px 1px 1px;
+    text-shadow: rgb(255, 255, 255) 0px 1px 1px;
+    background-color: transparent;
+    cursor: pointer;
+ 
+  
 }
 
 .page-btn:first-of-type {
@@ -303,17 +311,20 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
+  
 }
 
 .page-btn[class*="-page"] {
   background: #ccc;
   font-size: 0.6em;
   font-weight: 700;
-}
+}  
 
 .page-btn.active {
-  background: #717790;
-  color: #fff;
+  background: rgb(109, 132, 52, 1);
+  color: #fff; 
+  
 }
 
 .page-btn[disabled] {
