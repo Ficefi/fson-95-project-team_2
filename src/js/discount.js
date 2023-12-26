@@ -60,6 +60,7 @@ async function checkLocalStorage() {
 
   if(productIndex > -1){
     button.classList.add('disabled');
+    button.disabled = true;
   }else{
     
 button.addEventListener('click', handleClick);
