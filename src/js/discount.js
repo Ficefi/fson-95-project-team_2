@@ -1,20 +1,22 @@
 import { getAllProducts, getCategoriesProducts, getDiscountProducts,
     getPopularProducts, getProductById, createNewOrder, sendSubscription } from "./fetchAPI"
 
-const button = document.querySelector('.basket');
-console.log(button);
+import { openModal } from "./modal_window"
+
+
+
 const card = document.querySelector('.card')
 
-console.log('og');
+
 
 function createMarkup(images, names) {
-  const res = images.map(({img, price}, index)=>
-  `<li class="card">
+  const res = images.map(({img, price,_id, desc}, index)=>
+  `<li class="card_item" data-id="${_id}">
   <div class><svg class="discount-icon" width="60" height="60">
   <use href="../img/icons.svg#icon-discount"></use>
 </svg></div>
   <div class="card-content">
-  <img src="${img}" alt="Product image" class="card-img" width="105" height="105">
+  <img src="${img}" alt="${desc}" class="card-img" width="105" height="105">
   </div>
   <div class="title-box">
     <h3 class="card-title">${names[index]}</h3>
@@ -30,6 +32,15 @@ function createMarkup(images, names) {
 return res;
   
 };
+
+
+
+// Виклик модалки
+  card.addEventListener('click', (event)=>{const item = event.target.closest('.card_item')
+  const id = item.dataset.id
+  openModal(id)
+})
+
 
  async function addToBasket () {
     const result = await getDiscountProducts();
@@ -47,8 +58,8 @@ console.log(result);
 
  }
 
-
-
+ 
+ 
 async function checkLocalStorage() {
   const result = await getDiscountProducts();
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -61,9 +72,8 @@ async function checkLocalStorage() {
   if(productIndex > -1){
     button.classList.add('disabled');
   }else{
-    
-button.addEventListener('click', handleClick);
-    }
+    const button = document.querySelector('.basket');
+    button.addEventListener('click', handleClick);
     function handleClick() {
       cart.push(productId);
       localStorage.setItem("cart", JSON.stringify(cart));
@@ -71,6 +81,8 @@ button.addEventListener('click', handleClick);
         button.classList.add('active');
     button.removeEventListener("click", handleClick);
   }
+    }
+    
  
   
 }

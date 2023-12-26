@@ -6,12 +6,12 @@ const formSearch = document.querySelector('.form-search');
 const errors = document.querySelector('.error');
 const selected = document.querySelector('#selected');
 
-errors.style.display = 'none';
+// errors.style.display = 'none';
 
 export let keywords;
 export let selectedForm;
 
-formSearch.addEventListener('submit', handleSubmit);
+// formSearch.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -27,11 +27,11 @@ function handleSubmit(event) {
   console.log(keywords);
 }
 
-formSearch.elements.search.value = localStorage.getItem('savetext');
+// formSearch.elements.search.value = localStorage.getItem('savetext');
 
 renderFood();
 
-selected.addEventListener('change', handleChange);
+// selected.addEventListener('change', handleChange);
 
 function handleChange(event) {
   const select = event.target.value;
@@ -47,7 +47,7 @@ function handleChange(event) {
   renderFood();
 }
 
-formSearch.elements.selecteds.value = localStorage.getItem('saveselected');
+// formSearch.elements.selecteds.value = localStorage.getItem('saveselected');
 
 function renderCategory() {
   // const category = null;
@@ -61,7 +61,7 @@ function renderCategory() {
       selected.insertAdjacentHTML('beforeend', category);
     })
     .catch(error => {
-      console.log(error);
+      // console.log(error);
     });
 }
 
