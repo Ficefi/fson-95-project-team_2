@@ -1,6 +1,6 @@
 import { getProductById, sendSubscription } from './fetchAPI.js';
 import { addToStorageCart, removeFromStorageCart, isExistInCart} from './localStorage.js';
-import vegetables from "../img/vegetables.png"
+import vegetables from "../img/2x/desktop/fruitCart@2x.png"
 
 const modal = document.querySelector('.js-modal');
 const content = document.querySelector('.modal-content');
@@ -175,4 +175,3 @@ export async function subscriptionModal(email) {
 
 
 }
-
