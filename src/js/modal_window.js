@@ -1,8 +1,13 @@
-import { getProductById } from './fetchAPI.js';
+import { getProductById, sendSubscription } from './fetchAPI.js';
 import { addToStorageCart, removeFromStorageCart, isExistInCart} from './localStorage.js';
+import vegetables from "../img/vegetables.png"
 
 const modal = document.querySelector('.js-modal');
 const content = document.querySelector('.modal-content');
+const subsModal = document.querySelector('.js-modal-subscription');
+const subscriptionModalContent = document.querySelector('.subscription-modal-content');
+
+////////////////ITEM MODAL ////////////////
 
 export async function openModal(id) {
 
@@ -93,6 +98,81 @@ export async function openModal(id) {
       }
     }
 
-
+  if (modal.classList.contains("is-hidden")) {
+    removeEventListener('click', closeModal);
+    removeEventListener('click', handleCart);
+    removeEventListener('keydown', handlePress);
+  }
   });
 }
+
+
+////////////////SUBSCRIPTION MODAL ////////////////
+
+export async function subscriptionModal(email) {
+
+  ////////MODAL SHOW////////
+  subsModal.classList.toggle('is-hidden');
+
+
+
+  ///////////IS EMAIL EXIST? LOGIC///////////
+
+  await sendSubscription(email).then(response => {
+    subscriptionModalContent.innerHTML = `<div class='success-text-wrap'>
+   <button class='modal-close-btn' data-modal-close aria-label='close modal button'>
+        <svg class='modal-window-close-button' width='15' height='15'>
+          <use href='./img/icons.svg#icon-close-btn'></use>
+        </svg>
+      </button>
+      <h2 class='subscription-success-header'>Thanks for subscribing for <span class='subscription-success-email'>new</span> products</h2>
+      <p class='subscription-success-descr'>We promise you organic and high-quality products that will meet your expectations. Please stay with us and we promise you many pleasant surprises.</p>
+      <img src="${vegetables}" alt='vegetables' class='subscription-success-image'>
+  `
+  }).catch(error => {
+    if (error.response.status === 409) {
+      //////EMAIL ALREADY SUBSCRIBED
+      subscriptionModalContent.innerHTML = `<div class='text-wrap'>
+   <button class='modal-close-btn' data-modal-close aria-label='close modal button'>
+        <svg class='modal-window-close-button' width='15' height='15'>
+          <use href='./img/icons.svg#icon-close-btn'></use>
+        </svg>
+      </button>
+      <h2 class='subscription-failed-header'>This <span class='subscription-failed-email'>email address</span> has already been entered</h2>
+      <p class='subscription-failed-descr'>You have already subscribed to our new products. Watch for offers at the mailing address.</p>
+  `
+    } else {
+      console.log("SOMETHING WENT WRONG");
+    }
+
+  });
+
+
+    ////////MODAL CLOSE LOGIC///////
+
+    window.addEventListener('keydown', handlePress);
+
+    function handlePress(e) {
+      if (e.key === 'Escape') {
+        subsModal.classList.add('is-hidden');
+      }
+    }
+
+    window.onclick = function(event) {
+      if (event.target === subsModal) {
+        subsModal.classList.add('is-hidden');
+      }
+    };
+
+    const closeBtn = document.querySelector('.modal-close-btn');
+    closeBtn.addEventListener('click', closeModal);
+    function closeModal(event) {
+      if (event.currentTarget === closeBtn) {
+        subsModal.classList.add('is-hidden');
+      }
+    }
+
+
+
+}
+
