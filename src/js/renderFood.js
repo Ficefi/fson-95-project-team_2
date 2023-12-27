@@ -6,11 +6,11 @@ const formSearch = document.querySelector('.form-search');
 const errors = document.querySelector('.error');
 const selected = document.querySelector('#selected');
 
-errors.style.display = 'none';
+/*errors.style.display = 'none';*/
 
 export let keywords;
 export let selectedForm;
-
+/*
 formSearch.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
@@ -140,4 +140,4 @@ function createMarkup(array) {
   list.insertAdjacentHTML('beforeend', markup);
 }
 
-export { createMarkup };
+export { createMarkup };*/
