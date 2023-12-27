@@ -2,9 +2,8 @@ import{a as d,P as q}from"./assets/vendor-b592f4c5.js";(function(){const s=docum
               <li class="item-product">
                 <div class="product-container" id="svg-discount">
                   <svg width="60" height="60" class="discount-svg">
-                    <use href="../img/icons.svg#icon-discount"></use>
+                    <use href="/img/icons.svg#icon-discount"></use>
                   </svg>
-                  </div>
                   <img class="img-product" src="${n}" width="400" height="200">
                   <h2 class="caption-product">${o}</h2>
                   <div class="features-container">
@@ -16,14 +15,14 @@ import{a as d,P as q}from"./assets/vendor-b592f4c5.js";(function(){const s=docum
                       <p class="price-product">$${a}</p>
                       <div class="svg-container">
                           <svg class="svg" width="18" height="18">
-                          <use href="./img/icons.svg#icon-cart"></use>
+                          <use href="/img/icons.svg#icon-cart"></use>
                           </svg>
                       </div>
                   </div>
                 </div>
               </li>
               `:`
-              <li class="item-product" id="item">
+              <li class="item-product">
                 <div class="product-container" id="svg-discount">
                   <img class="img-product" src="${n}" width="400" height="200">
                   <h2 class="caption-product">${o}</h2>
@@ -36,7 +35,7 @@ import{a as d,P as q}from"./assets/vendor-b592f4c5.js";(function(){const s=docum
                       <p class="price-product">$${a}</p>
                       <div class="svg-container">
                           <svg class="svg" width="18" height="18">
-                          <use href="./img/icons.svg#icon-cart"></use>
+                          <use href="/img/icons.svg#icon-cart"></use>
                           </svg>
                       </div>
                   </div>
