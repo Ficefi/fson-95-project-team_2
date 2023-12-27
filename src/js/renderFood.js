@@ -1,13 +1,13 @@
 import { getProducts, getCategoriesProducts } from './fetchAPI';
-import { openModal } from './modal_window';
+// import SlimSelect from "slim-select"
 
 const list = document.querySelector('.list-product');
 
-const formSearch = document.querySelector('.form-search');
-const errors = document.querySelector('.error');
-const selected = document.querySelector('#selected');
+const formSearch = document.querySelector(".form-search");
+const errors = document.querySelector(".error");
+const selected = document.querySelector("#selected")
 
-errors.style.display = 'none';
+errors.style.display = "none";
 
 export let keywords;
 export let selectedForm;
@@ -72,7 +72,7 @@ function renderFood() {
   getProducts()
     .then(foodImages => {
       if (foodImages.results.length === 0) {
-        errors.style.display = 'flex';
+        errors.style.display = "flex"
       }
       createMarkup(foodImages.results);
     })
@@ -142,4 +142,3 @@ function createMarkup(array) {
 }
 
 export { createMarkup };
-
