@@ -1,3 +1,4 @@
+import { subscriptionModal } from "./modal_window";
 
 const registerForm = document.querySelector(".footer-form-authorization");
 
