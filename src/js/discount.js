@@ -1,6 +1,6 @@
 import { getAllProducts, getCategoriesProducts, getDiscountProducts, getPopularProducts, getProductById, createNewOrder, sendSubscription } from "./fetchAPI"
 import { openModal } from "./modal_window"
-import { addToStorageCart, removeFromStorageCart, isExistInCart } from "./localStorage"
+// import { addToStorageCart, removeFromStorageCart, isExistInCart } from "./localStorage"
 
 const card = document.querySelector('.card');
 // Ліміт карток на сторінці
@@ -9,7 +9,7 @@ const cardsPerPage = 2;
 function createMarkup(images, names,startIndex = 0) {
   const endIndex = startIndex + cardsPerPage;
   const slicedImages = images.slice(startIndex, endIndex);
-  
+
   const res = slicedImages.map(({ img, price, _id, desc }, index) =>
     `<li class="card_item" data-id="${_id}">
       <div class="discount-icon-container">
@@ -57,6 +57,8 @@ async function addToBasket() {
     }
   });
 
+
+  // Зміна кнопки
   const btn = document.querySelectorAll('.basket');
   console.log(btn);
 
@@ -72,7 +74,8 @@ function handleAddToCart(e) {
   console.log(id);
 
   if (button.hasAttribute("disabled")) {
-   console.log(removeFromStorageCart(id));
+    removeFromStorageCart(id)
+    console.log(removeFromStorageCart(id));
     button.removeAttribute("disabled");
     button.innerHTML = `
       <svg class="basket-icon" width="18" height="18">
@@ -80,8 +83,8 @@ function handleAddToCart(e) {
       </svg>
     `;
   } else {
-    addToStorageCart(id);
-    console.log(addToStorageCart(button.dataset.id));
+addToStorageCart(id) 
+console.log(addToStorageCart(id));
     button.setAttribute("disabled", true);
     button.innerHTML = `
       <svg class="basket-icon-check" width="18" height="18">
@@ -93,7 +96,42 @@ function handleAddToCart(e) {
 
 addToBasket();
 
- 
+
+
+function addToStorageCart(productId) {
+  const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
+  console.log(currentCart);
+
+  if (!currentCart.includes(productId)) {
+    currentCart.push(productId);
+
+    localStorage.setItem('cart', JSON.stringify(currentCart));
+  }
+}
+addToStorageCart();
+
+
+function removeFromStorageCart(productId) {
+  const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
+  console.log(currentCart);
+
+  const index = currentCart.indexOf(productId);
+
+  if (index !== -1) {
+    currentCart.splice(index, 1);
+
+    localStorage.setItem('cart', JSON.stringify(currentCart));
+  }
+}
+removeFromStorageCart();
+function isExistInCart(productId) {
+  const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
+  console.log(currentCart);
+
+  return currentCart.includes(productId);
+}
+
+isExistInCart();
 
 
 
@@ -142,6 +180,3 @@ addToBasket();
 
 
 
-
-
-  
