@@ -1,4 +1,5 @@
 import { getProducts, getCategoriesProducts } from './fetchAPI';
+import { openModal } from './modal_window';
 
 const list = document.querySelector('.list-product');
 
@@ -111,7 +112,7 @@ function createMarkup(array) {
               `;
       } else {
         return `
-              <li class="item-product">
+              <li class="item-product" id="item">
                 <div class="product-container" id="svg-discount">
                   <img class="img-product" src="${img}" width="400" height="200">
                   <h2 class="caption-product">${name}</h2>
@@ -141,3 +142,4 @@ function createMarkup(array) {
 }
 
 export { createMarkup };
+
