@@ -9,11 +9,35 @@
   
   <script type="module" crossorigin src="/fson-95-project-team_2/commonHelpers.js"></script>
   <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/vendor-a61d8330.js">
-  <link rel="stylesheet" href="/fson-95-project-team_2/assets/index-4cfeb58e.css">
+  <link rel="stylesheet" href="/fson-95-project-team_2/assets/index-a521e14d.css">
 </head>
 
 <body>
-  
+  <!-- header start -->
+
+<header class="header container">
+
+	<a class="header-link" href="../index.html">
+		<svg width="28px" height="28px">
+			<use href="../img/icons.svg#icon-logo-header"></use>
+		</svg><span class="header__logo">Food Boutique</span></a>
+
+	<div class="header-nav">
+		<nav>
+
+			<ul class="nav-list">
+				<li><a class="nav-link" href="../index.html">Home</a></li>
+				<li><a class="header-link" href="./cart.html"><svg width="38px" height="38px">
+							<use href="../img/icons.svg#icon-cart-header"></use>
+						</svg> <span class="header-cart" id="header-cart">CART (0)</span></a></li>
+			</ul>
+
+		</nav>
+	</div>
+
+</header>
+
+<!-- header end -->
   <!-- hero start -->
 
 <section class="hero-wrap container">
@@ -38,7 +62,13 @@
   
   
   
-  
+  <!-- cart start -->
+
+<svg width="42px" height="42px">
+	<use href="../img/icon-header.svg#icon-cart"></use>
+</svg> <span id="header-cart">CART (0)</span>
+
+<!-- cart end -->
   <!--    MODAL WINDOW-->
 
 <div class="js-modal is-hidden">
