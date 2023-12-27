@@ -1,0 +1,103 @@
+.list-product {
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.item-product {
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    background: #FAFAFA;
+}
+
+.product-container{
+    padding: 20px;
+    position: relative;
+}
+
+.features-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    width: 216px;
+}
+
+.feature{
+    color: rgba(1, 1, 1, 0.30);
+    font-family: Neue Montreal Regular;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.16;
+    margin-right: 8px;
+}
+
+.feature-black{
+    color: #010101;
+    font-family: Neue Montreal Regular;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.16;
+}
+
+.img-product {
+    width: 255px;
+    height: 178px;
+    flex-shrink: 0;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #E8E8E2;
+}
+
+.caption-product {
+    color: #010101;
+    font-family: Neue Montreal Medium;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.price-product {
+    color: #010101;
+    font-family: Neue Montreal Medium;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-top: 10px;
+}
+
+.sell-container{
+    height: 34px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.svg-container{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: var(--light_green);
+    cursor: pointer;
+}
+.svg-container:hover{
+    background-color: var(--dark_green);
+}
+
+.svg{
+    fill: var(--gray);
+    padding: 8px;
+}
+
+.discount-svg{
+    position: absolute;
+    z-index: 999;
+    top: 5px;
+    right: 5px;
+}
