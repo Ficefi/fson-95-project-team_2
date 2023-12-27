@@ -89,9 +89,8 @@ function createMarkup(array) {
               <li class="item-product">
                 <div class="product-container" id="svg-discount">
                   <svg width="60" height="60" class="discount-svg">
-                    <use href="../img/icons.svg#icon-discount"></use>
+                    <use href="/img/icons.svg#icon-discount"></use>
                   </svg>
-                  </div>
                   <img class="img-product" src="${img}" width="400" height="200">
                   <h2 class="caption-product">${name}</h2>
                   <div class="features-container">
@@ -103,7 +102,7 @@ function createMarkup(array) {
                       <p class="price-product">$${price}</p>
                       <div class="svg-container">
                           <svg class="svg" width="18" height="18">
-                          <use href="./img/icons.svg#icon-cart"></use>
+                          <use href="/img/icons.svg#icon-cart"></use>
                           </svg>
                       </div>
                   </div>
@@ -112,7 +111,7 @@ function createMarkup(array) {
               `;
       } else {
         return `
-              <li class="item-product" id="item">
+              <li class="item-product">
                 <div class="product-container" id="svg-discount">
                   <img class="img-product" src="${img}" width="400" height="200">
                   <h2 class="caption-product">${name}</h2>
@@ -127,7 +126,7 @@ function createMarkup(array) {
                       <p class="price-product">$${price}</p>
                       <div class="svg-container">
                           <svg class="svg" width="18" height="18">
-                          <use href="./img/icons.svg#icon-cart"></use>
+                          <use href="/img/icons.svg#icon-cart"></use>
                           </svg>
                       </div>
                   </div>
