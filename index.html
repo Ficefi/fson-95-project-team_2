@@ -10,7 +10,7 @@
   <script type="module" crossorigin src="/fson-95-project-team_2/commonHelpers.js"></script>
   <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/vendor-7ae61388.js">
   <link rel="stylesheet" href="/fson-95-project-team_2/assets/vendor-a0b14d8a.css">
-  <link rel="stylesheet" href="/fson-95-project-team_2/assets/index-60e5b817.css">
+  <link rel="stylesheet" href="/fson-95-project-team_2/assets/index-dcfb6856.css">
 </head>
 
 <body>
@@ -57,7 +57,29 @@
 </section>
 
 <!-- hero end -->
-  
+  <form class="form-search">
+    <p class="filter">Filters:</p>
+    <div class="cont-input-search">
+    <input placeholder="Search for anything" class="input-search" type="text" name="search">
+    <button class="submit" type="submit">
+        <svg width="20" height="20">
+            <use href="../img/favicon.svg#icon-search" multiple></use>
+        </svg>
+    </button>
+</div>
+    <select name="selecteds" id="selected">
+      <option value="">Show all</option>
+    </select>
+   </form>
+   <div class="error">
+    <h3 class="errors">Nothing was found for the selected
+        <span class="text-error">filters...</span>
+    </h3>
+    <p class="text-error-false">
+        Try adjusting your search parameters or browse our range by other criteria to find the perfect product for you. 
+    </p>
+</div>
+
   <ul class="list-product"></ul>
   
   
