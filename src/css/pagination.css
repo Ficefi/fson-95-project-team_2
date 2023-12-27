@@ -1,0 +1,53 @@
+#pagination {
+  margin-bottom: 260px;
+}
+
+#page-btn {
+  border: none;
+}
+
+#is-selected {
+  border: none;
+  background-color: var(--light_green);
+  border-radius: 50%;
+  width: 40px;
+  height: 26px;
+  padding: 0;
+  padding-top: 14px;
+}
+
+#arrow-btn {
+  border: none;
+  padding: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  margin: 0 auto;
+  grid-column: 1 / -1;
+}
+
+.loader {
+  border: 7px solid #f3f3f3;
+  border-top: 7px solid var(--light_green);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

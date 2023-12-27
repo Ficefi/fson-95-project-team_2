@@ -1,0 +1,105 @@
+.container {
+    min-width: 320px;
+    max-width: 375px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        max-width: 768px;
+        padding: 0 32px;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .container {
+        max-width: 1440px;
+        padding: 0 100px;
+    }
+}
+
+.hero-wrap {
+  max-width: 335px;
+  text-align: center;
+}
+
+.hero-content {
+  padding: 0 21px;
+  margin-top: 72px;
+}
+
+.hero-title {
+  padding-bottom: 16px;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 48px;
+  letter-spacing: -0.88px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 80px;
+    line-height: 80px;
+    letter-spacing: -1.6px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1240px) {
+    max-width: 658px;
+  }
+}
+
+.title-accent {
+  color: var(--light_green);
+}
+
+.hero-text {
+  margin: 0 auto;
+  font-family: Neue Montreal, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: rgba(1, 1, 1, 0.8);
+
+  @media screen and (min-width: 768px) {
+    max-width: 492px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.hero-banner {
+  position: relative;
+  max-width: 335px;
+  height: 480px;
+  margin: 32px auto 74px auto;
+  background-image: url('../img/1x/mobile/hero_mobile@1x.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+
+  @media screen and (min-width: 768px) and (max-width: 1240px) {
+    max-width: 704px;
+    height: 580px;
+    background-image: url('../img/1x/tablet/hero_tablet@1x.jpg');
+  }
+
+  @media screen and (min-width: 1241px) {
+    max-width: 1240px;
+    height: 350px;
+
+    background-image: url('../img/1x/desktop/hero@1x.jpg');
+  }
+}
+
+.hero-label {
+  position: absolute;
+  right: 8px;
+  top: -8px;
+
+  @media screen and (min-width: 768px) and (max-width: 1240px) {
+    right: 10px;
+    top: -30px;
+  }
+  @media screen and (min-width: 1241px) {
+    right: 20px;
+    top: -50px;
+  }
+}

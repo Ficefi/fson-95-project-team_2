@@ -12,62 +12,61 @@ errors.style.display = "none";
 export let keywords;
 export let selectedForm;
 
-
-formSearch.addEventListener("submit", handleSubmit);
+formSearch.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-   const { search } = event.currentTarget.elements;
-    keywords = search.value
+  const { search } = event.currentTarget.elements;
+  keywords = search.value;
 
-   localStorage.setItem("SaveFilters", JSON.stringify(keywords) || null);
-//    localStorage.setItem("savetext", key.keywords);
-//    console.log(searchForm)
-renderFood()
-// console.log(keys)
-console.log(keywords)
-
+  localStorage.setItem('SaveFilters', JSON.stringify(keywords) || null);
+  //    localStorage.setItem("savetext", key.keywords);
+  //    console.log(searchForm)
+  renderFood();
+  // console.log(keys)
+  console.log(keywords);
 }
 
-formSearch.elements.search.value = localStorage.getItem("savetext");
+formSearch.elements.search.value = localStorage.getItem('savetext');
 
-renderFood()  
+renderFood();
 
-selected.addEventListener("change", handleChange);
+selected.addEventListener('change', handleChange);
 
 function handleChange(event) {
-  const select = event.target.value
-   const selecteds = event.target.value;
-   selectedForm = selecteds;
-    console.log(selected.value)
-        selectedForm = selecteds
-   localStorage.setItem("SaveCategpries", JSON.stringify(selectedForm) || null);
-//    localStorage.setItem("saveselected", categories.selectedForm);
-//    console.log(categories.selectedForm)
-console.log(select)
-console.log(selectedForm)
-renderFood()
+  const select = event.target.value;
+  const selecteds = event.target.value;
+  selectedForm = selecteds;
+  console.log(selected.value);
+  selectedForm = selecteds;
+  localStorage.setItem('SaveCategpries', JSON.stringify(selectedForm) || null);
+  //    localStorage.setItem("saveselected", categories.selectedForm);
+  //    console.log(categories.selectedForm)
+  console.log(select);
+  console.log(selectedForm);
+  renderFood();
 }
 
-formSearch.elements.selecteds.value = localStorage.getItem("saveselected");
+formSearch.elements.selecteds.value = localStorage.getItem('saveselected');
 
 function renderCategory() {
-      // const category = null;
+  // const category = null;
   getCategoriesProducts()
-  .then(data => {
-    const category = data.map((data) => {
-      return `<option value="${data}">${data}</option>`;
-    }).join("")
-            selected.insertAdjacentHTML("beforeend", category)
-  })
-  .catch(error => {
-    console.log(error)
-  }
-  )
+    .then(data => {
+      const category = data
+        .map(data => {
+          return `<option value="${data}">${data}</option>`;
+        })
+        .join('');
+      selected.insertAdjacentHTML('beforeend', category);
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }
 
-renderCategory()
+renderCategory();
 
 function renderFood() {
   getProducts()
@@ -92,6 +91,7 @@ function createMarkup(array) {
                   <svg width="60" height="60" class="discount-svg">
                     <use href="../img/icons.svg#icon-discount"></use>
                   </svg>
+                  </div>
                   <img class="img-product" src="${img}" width="400" height="200">
                   <h2 class="caption-product">${name}</h2>
                   <div class="features-container">
@@ -112,7 +112,7 @@ function createMarkup(array) {
               `;
       } else {
         return `
-              <li class="item-product">
+              <li class="item-product" id="item">
                 <div class="product-container" id="svg-discount">
                   <img class="img-product" src="${img}" width="400" height="200">
                   <h2 class="caption-product">${name}</h2>
