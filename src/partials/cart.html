@@ -2,15 +2,18 @@
 <section class="container">
 	<h1 hidden>Your basket</h1>
 	<div class="cart-label-wrap">
-		<svg width="38px" height="38px">
+		<div class="icon-cart-wrap">
+			<svg class="icon-cart">
+				<use href="../img/icons.svg#icon-cart"></use>
+			</svg>
+		</div>
+		<div class="cart-label" id="cart-counter">CART (<span class="number-of-products">0</span>)</div>
 
-			<use href="../img/icons-cart-na-udalenie.svg#icon-cart-header"></use>
-		</svg> <span class="cart-label" id="cart-counter">CART (<span class='number-of-products'>0</span>)</span>
 	</div>
 
-	<!-- cюда из JS -->
-	<div class="cart" id="card-counter">
-		<img class="basket-img" src="../img/yellow-basket.png" width="164px" height="140px" alt="Yellow shopping basket">
+	<!-- ПУСТА КОРЗИНА -->
+	<div class="cart">
+		<img class="basket-img" src="../img/shopping_cart.png" width="164px" height="140px" alt="Yellow shopping basket">
 		<h2 class="basket-title">
 			Your basket is <span class="accent-txt">empty...</span>
 		</h2>
@@ -18,7 +21,7 @@
 	</div>
 
 
-	<ul class='basket-items'></ul>
+	<ul class="basket-items"></ul>
 
 	<div class='order-total'>
 		<h2>YOUR ORDER</h2>

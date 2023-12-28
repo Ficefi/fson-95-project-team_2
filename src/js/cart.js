@@ -43,17 +43,22 @@ async function addItem(id) {
     const { name, category, size, price, img, desc, _id } = response;
     itemPrice = price;
     const markup = `<li class='basket-item' data-id="${_id}">
-  <button class='remove-item' data-modal-close aria-label='close modal button'>
+  <button class='remove-item-btn' data-modal-close aria-label='close modal button'>
         <svg class='remove-item-image' width='15' height='15'>
           <use href='./img/icons.svg#icon-close-btn'></use>
         </svg>
       </button>
-     <img src="${img}" alt="${desc}">
+     <img class='product-img' src="${img}" alt="${desc}">
      <div>
-     <h2>${name}</h2>
-     <p>Category: ${category.replace('_', ' ')}</p>
-     <p>Size: ${size}</p>
-     <p>$${price}</p>
+     <h2 class='product-name'>${name}</h2>
+		 <div class='prod-desc'>
+
+     <p class='prod-value'><span class='product-category'>Category:&nbsp;</span>  ${category.replace(
+       '_',
+       ' '
+     )}</p>
+     <p class='prod-value'><span class='product-category'>Size:&nbsp;</span> ${size}</p>
+     </div><p>$${price}</p>
      </div>
      </li>
      `;

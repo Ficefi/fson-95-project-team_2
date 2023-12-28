@@ -7,6 +7,18 @@
 .cart-label-wrap {
   display: flex;
   align-items: center;
+  margin-bottom: 22px;
+}
+
+.icon-cart-wrap {
+  width: 38px;
+  height: 38px;
+  background-color: var(--light_green);
+  border-radius: 50%;
+}
+.icon-cart {
+  fill: var(--gray);
+  padding: 10px;
 }
 
 .cart-label {
@@ -48,15 +60,66 @@
   color: var(--light_green);
 }
 
-
-
-
 .basket-items {
-  height: 430px;
-  width: 347px;
+  position: relative;
+  height: 550px;
+  width: 375px;
   overflow: auto;
 }
 
+.basket-item {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.product-img {
+  margin-right: 20px;
+  padding: 18px;
+}
+
+.product-name {
+  margin-bottom: 10px;
+  color: var(--black);
+
+  font-family: Neue Montreal, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.product-category {
+  display: flex;
+  color: rgba(1, 1, 1, 0.3);
+
+  font-family: Neue Montreal, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+.prod-value {
+  display: flex;
+  align-items: center;
+  color: #010101;
+
+  font-family: Neue Montreal, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+.prod-desc {
+  display: flex;
+}
+.remove-item-btn {
+  position: absolute;
+  right: 1px;
+  top: 5px;
+  background: none;
+  border: none;
+}
 .remove-item-image {
   pointer-events: none;
 }
