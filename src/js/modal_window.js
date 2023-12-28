@@ -234,5 +234,3 @@ export function orderSuccessModal() {
     }
   }
 }
-
-orderSuccessModal()

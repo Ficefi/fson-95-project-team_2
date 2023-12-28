@@ -16,7 +16,7 @@
     .discount_container{
         max-width: 335px;
         min-height: 232px;
-        z-index: -2;
+        z-index: 1;
         position: absolute;   
         }
 

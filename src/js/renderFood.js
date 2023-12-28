@@ -1,4 +1,6 @@
 import { getProducts, getCategoriesProducts } from './fetchAPI';
+import { openModal } from './modal_window';
+import svg from '../img/icons.svg';
 
 const list = document.querySelector('.list-product');
 
@@ -45,7 +47,9 @@ function renderCategory() {
     .then(data => {
       const category = data
         .map(data => {
-          return `<option value="${data}">${String(data).replace('_', ' ').replace('_', ' ')}</option>`;
+          return `<option value="${data}">${String(data)
+            .replace('_', ' ')
+            .replace('_', ' ')}</option>`;
         })
         .join('');
       selected.insertAdjacentHTML('beforeend', category);
@@ -72,13 +76,23 @@ function renderFood() {
 
 function createMarkup(array) {
   const markup = array
-    .map(({ name, img, category, price, size, popularity, is10PercentOff }) => {
-      if (is10PercentOff == true) {
-        return `
-              <li class="item-product">
+    .map(
+      ({
+        name,
+        img,
+        category,
+        price,
+        size,
+        popularity,
+        is10PercentOff,
+        _id,
+      }) => {
+        if (is10PercentOff == true) {
+          return `
+              <li class="item-product" data-id="${_id}">
                 <div class="product-container" id="svg-discount">
                   <svg width="60" height="60" class="discount-svg">
-                    <use href="/img/icons.svg#icon-discount"></use>
+                    <use href="${svg}#icon-discount"></use>
                   </svg>
                   <img class="img-product" src="${img}" width="400" height="200">
                   <h2 class="caption-product">${name}</h2>
@@ -91,23 +105,25 @@ function createMarkup(array) {
                       <p class="price-product">$${price}</p>
                       <div class="svg-container">
                           <svg class="svg" width="18" height="18">
-                          <use href="/img/icons.svg#icon-cart"></use>
+                            <use href="${svg}#icon-cart"></use>
                           </svg>
                       </div>
                   </div>
                 </div>
               </li>
               `;
-      } else {
-        return `
-              <li class="item-product">
+        } else {
+          return `
+              <li class="item-product" data-id="${_id}">
                 <div class="product-container" id="svg-discount">
                   <img class="img-product" src="${img}" width="400" height="200">
                   <h2 class="caption-product">${name}</h2>
                   <div class="features-container">
                       <p class="feature">Category: <span class=feature-black>${String(
                         category
-                      ).replace('_', ' ')}</span></p>
+                      )
+                        .replace('_', ' ')
+                        .replace('_', ' ')}</span></p>
                       <p class="feature">Size: <span class=feature-black>${size}</span></p>
                       <p class="feature popularity">Popularity: <span class=feature-black>${popularity}</span></p>
                   </div>
@@ -115,21 +131,30 @@ function createMarkup(array) {
                       <p class="price-product">$${price}</p>
                       <div class="svg-container">
                           <svg class="svg" width="18" height="18">
-                          <use href="/img/icons.svg#icon-cart"></use>
+                            <use href="${svg}#icon-cart"></use>
                           </svg>
                       </div>
                   </div>
                 </div>
               </li>
               `;
+        }
       }
-    })
+    )
     .join('');
   list.innerHTML = '';
   list.insertAdjacentHTML('beforeend', markup);
 }
 
-function callModal(){
+function callModal(event) {
+  const item = event.target.closest('.item-product');
+
+  if (item) {
+    const id = item.dataset.id;
+    openModal(id);
+  }
 }
+
+list.addEventListener('click', callModal);
 
 export { createMarkup };

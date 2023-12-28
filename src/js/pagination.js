@@ -26,6 +26,8 @@ function createTotalPages() {
   });
 }
 
+
+
 const options = {
   totalItems: 900,
   visiblePages: 4,
@@ -66,3 +68,6 @@ pagination.on('afterMove', function (eventData) {
       loader.hidden = true;
     });
 });
+
+
+// Sorry we found nothing anymore
