@@ -1,12 +1,17 @@
 import { getProducts, getCategoriesProducts } from './fetchAPI';
+// import SlimSelect from "slim-select"
 
 const list = document.querySelector('.list-product');
 
-const formSearch = document.querySelector('.form-search');
-const errors = document.querySelector('.error');
-const selected = document.querySelector('#selected');
+const formSearch = document.querySelector(".form-search");
+const errors = document.querySelector(".error");
+const selected = document.querySelector("#selected")
 
+ 
 // errors.style.display = 'none';
+
+errors.style.display = "none";
+
 
 export let keywords;
 export let selectedForm;
@@ -71,7 +76,7 @@ function renderFood() {
   getProducts()
     .then(foodImages => {
       if (foodImages.results.length === 0) {
-        errors.style.display = 'flex';
+        errors.style.display = "flex"
       }
       createMarkup(foodImages.results);
     })
@@ -88,9 +93,8 @@ function createMarkup(array) {
               <li class="item-product">
                 <div class="product-container" id="svg-discount">
                   <svg width="60" height="60" class="discount-svg">
-                    <use href="../img/icons.svg#icon-discount"></use>
+                    <use href="/img/icons.svg#icon-discount"></use>
                   </svg>
-                  </div>
                   <img class="img-product" src="${img}" width="400" height="200">
                   <h2 class="caption-product">${name}</h2>
                   <div class="features-container">
@@ -102,7 +106,7 @@ function createMarkup(array) {
                       <p class="price-product">$${price}</p>
                       <div class="svg-container">
                           <svg class="svg" width="18" height="18">
-                          <use href="./img/icons.svg#icon-cart"></use>
+                          <use href="/img/icons.svg#icon-cart"></use>
                           </svg>
                       </div>
                   </div>
@@ -126,7 +130,7 @@ function createMarkup(array) {
                       <p class="price-product">$${price}</p>
                       <div class="svg-container">
                           <svg class="svg" width="18" height="18">
-                          <use href="./img/icons.svg#icon-cart"></use>
+                          <use href="/img/icons.svg#icon-cart"></use>
                           </svg>
                       </div>
                   </div>

@@ -1,1 +1,92 @@
+@media screen and (max-width: 768px) {
+  .header-cart {
+    display: none;
+  }
+}
 
+.header__logo {
+  margin-left: 4px;
+  color: var(--black);
+  font-family: FONTSPRING DEMO Black;
+  font-size: 18px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 8px;
+    font-size: 24px;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header-link {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav {
+  margin-left: auto;
+}
+
+.logo-header{
+  margin-top: 32px;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 24px;
+
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+  }
+}
+
+.buy-icon{
+  fill: var(--gray);
+  padding: 10px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+
+  font-size: 18px;
+  font-family: Neue Montreal Medium;
+  line-height: 1.3333333;
+  transition: all 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
+
+  border-radius: 30px;
+  color: var(--gray);
+  background-color: var(--light_green);
+}
+
+.nav-link:hover{
+  background-color: var(--dark_green);
+  color: var(--black);
+}
+
+.buy-icon-container{
+  background-color: var(--light_green);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  transition: background-color 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
+}
+
+.buy-icon-container:hover{
+  background-color: var(--dark_green);
+}
+
+.header-cart {
+  padding-left: 14px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
