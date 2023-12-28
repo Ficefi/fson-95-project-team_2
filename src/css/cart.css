@@ -11,8 +11,7 @@
 }
 
 .icon-cart-wrap {
-  width: 38px;
-  height: 38px;
+  margin-right: 5px;
   background-color: var(--light_green);
   border-radius: 50%;
 }
@@ -22,8 +21,6 @@
 }
 
 .cart-label {
-  padding-left: 5px;
-
   font-family: Neue Montreal, sans-serif;
   font-size: 32px;
   font-style: normal;
@@ -31,6 +28,18 @@
   line-height: 32px;
   text-transform: uppercase;
   color: var(--black);
+}
+
+.del-all-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+  color: var(--black);
+
+  font-family: Neue Montreal, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
 }
 .basket-img {
   margin-top: 135px;
@@ -59,30 +68,37 @@
 .accent-txt {
   color: var(--light_green);
 }
+/* .prod-items-wrap {
 
+} */
 .basket-items {
   position: relative;
   height: 550px;
-  width: 375px;
+  width: 335px;
   overflow: auto;
 }
 
 .basket-item {
   display: flex;
-  width: 100px;
-  height: 100px;
+
   margin-bottom: 30px;
-  border-radius: 10px;
-  background-color: #fff;
 }
 
+.basket-item:not(:first-child) {
+  margin-top: 30px;
+}
 .product-img {
-  margin-right: 20px;
+  width: 100px;
+  height: 100px;
+  margin-right: 18px;
   padding: 18px;
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .product-name {
   margin-bottom: 10px;
+  padding-top: 5px;
   color: var(--black);
 
   font-family: Neue Montreal, sans-serif;
@@ -103,6 +119,7 @@
 .prod-value {
   display: flex;
   align-items: center;
+  margin-bottom: 3px;
   color: #010101;
 
   font-family: Neue Montreal, sans-serif;
@@ -110,16 +127,67 @@
   font-weight: 400;
   line-height: 14px;
 }
+
 .prod-desc {
-  display: flex;
+  margin-bottom: 32px;
 }
-.remove-item-btn {
+
+.prod-price {
+  margin-top: 33px;
+  color: var(--black);
+
+  font-family: Neue Montreal, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.order-title {
+  margin-top: 50px;
+}
+
+.remove-item {
   position: absolute;
-  right: 1px;
-  top: 5px;
+  right: 0px;
+  padding: 0;
+  margin: 0;
   background: none;
   border: none;
 }
 .remove-item-image {
   pointer-events: none;
+}
+.total {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 18px;
+  height: 60px;
+  border-radius: 8px;
+  background-color: rgba(109, 132, 52, 0.05);
+}
+.total-price {
+  color: var(--black);
+
+  font-family: Neue Montreal, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.sum {
+  margin-left: auto;
+}
+
+.sum2 {
+  display: flex;
+  align-items: center;
+}
+
+.title-total {
+  font-family: Neue Montreal, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--black);
 }

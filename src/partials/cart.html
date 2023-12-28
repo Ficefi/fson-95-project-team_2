@@ -3,7 +3,7 @@
 	<h1 hidden>Your basket</h1>
 	<div class="cart-label-wrap">
 		<div class="icon-cart-wrap">
-			<svg class="icon-cart">
+			<svg class="icon-cart" width="38" height="38px">
 				<use href="../img/icons.svg#icon-cart"></use>
 			</svg>
 		</div>
@@ -20,18 +20,20 @@
 		<p class="basket-txt">Go to the main page to select your favorite products and add them to the cart.</p>
 	</div>
 
-
+	<div class="del-all-btn">Delete all</div>
 	<ul class="basket-items"></ul>
 
-	<div class='order-total'>
-		<h2>YOUR ORDER</h2>
+	<div class="order-total">
+		<h2 class="cart-label order-title">YOUR ORDER</h2>
 
-		<div>
-			<p>Total</p>
-			<span>Sum:</span>
-			<p class='total-price'></p>
+		<div class="total">
+			<p class="product-name">Total</p>
+			<div class="sum">
+				<p class="sum2"><span class="product-category">Sum:&nbsp;</span>
+					<span class="total-price"></span>
+				</p>
+			</div>
 		</div>
-
 	</div>
 
 	<form>
