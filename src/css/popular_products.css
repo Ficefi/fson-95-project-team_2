@@ -80,13 +80,15 @@
 }
 
 .svg-svg {
+  transition: background-color 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 20px;
   height: 20px;
+  cursor: pointer;
   border-radius: 50%;
-  background-color: var(--light_green);
+  background-color: var(--gray);
   margin-left: 40px;
   position: absolute;
   right: 12px;
@@ -94,5 +96,14 @@
 }
 
 .svg-item {
+  transition: fill 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
+  fill: var(--light_green);
+}
+
+.svg-item:hover {
   fill: var(--gray);
+}
+
+.svg-svg:hover {
+  background-color: var(--light_green);
 }
