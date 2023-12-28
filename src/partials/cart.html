@@ -12,6 +12,7 @@
 	</div>
 
 	<!-- ПУСТА КОРЗИНА -->
+
 	<div class="cart">
 		<img class="basket-img" src="../img/shopping_cart.png" width="164px" height="140px" alt="Yellow shopping basket">
 		<h2 class="basket-title">
@@ -19,6 +20,8 @@
 		</h2>
 		<p class="basket-txt">Go to the main page to select your favorite products and add them to the cart.</p>
 	</div>
+
+	<!-- ПУСТА КОРЗИНА end-->
 
 	<div class="del-all-btn">Delete all</div>
 	<ul class="basket-items"></ul>
@@ -36,12 +39,24 @@
 		</div>
 	</div>
 
-	<form>
+	<!-- form start -->
+
+	<form class="cart-form-form-authorization" name="authorization_send" autocomplete="off">
+		<label class="cart-form-label" for="email">
+			<input class="form-input" type="email" name="email" placeholder="Enter your email" id="email" required
+				autofocus />
+		</label>
+		<button class="btn-form" type="submit">Checkout</button>
+	</form>
+
+	<!-- <form>
 		<label>
 			<input placeholder='Mail: Enter your email'>
 		</label>
 		<button type='submit'>Checkout</button>
-	</form>
+	</form> -->
+
+	<!-- form end -->
 </section>
 
 <!-- cart end -->

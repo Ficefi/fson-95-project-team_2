@@ -191,3 +191,99 @@
   line-height: 20px;
   color: var(--black);
 }
+
+/* card form styles start */
+
+.cart-form-form {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 80px;
+}
+.cart-form-form-authorization {
+  display: flex;
+  flex-direction: column;
+  align-items: flexbordercart-form-start;
+  gap: 14px;
+  margin-bottom: 80px;
+}
+
+.cart-form-label {
+  width: 93.5%;
+}
+.form-input {
+  display: flex;
+  padding-left: 18px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+  color: var(--black);
+  font-family: Neue Montreal Regular;
+  border-radius: 30px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+
+  outline: transparent;
+  background-color: transparent;
+  transition: color 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
+}
+input::placeholder {
+  color: var(--light_green);
+  font-family: Neue Montreal Regular;
+  line-height: 1.28;
+}
+input:hover::placeholder,
+input:focus::placeholder {
+  color: rgba(1, 1, 1, 0.3);
+  transition: color 300ms cubic-bezier(0.3, 0.1, 0.2, 0.5);
+}
+.btn-form {
+  display: flex;
+  width: 100%;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 30px;
+  border: none;
+  background: var(--light_green);
+  color: var(--gray);
+  font-size: 14px;
+  font-family: Neue Montreal Medium;
+  line-height: 1.28;
+  transition: color 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
+}
+.btn-form:hover,
+.btn-form:focus {
+  color: var(--black);
+}
+.cart-form-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* @media only screen and (min-width: 768px) {
+  .cart-form-form {
+    padding-bottom: 120px;
+    max-width: 336px;
+  }
+  .cart-form-form-authorization {
+    gap: 20px;
+  }
+  .form-input {
+    font-size: 16px;
+  }
+  .btn-form {
+    font-size: 16px;
+    height: 48px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .btn-form {
+    font-size: 16px;
+    width: 336px;
+  }
+} */
+/* card form styles end */
