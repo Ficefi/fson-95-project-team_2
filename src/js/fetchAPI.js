@@ -1,8 +1,27 @@
 import axios from 'axios';
+import { keywords, selectedForm } from './renderFood';
 
-async function getAllProducts() {
+export async function getProducts() {
+  let page = 1;
+  let limit = 6;
   const response = await axios.get(
-    'https://food-boutique.b.goit.study/api/products',
+    `https://food-boutique.b.goit.study/api/products?keyword=${keywords || ""}&category=${selectedForm || ""}&`, {
+      params: {
+      page,
+      limit,
+    },
+  }
+  )
+  localStorage.setItem("page", (page))
+  localStorage.getItem("page")
+  localStorage.setItem("limit", (limit))
+  localStorage.getItem("limit")
+  return response.data;
+}
+
+async function getAllProducts(page) {
+  const response = await axios.get(
+    `https://food-boutique.b.goit.study/api/products/?page=${page}`,
   );
   return response.data;
 }

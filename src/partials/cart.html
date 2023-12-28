@@ -1,0 +1,43 @@
+<!-- cart start -->
+<section class='container'>
+	<h1 hidden>Your basket</h1>
+	<div class="cart-label-wrap">
+		<svg width="42px" height="42px">
+
+			<!-- потом поменять на правильній путь из svg header -->
+			<use href="../img/icons-cart-na-udalenie.svg#icon-cart-header"></use>
+		</svg> <span class="cart-label" id="cart-counter">CART (<span class='number-of-products'>0</span>)</span>
+	</div>
+
+	<!-- cюда из JS -->
+	<div class="cart" id="card-counter">
+		<img class="basket-img" src="../img/yellow-basket.png" width="164px" height="140px" alt="Yellow shopping basket">
+		<h2 class="basket-title">
+			Your basket is <span class="accent-txt">empty...</span>
+		</h2>
+		<p class="basket-txt">Go to the main page to select your favorite products and add them to the cart.</p>
+	</div>
+
+
+  <ul class='basket-items'></ul>
+
+  <div class='order-total'>
+  <h2>YOUR ORDER</h2>
+
+    <div>
+      <p>Total</p>
+      <span>Sum:</span>
+      <p class='total-price'></p>
+    </div>
+
+  </div>
+
+  <form>
+    <label>
+      <input placeholder='Mail: Enter your email'>
+    </label>
+    <button type='submit'>Checkout</button>
+  </form>
+</section>
+
+<!-- cart end -->

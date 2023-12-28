@@ -15,6 +15,7 @@
 
 .product-container{
     padding: 20px;
+    position: relative;
 }
 
 .features-container{
@@ -75,6 +76,7 @@
 .sell-container{
     height: 34px;
     display: flex;
+    justify-content: space-between;
 }
 
 .svg-container{
@@ -82,7 +84,7 @@
     height: 34px;
     border-radius: 50%;
     background-color: var(--light_green);
-    margin-left: 40px;
+    cursor: pointer;
 }
 .svg-container:hover{
     background-color: var(--dark_green);
@@ -91,4 +93,11 @@
 .svg{
     fill: var(--gray);
     padding: 8px;
+}
+
+.discount-svg{
+    position: absolute;
+    z-index: 999;
+    top: 5px;
+    right: 5px;
 }
