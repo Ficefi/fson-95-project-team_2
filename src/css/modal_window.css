@@ -32,8 +32,8 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        margin-left: -167px;
-        margin-top: -250px;
+        margin-left: -187px;
+        margin-top: -358px;
     }
 
     .image-wrap {
@@ -92,7 +92,8 @@
         font-style: normal;
         font-weight: 400;
         line-height: 18px; /* 128.571% */
-
+         overflow: auto;
+      max-height: 250px;
     }
 
     .modal-descr-together {
@@ -165,7 +166,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-left: -300px;
+        margin-left: -335px;
         margin-top: -180px;
         flex-wrap: wrap;
         flex-direction: row;
@@ -184,6 +185,7 @@
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
+      max-height: 270px;
     }
 
     .modal-img {
@@ -203,6 +205,8 @@
 
     .modal-descr {
         font-size: 16px;
+      max-height: 306px;
+
     }
 
 
