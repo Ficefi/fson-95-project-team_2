@@ -4,7 +4,6 @@ function addToStorageCart(id) {
   updatedData.push(id);
 
   if (existingData.includes(id)) {
-
   } else {
     localStorage.setItem('cart', JSON.stringify(updatedData));
   }
@@ -29,3 +28,12 @@ function isExistInCart(id) {
 
 export { addToStorageCart, removeFromStorageCart, isExistInCart };
 
+// ПОТІМ ВИДАЛИТИ
+
+// addToStorageCart('640c2dd963a319ea671e3825');
+// addToStorageCart('640c2dd963a319ea671e37bf');
+// addToStorageCart('640c2dd963a319ea671e3812');
+// addToStorageCart('640c2dd963a319ea671e3661');
+// addToStorageCart('640c2dd963a319ea671e3662');
+// addToStorageCart('640c2dd963a319ea671e365f');
+// addToStorageCart('640c2dd963a319ea671e3663');
