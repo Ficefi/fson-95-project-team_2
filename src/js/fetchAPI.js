@@ -37,7 +37,10 @@ async function getDiscountProducts() {
   const response = await axios.get(
     'https://food-boutique.b.goit.study/api/products/discount',
   );
+  
   return response.data;
+  
+
 }
 
 async function getCategoriesProducts() {
