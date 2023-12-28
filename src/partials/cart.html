@@ -23,7 +23,12 @@
 
 	<!-- ПУСТА КОРЗИНА end-->
 
-	<div class="del-all-btn">Delete all</div>
+	<div class="del-all-btn"><span class="del-all-txt">Delete all</span><button class="remove-all-item" data-modal-close
+			aria-label="close modal button">
+			<svg class="remove-item-image" width="24" height="24">
+				<use href="../img/icons.svg#icon-close-btn"></use>
+			</svg>
+		</button></div>
 	<ul class="basket-items"></ul>
 
 	<div class="order-total">
@@ -41,7 +46,7 @@
 
 	<!-- form start -->
 
-	<form class="cart-form-form-authorization" name="authorization_send" autocomplete="off">
+	<form class="cart-form-authorization" name="authorization_send" autocomplete="off">
 		<label class="cart-form-label" for="email">
 			<input class="form-input" type="email" name="email" placeholder="Enter your email" id="email" required
 				autofocus />
