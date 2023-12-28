@@ -32,8 +32,8 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        margin-left: -167px;
-        margin-top: -250px;
+        margin-left: -187px;
+        margin-top: -358px;
     }
 
     .image-wrap {
@@ -92,7 +92,8 @@
         font-style: normal;
         font-weight: 400;
         line-height: 18px; /* 128.571% */
-
+         overflow: auto;
+      max-height: 250px;
     }
 
     .modal-descr-together {
@@ -165,7 +166,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-left: -300px;
+        margin-left: -335px;
         margin-top: -180px;
         flex-wrap: wrap;
         flex-direction: row;
@@ -184,6 +185,7 @@
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
+      max-height: 270px;
     }
 
     .modal-img {
@@ -203,6 +205,8 @@
 
     .modal-descr {
         font-size: 16px;
+      max-height: 306px;
+
     }
 
 
@@ -404,3 +408,97 @@
 
 }
 
+/* ORDER SUCCESS */
+
+.js-modal-order {
+  background: rgba(1, 1, 1, 0.40);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subscription-order-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: 14px;
+  padding: 20px 20px;
+  border-radius: 20px;
+  background: var(--gray);
+  max-width: 270px;
+  min-height: 276px;
+  flex-shrink: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -155px;
+  margin-top: -236px;
+
+  width: 335px;
+  height: 428px;
+}
+
+.order-success-img {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 40px;
+}
+
+.order-success-status {
+  color: #010101;
+  font-family: Neue Montreal Medium ;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 111.111% */
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.order-success-descr {
+  color: rgba(1, 1, 1, 0.70);
+  text-align: center;
+  font-family: Neue Montreal Regular;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+  width: 275px;
+}
+
+@media screen and (min-width: 768px) {
+.subscription-order-content {
+  min-width: 540px;
+  max-height: 509px;
+  padding: 40px;
+  margin-left: -310px;
+}
+
+  .order-success-img{
+    margin-bottom: 37px;
+  }
+  .order-success-status {
+    color: #010101;
+    font-family: Neue Montreal Medium;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px; /* 100% */
+    text-transform: uppercase;
+  }
+  .order-success-descr {
+    color: rgba(1, 1, 1, 0.70);
+    text-align: center;
+    font-family: Neue Montreal Regular;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 133.333% */
+    width: 480px;
+  }
+}

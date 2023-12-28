@@ -1,13 +1,19 @@
 import { getProductById, sendSubscription } from './fetchAPI.js';
 import { addToStorageCart, removeFromStorageCart, isExistInCart} from './localStorage.js';
 import vegetables from "../img/2x/desktop/fruitCart@2x.png"
+import orderDone from "../img/check-mark.png"
 
 const modal = document.querySelector('.js-modal');
 const content = document.querySelector('.modal-content');
 const subsModal = document.querySelector('.js-modal-subscription');
 const subscriptionModalContent = document.querySelector('.subscription-modal-content');
+const orderModal = document.querySelector('.js-modal-order');
+const orderContent = document.querySelector('.subscription-order-content')
 
-////////////////ITEM MODAL ////////////////
+
+/////////////////////////////////////////////////////
+////////////////  ITEM MODAL //////////////////////////
+/////////////////////////////////////////////////////
 
 export async function openModal(id) {
 
@@ -31,7 +37,7 @@ export async function openModal(id) {
     <div class='modal-descr-container'>
     <h2 class='modal-name'>${name}</h2>
     <div class='modal-text-wrapper'>
-    <p class='modal-text'>Category:<p class='modal-text-descr'>${String(category).replace('_', ' ')}</p>
+    <p class='modal-text'>Category:<p class='modal-text-descr'>${String(category).replace('_', ' ').replace("&", "").replace('_', " ")}</p>
     <p class='modal-text'>Size:<p class='modal-text-descr'>${size}</p>
     <p class='modal-text'>Popularity:<p class='modal-text-descr'>${popularity}</p>
     </div>
@@ -106,8 +112,9 @@ export async function openModal(id) {
   });
 }
 
-
-////////////////SUBSCRIPTION MODAL ////////////////
+/////////////////////////////////////////////////////
+////////////////SUBSCRIPTION MODAL //////////////////
+/////////////////////////////////////////////////////
 
 export async function subscriptionModal(email) {
 
@@ -173,5 +180,59 @@ export async function subscriptionModal(email) {
     }
 
 
-
+  if (modal.classList.contains("is-hidden")) {
+    removeEventListener('click', closeModal);
+    removeEventListener('keydown', handlePress);
+  }
 }
+
+
+/////////////////////////////////////////////////////
+//////////////ORDER SUCCESS MODAL ///////////////////
+/////////////////////////////////////////////////////
+
+
+export function orderSuccessModal() {
+  orderModal.classList.toggle('is-hidden');
+
+  /////     MARKUP    /////////
+
+
+  orderContent.innerHTML = `
+  <button class='modal-close-btn' data-modal-close aria-label='close modal button'>
+        <svg class='modal-window-close-button' width='20' height='20'>
+          <use href='./img/icons.svg#icon-close-btn'></use>
+        </svg>
+      </button>
+    <img src='${orderDone}' alt='order successful' class='order-success-img'>
+    <h2 class='order-success-status'>Order success</h2>
+    <p class='order-success-descr'>Thank you for shopping at Food Boutique. Your order has been received and is now being freshly prepared just for you! Get ready to indulge in nourishing goodness, delivered right to your doorstep. We're thrilled to be part of your journey to better health and happiness.</p>
+  `
+
+
+  ////////MODAL CLOSE LOGIC///////
+
+  window.addEventListener('keydown', handlePress);
+
+  function handlePress(e) {
+    if (e.key === 'Escape') {
+      orderModal.classList.add('is-hidden');
+    }
+  }
+
+  window.onclick = function(event) {
+    if (event.target === orderModal) {
+      orderModal.classList.add('is-hidden');
+    }
+  };
+
+  const closeBtn = document.querySelector('.modal-close-btn');
+  closeBtn.addEventListener('click', closeModal);
+  function closeModal(event) {
+    if (event.currentTarget === closeBtn) {
+      orderModal.classList.add('is-hidden');
+    }
+  }
+}
+
+orderSuccessModal()
