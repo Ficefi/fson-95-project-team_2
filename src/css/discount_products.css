@@ -1,10 +1,61 @@
-.discount_container{
-    max-width: 275px;
-    min-height: 232px;
-    z-index: -2;
-    position: relative;   
+
+
+
+    /* Title */
     
-}
+    .discount{
+        margin: 0 auto;
+    }
+    .discount-title{
+        color: var(--black);
+        font-family: Neue Montreal Medium;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 28px; /* 116.667% */
+        margin-bottom: 20px;
+    }
+    /* Common */
+    .discount_container{
+        max-width: 335px;
+        min-height: 232px;
+        z-index: -2;
+        position: absolute;   
+        }
+
+        .discount-icon{
+            position: absolute;
+            z-index: 999;
+            right: 10px;
+            top: -3px;
+        }
+
+    .card-content{
+        max-width: 100%;
+        height: 150px;
+        background-color: var(--gray);
+        border-radius: 10px;
+        margin: 16px;
+        min-width: 304px;
+        
+     
+     }
+
+     .card-img{
+        margin: 18px auto;
+        height: 114px;
+        min-width: 114px;
+        
+     
+     }
+
+     .title-box{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 5px 0px;
+        min-width: 78%;
+    }
+
 .card{
 border-radius: 15px;
 background: var(--white);
@@ -31,76 +82,140 @@ cursor: pointer;
     cursor: pointer;
        
     }
+    .discount-icon{
+        position: absolute;
+        z-index: 999;
+        right: 10px;
+        top: 3px;
+    }
 
-.card-img{
-   margin: 23px 69px;
-   
+    .card-title{
+font-family: Neue Montreal Medium;
+font-size: 18px;
+font-weight: 500;
+line-height: 20px; /* 111.111% */
+    }
 
-}
-
-.card-content{
-min-width: 243px;
-height: 150px;
-background-color: var(--gray);
-border-radius: 10px;
-margin: 16px;
-}
-
-.basket{
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-background: var(--light_green);
-border: none;
-display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 16px 8px
-}
-
-.basket:hover{
-    background-color: var(--dark_green);
-}
-
-.basket:disabled:hover {
-    background-color: var(--light_green);
-    cursor:auto
-  }
+    .card-price{
+    font-family: Neue Montreal Medium;
+font-size: 18px;
+font-weight: 500;
+line-height: 20px; /* 111.111% */
+    }
 
 
-.title-box{
+
+    .basket{
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+    background: var(--light_green);
+    border: none;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    min-width: 200px;
-    margin: 5px 0px
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 16px 8px
+    }
+    
+    .basket:hover{
+        background-color: var(--dark_green);
+    }
+    
+    .basket:disabled:hover {
+        background-color: var(--light_green);
+        cursor:auto
+      }
+    
+      .basket-icon{
+        fill: var(--white)
+    }
+    
+    .basket-icon-check{
+        stroke: var(--white);
+    }
+
+
+@media only screen and (min-width: 768px) {
+    /* Title */
+    .discount-title{
+    font-size: 28px;
+    line-height: 32px; /* 114.286% */
+    }
+    /* Common */
+    .discount_container{
+        max-width: 336px;
+         
+        
+    }
+
+  
+
+.card{
+    flex-wrap: nowrap;
+    gap: 32px;
+    justify-content: flex-start;
+   
 }
 
 .card-title{
-    color: var(--black);
-font-size: 20px;
-font-family: 'Neue Montreal Medium';
-font-weight: 500;
-}
-.card-price{
-    color: var(--black);
-font-size: 20px;
-font-family: 'Neue Montreal Medium';
-font-weight: 500;
-}
+    font-size: 20px;
+    line-height: 24px; /* 120% */
+        }
 
-.discount-icon{
-    position: absolute;
-    z-index: 999;
-    right: 10px;
-    top: -3px;
-}
+        .card-price{
+            font-size: 20px;
+            line-height: 24px; /* 120% */
+            }
 
 
-.basket-icon{
-    fill: var(--white)
+    .discount-icon{
+        position: absolute;
+        z-index: 999;
+        right: 10px;
+        top: 3px;
+    }
+
 }
 
-.basket-icon-check{
-    stroke: var(--white);
+
+
+
+@media only screen and (min-width: 1024px){
+    .discount_container{
+        max-width: 275px;
+         
+        
+    }
+
+    .discount-icon{
+        top: -3px;
+    }
+  
+.card{
+
+flex-wrap: wrap;
+gap: 0;
+   
+}
+
+.card-img{
+    margin: 23px auto;
+    height: 105px;
+    min-width: 105px;
+   
+
+} 
+
+.card-content{
+min-width: 243px;
+}
+
+.title-box {
+    min-width: 73%;
+
+}
+
+
+
+
 }
