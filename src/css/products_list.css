@@ -1,3 +1,11 @@
+@media only screen and (min-width: 1240px) {
+    .product-content-section{
+        display: flex;
+        max-width: 1240px;
+        margin: 0 auto;
+    }
+}
+
 .list-product {
     margin: 15px;
     display: flex;
@@ -5,7 +13,7 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    margin: 0 auto;
+    margin-right: 25px;
 }
 @media only screen and (min-width: 1024px) {
     .list-product{

@@ -1,29 +1,24 @@
 import axios from 'axios';
 import { keywords, selectedForm } from './renderFood';
 
-export async function getProducts() {
-  let page = 1;
+export async function getProducts(page) {
   let limit = 9;
   const response = await axios.get(
     `https://food-boutique.b.goit.study/api/products?keyword=${keywords || ""}&category=${selectedForm || ""}&`, {
       params: {
-      page,
-      limit,
+        keywords: keywords || '',
+        selectedForm: selectedForm || '',
+        page: page || 1,
+        limit: limit || 6,
     },
   }
   )
+
   localStorage.setItem("page", (page))
   localStorage.getItem("page")
   localStorage.setItem("limit", (limit))
   localStorage.getItem("limit")
   console.log(response)                                         
-  return response.data;
-}
-
-export async function OnionFetch(page){
-  const response = await axios.get(
-    `https://food-boutique.b.goit.study/api/products?keyword=onion&page=${page}`,
-  );
   return response.data;
 }
 
