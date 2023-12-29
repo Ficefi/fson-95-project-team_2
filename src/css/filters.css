@@ -4,6 +4,7 @@ font-family: Neue Montreal;
 font-size: 14px;
 line-height: 0.2px;
 /* margin-bottom: 8px;  */
+margin-right: 260px;
 }
 
 .form-search {
@@ -102,21 +103,28 @@ line-height: 20px; /* 111.111% */
 }
 
 @media (min-width: 768px) {
+    .filter {
+        margin-right: 690px;
+    }
+    .cont-input-search {
+        margin-right: 420px;
+    }
     .input-search {
         width: 227px;
         gap: 60px;
     }
     .form-search {
-        align-items: flex-start;
+        /* align-items: flex-start; */
         margin-left: 32px;
-
+   
     }
     #selected {
 position: sticky;
 gap: 44px;
 width: 189px;
 top: 0%;
-left: 330px;
+/* left: 330px; */
+margin-left: 60px;
     }
     .errors {
 font-size: 20px;
@@ -131,6 +139,18 @@ font-size: 18px;
 line-height: 24px; /* 133.333% */
     }
 
+}
+
+@media (min-width: 1240px) {
+    .filter {
+        margin-right: 780px;
+    }
+    .cont-input-search {
+        margin-right: 532px;
+    }
+    #selected {
+        margin-right: 110px;
+    }
 }
 
 @media (min-width: 1440px) {
