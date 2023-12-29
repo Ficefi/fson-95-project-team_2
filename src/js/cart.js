@@ -108,11 +108,6 @@ function handleRemove(e) {
 
   selectors.basket_items.removeChild(item);
   removeFromStorageCart(item.dataset.id);
-
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  let numberOfProducts = cart.length;
-
-  selectors.number_of_products.textContent = String(numberOfProducts);
 }
 
 ////////////DELETE ALL BUTTON LOGIC///////////
