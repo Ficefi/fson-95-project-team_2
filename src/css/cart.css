@@ -1,8 +1,4 @@
 .cart {
-  margin-top: 110px;
-}
-
-.cart-empty {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,7 +84,7 @@
 }
 
 .basket-item:not(:last-child) {
-  border-bottom: rgba(1, 1, 1, 0.1) 1px solid;
+ border-bottom: rgba(1, 1, 1, 0.10) 1px solid ;
 }
 
 .basket-item:not(:first-child) {

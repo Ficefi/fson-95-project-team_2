@@ -1,21 +1,19 @@
 <!-- cart start -->
-<section class="cart container">
+<section class="container">
 	<h1 hidden>Your basket</h1>
-
 	<div class="cart-label-wrap">
 		<div class="icon-cart-wrap">
 			<svg class="icon-cart" width="38" height="38px">
 				<use href="../img/icons.svg#icon-cart"></use>
 			</svg>
 		</div>
-
+		<div class="cart-label" id="cart-counter">CART (<span class="number-of-products">0</span>)</div>
 
 	</div>
 
 	<!-- ПУСТА КОРЗИНА -->
 
-	<div class="cart-empty">
-		<div class="cart-label" id="cart-counter">CART (<span class="number-of-products">0</span>)</div>
+	<div class="cart">
 		<img class="basket-img" src="../img/shopping_cart.png" width="164px" height="140px" alt="Yellow shopping basket">
 		<h2 class="basket-title">
 			Your basket is <span class="accent-txt">empty...</span>
@@ -50,7 +48,8 @@
 
 	<form class="cart-form-authorization" name="authorization_send" autocomplete="off">
 		<label class="cart-form-label" for="email">
-			<input class="form-input" type="email" name="email" placeholder="Enter your email" id="email" required />
+			<input class="form-input" type="email" name="email" placeholder="Enter your email" id="email" required
+				autofocus />
 		</label>
 		<button class="btn-form" type="submit">Checkout</button>
 	</form>
