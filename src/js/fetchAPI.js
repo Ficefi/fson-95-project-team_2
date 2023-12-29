@@ -2,7 +2,9 @@ import axios from 'axios';
 import { keywords, selectedForm } from './renderFood';
 
 export async function getProducts(page) {
-  let limit = 9;
+
+  let limit = 9
+
   const response = await axios.get(
     `https://food-boutique.b.goit.study/api/products?keyword=${keywords || ""}&category=${selectedForm || ""}&`, {
       params: {
@@ -13,6 +15,7 @@ export async function getProducts(page) {
     },
   }
   )
+
 
   localStorage.setItem("page", (page))
   localStorage.getItem("page")

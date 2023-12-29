@@ -14,10 +14,8 @@
     }
     /* Common */
     .discount_container{
-        max-width: 335px;
-        min-height: 232px;
-        z-index: 1;
-        position: absolute;   
+        width: 335px;
+        height: 232px;
         }
 
         .discount-icon{

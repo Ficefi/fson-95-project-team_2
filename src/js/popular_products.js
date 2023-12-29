@@ -1,4 +1,6 @@
 import { getPopularProducts } from './fetchAPI';
+import { openModal } from './modal_window';
+import svg from '../img/icons.svg'
 
 const product_list = document.querySelector('.product-card');
 
@@ -17,8 +19,8 @@ function createPopularMarkup(array) {
   containerDiv.classList.add('product-list-container');
 
   const markup = array
-    .map(({ category, img, name, popularity, size }) => {
-      return `<li class="product-content">
+    .map(({ category, img, name, popularity, size, _id }) => {
+      return `<li class="product-content" data-id=${_id}>
         <div class="background-img">
             <img src="${img}" alt="${name}" class="product-image" />
         </div>
@@ -40,7 +42,7 @@ function createPopularMarkup(array) {
         </div>
         <div class="svg-svg">
             <svg class="svg-item" width="12" height="12">
-                <use href="./img/icons.svg#icon-cart"></use>
+                <use href="${svg}#icon-cart"></use>
             </svg>
         </div>
     </li>`;
@@ -50,6 +52,17 @@ function createPopularMarkup(array) {
   containerDiv.innerHTML = markup;
   product_list.appendChild(containerDiv);
 }
+
+function modalCall(event) {
+  const item = event.target.closest('.product-content');
+
+  if (item) {
+    const id = item.dataset.id;
+    openModal(id);
+  }
+}
+
+product_list.addEventListener('click', modalCall)
 
 createPopularList();
 

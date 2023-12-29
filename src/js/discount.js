@@ -1,5 +1,6 @@
 import { getAllProducts, getCategoriesProducts, getDiscountProducts, getPopularProducts, getProductById, createNewOrder, sendSubscription } from "./fetchAPI"
 import { openModal } from "./modal_window"
+import  svgIcon  from '../img/icons.svg'
 // import { addToStorageCart, removeFromStorageCart, isExistInCart } from "./localStorage"
 
 const card = document.querySelector('.card');
@@ -14,7 +15,7 @@ function createMarkup(images, names, startIndex = 0) {
     `<li class="card_item" data-id="${_id}">
       <div class="discount-icon-container">
         <svg class="discount-icon" width="60" height="60">
-          <use href="../img/icons.svg#icon-discount"></use>
+          <use href="${svgIcon}#icon-discount"></use>
         </svg>
       </div>
       <div class="card-content">
@@ -26,7 +27,7 @@ function createMarkup(images, names, startIndex = 0) {
       </div>
       <button class="basket" data-id="${_id}">
         <svg class="basket-icon" width="18" height="18">
-          <use href="../img/icons.svg#icon-cart"></use>
+          <use href="${svgIcon}#icon-cart"></use>
         </svg>
       </button>
     </li>`
@@ -36,7 +37,6 @@ function createMarkup(images, names, startIndex = 0) {
 
 async function addToBasket() {
   const result = await getDiscountProducts();
-  console.log(result);
   const shortNames = result.reduce((acc, product) => {
     if (product.name.length > 10) {
       acc.push(product.name.slice(0, 10) + "...");
@@ -60,7 +60,6 @@ async function addToBasket() {
 
   // Зміна кнопки
   const btn = document.querySelectorAll('.basket');
-  console.log(btn);
 
   btn.forEach((button) => {
     button.addEventListener("click", handleAddToCart);
@@ -69,7 +68,7 @@ async function addToBasket() {
       button.setAttribute("disabled", true);
       button.innerHTML = `
         <svg class="basket-icon-check" width="18" height="18">
-          <use href="../img/icons.svg#icon-check"></use>
+          <use href="${svgIcon}#icon-check"></use>
         </svg>
       `;
     }
@@ -79,26 +78,22 @@ addToBasket();
 
 function handleAddToCart(e) {
   const button = e.currentTarget;
-  console.log(button);
   const id = button.dataset.id;
-  console.log(id);
 
   if (button.hasAttribute("disabled")) {
     removeFromStorageCart(id)
-    console.log(removeFromStorageCart(id));
     button.removeAttribute("disabled");
     button.innerHTML = `
       <svg class="basket-icon" width="18" height="18">
-        <use href="../img/icons.svg#icon-cart"></use>
+        <use href="${svgIcon}#icon-cart"></use>
       </svg>
     `;
   } else {
     addToStorageCart(id)
-    console.log(addToStorageCart(id));
     button.setAttribute("disabled", true);
     button.innerHTML = `
       <svg class="basket-icon-check" width="18" height="18">
-        <use href="../img/icons.svg#icon-check"></use>
+        <use href="${svgIcon}#icon-check"></use>
       </svg>
     `;
   }
@@ -110,7 +105,6 @@ function handleAddToCart(e) {
 
 function addToStorageCart(productId) {
   const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
-  console.log(currentCart);
 
   if (!currentCart.includes(productId)) {
     currentCart.push(productId);
@@ -122,7 +116,6 @@ function addToStorageCart(productId) {
 
 function removeFromStorageCart(productId) {
   const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
-  console.log(currentCart);
 
   const index = currentCart.indexOf(productId);
 

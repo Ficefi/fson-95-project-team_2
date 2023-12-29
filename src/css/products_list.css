@@ -7,13 +7,13 @@
 }
 
 .list-product {
-    margin: 15px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
     margin-right: 25px;
+    margin: 0 auto;
 }
 @media only screen and (min-width: 1024px) {
     .list-product{

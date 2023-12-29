@@ -144,7 +144,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .product-list-container {
     display: flex;
   }
