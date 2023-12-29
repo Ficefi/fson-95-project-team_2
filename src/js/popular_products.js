@@ -13,6 +13,9 @@ function createPopularList() {
 }
 
 function createPopularMarkup(array) {
+  const containerDiv = document.createElement('div');
+  containerDiv.classList.add('product-list-container');
+
   const markup = array
     .map(({ category, img, name, popularity, size }) => {
       return `<li class="product-content">
@@ -43,7 +46,9 @@ function createPopularMarkup(array) {
     </li>`;
     })
     .join('');
-  product_list.insertAdjacentHTML('beforeend', markup);
+
+  containerDiv.innerHTML = markup;
+  product_list.appendChild(containerDiv);
 }
 
 createPopularList();
