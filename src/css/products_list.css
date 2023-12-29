@@ -4,6 +4,13 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
+    margin: 0 auto;
+}
+@media only screen and (min-width: 1024px) {
+    .list-product{
+        width: 925px;
+  }
 }
 
 .item-product {
@@ -94,6 +101,7 @@
 .svg{
     fill: var(--gray);
     padding: 8px;
+    transition: transform 1s cubic-bezier(0.3, 0.1, 0.2, 0.3);
 }
 
 .discount-svg{

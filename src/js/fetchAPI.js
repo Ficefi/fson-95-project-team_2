@@ -3,7 +3,7 @@ import { keywords, selectedForm } from './renderFood';
 
 export async function getProducts() {
   let page = 1;
-  let limit = 6;
+  let limit = 9;
   const response = await axios.get(
     `https://food-boutique.b.goit.study/api/products?keyword=${keywords || ""}&category=${selectedForm || ""}&`, {
       params: {
@@ -16,6 +16,14 @@ export async function getProducts() {
   localStorage.getItem("page")
   localStorage.setItem("limit", (limit))
   localStorage.getItem("limit")
+  console.log(response)                                         
+  return response.data;
+}
+
+export async function OnionFetch(page){
+  const response = await axios.get(
+    `https://food-boutique.b.goit.study/api/products?keyword=onion&page=${page}`,
+  );
   return response.data;
 }
 
@@ -37,7 +45,10 @@ async function getDiscountProducts() {
   const response = await axios.get(
     'https://food-boutique.b.goit.study/api/products/discount',
   );
+  
   return response.data;
+  
+
 }
 
 async function getCategoriesProducts() {
