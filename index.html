@@ -9,8 +9,8 @@
   
   <script type="module" crossorigin src="/fson-95-project-team_2/commonHelpers2.js"></script>
   <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/vendor-b592f4c5.js">
-  <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/fetchAPI-a46678b8.js">
-  <link rel="stylesheet" href="/fson-95-project-team_2/assets/fetchAPI-740aebfb.css">
+  <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/fetchAPI-4f2d7449.js">
+  <link rel="stylesheet" href="/fson-95-project-team_2/assets/fetchAPI-01a93154.css">
   <link rel="stylesheet" href="/fson-95-project-team_2/assets/vendor-a0b14d8a.css">
 </head>
 
@@ -62,33 +62,35 @@
 </section>
 
 <!-- hero end -->
+    <section class="filter-section">
     <form class="form-search">
-    <p class="filter">Filters:</p>
-    <div class="cont-input-search">
-    <input placeholder="Search for anything" class="input-search" type="text" name="search">
-    <button class="submit" type="submit">
-        <svg width="20" height="20">
-            <use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-search" multiple></use>
-        </svg>
-    </button>
-</div>
-    <select name="selecteds" id="selected">
-      <option value="">Show all</option>
-    </select>
-   </form>
-   <div class="error">
-    <h3 class="errors">Nothing was found for the selected
-        <span class="text-error">filters...</span>
-    </h3>
-    <p class="text-error-false">
-        Try adjusting your search parameters or browse our range by other criteria to find the perfect product for you. 
-    </p>
-</div>
+        <p class="filter">Filters:</p>
+        <div class="cont-input-search">
+        <input placeholder="Search for anything" class="input-search" type="text" name="search">
+        <button class="submit" type="submit">
+            <svg width="20" height="20">
+                <use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-search" multiple></use>
+            </svg>
+        </button>
+    </div>
+        <select name="selecteds" id="selected">
+          <option value="">Show all</option>
+        </select>
+       </form>
+       <div class="error">
+        <h3 class="errors">Nothing was found for the selected
+            <span class="text-error">filters...</span>
+        </h3>
+        <p class="text-error-false">
+            Try adjusting your search parameters or browse our range by other criteria to find the perfect product for you.
+        </p>
+    </div>
+</section>
 
     <section class="product-content-section">
       <ul class="list-product"></ul>
       <aside>
-        <div>
+        <div class="popular-container">
   <ul class="product-card">
     <h1 class="product-subtitle">Popular products</h1>
   </ul>
@@ -97,11 +99,6 @@
     <h2 class="discount-title">Discount products</h2>
     <ul class="discount_container">
         <li class="card"></li>
-        <!-- <button class="basket">
-                    <svg class="basket-icon" width="18" height="18">
-                      <use href="../img/icons.svg#icon-cart"></use>
-                    </svg>
-            </button> -->
     </ul>
 </div>
       </aside>
