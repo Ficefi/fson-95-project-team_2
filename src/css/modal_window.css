@@ -260,6 +260,7 @@
 
 .subscription-modal-content {
   display: flex;
+  z-index: 999;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -426,6 +427,7 @@
 
 .subscription-order-content {
   display: flex;
+  z-index: 999;
   flex-direction: column;
   justify-content: center;
   align-items: center;
