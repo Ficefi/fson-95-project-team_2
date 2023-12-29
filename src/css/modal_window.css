@@ -359,6 +359,15 @@
 
 @media screen and (min-width: 768px) {
 
+  .discount-icon-wrap {
+    position: relative;
+  }
+
+  .discount-icon-modal {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+  }
 
   .subscription-modal-content {
     max-width: 490px;

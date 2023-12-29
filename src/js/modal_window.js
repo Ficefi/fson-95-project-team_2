@@ -25,7 +25,7 @@ export async function openModal(id) {
   //ADD MARKUP FOR MODAL WINDOW///////
 
   await getProductById(id).then(response => {
-    const { img, name, desc, category, size, popularity, price } = response;
+    const { img, name, desc, category, size, popularity, price, is10PercentOff } = response;
 
     const descriptionTemp = desc.split("");
 
@@ -34,8 +34,11 @@ export async function openModal(id) {
         <svg class='modal-window-close-button' width='15' height='15'>
           <use href="${svg}#icon-close-btn"></use>
         </svg>
-      </button>
+      </button><div class='discount-icon-wrap'>
     <img src='${img}' alt='${desc}' class='modal-img'>
+          <svg class="discount-icon-modal is-hidden" width="60" height="60">
+          <use href="${svg}#icon-discount"></use>
+          </div>
     </div>
     <div class='modal-descr-together'>
     <div class='modal-descr-container'>
@@ -57,6 +60,14 @@ export async function openModal(id) {
     </div>
 
   `;
+
+    console.log(is10PercentOff);
+
+    if (is10PercentOff === true) {
+      const discount = document.querySelector(".discount-icon-modal")
+      console.log(discount);
+      discount.classList.remove("is-hidden")
+    }
 
     if (descriptionTemp.length > 300) {
       const thing = document.querySelector(".modal-descr");
@@ -143,7 +154,7 @@ export async function subscriptionModal(email) {
     subscriptionModalContent.innerHTML = `<div class='success-text-wrap'>
    <button class='modal-close-btn' data-modal-close aria-label='close modal button'>
         <svg class='modal-window-close-button' width='15' height='15'>
-          <use href='${svg}icon-close-btn'></use>
+          <use href='${svg}#icon-close-btn'></use>
         </svg>
       </button>
       <h2 class='subscription-success-header'>Thanks for subscribing for <span class='subscription-success-email'>new</span> products</h2>
