@@ -25,6 +25,8 @@ export async function openModal(id) {
   await getProductById(id).then(response => {
     const { img, name, desc, category, size, popularity, price } = response;
 
+    const descriptionTemp = desc.split(" ");
+
     content.innerHTML = `<div class='image-wrap'>
    <button class='modal-close-btn' data-modal-close aria-label='close modal button'>
         <svg class='modal-window-close-button' width='15' height='15'>
@@ -53,6 +55,14 @@ export async function openModal(id) {
     </div>
 
   `;
+
+    if (descriptionTemp.length > 48) {
+      const thing = document.querySelector(".modal-descr");
+      thing.classList.add("modal-descr-fixed")
+    } else {
+      const thing = document.querySelector(".modal-descr");
+      thing.classList.remove("modal-descr-fixed")
+    }
 
     ////////MODAL CLOSE LOGIC///////
 
@@ -90,7 +100,7 @@ export async function openModal(id) {
     }
 
 
-    function handleCart(e) {
+    function handleCart() {
       if (isExistInCart(id)) {
         removeFromStorageCart(id)
         addToCart.childNodes[0].data = "Add to"
