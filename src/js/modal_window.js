@@ -26,7 +26,7 @@ export async function openModal(id) {
     const { img, name, desc, category, size, popularity, price } = response;
 
     const descriptionTemp = desc.split("");
-    
+
     content.innerHTML = `<div class='image-wrap'>
    <button class='modal-close-btn' data-modal-close aria-label='close modal button'>
         <svg class='modal-window-close-button' width='15' height='15'>

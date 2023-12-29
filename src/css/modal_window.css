@@ -21,19 +21,19 @@
     }
 
     .modal-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        padding: 20px 20px;
-        border-radius: 20px;
-        background: #FAFAFA;
-        max-width: 335px;
-        min-height: 500px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-left: -187px;
-        margin-top: -358px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 20px 20px;
+      border-radius: 20px;
+      background: #FAFAFA;
+      max-width: 310px;
+      min-height: 500px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -176px;
+      margin-top: -295px;
     }
 
     .image-wrap {
