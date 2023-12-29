@@ -1,4 +1,4 @@
-import{s as b,a as y,b as S,c as w,d as m,e as k}from"./assets/fetchAPI-eb580cdb.js";import{P}from"./assets/vendor-b592f4c5.js";const r=document.querySelector(".footer-form-authorization");r.addEventListener("submit",$);function $(e){e.preventDefault(),b(r[0].value),r.reset()}const g=document.querySelector(".card"),M=2;function C(e,t,s=0){const a=s+M;return e.slice(s,a).map(({img:n,price:o,_id:u,desc:v},f)=>`<li class="card_item" data-id="${u}">
+import{s as b,a as y,b as S,c as w,d as m,e as k}from"./assets/fetchAPI-a46678b8.js";import{P}from"./assets/vendor-b592f4c5.js";const r=document.querySelector(".footer-form-authorization");r.addEventListener("submit",$);function $(e){e.preventDefault(),b(r[0].value),r.reset()}const g=document.querySelector(".card"),M=2;function C(e,t,s=0){const a=s+M;return e.slice(s,a).map(({img:n,price:o,_id:u,desc:v},f)=>`<li class="card_item" data-id="${u}">
       <div class="discount-icon-container">
         <svg class="discount-icon" width="60" height="60">
           <use href="../img/icons.svg#icon-discount"></use>
