@@ -2,7 +2,7 @@ import { getProductById, sendSubscription } from './fetchAPI.js';
 import { addToStorageCart, removeFromStorageCart, isExistInCart} from './localStorage.js';
 import vegetables from "../img/2x/desktop/fruitCart@2x.png"
 import orderDone from "../img/check-mark.png"
-import { handleCartItem, numberOfProducts } from './header.js';
+import { handleCartItem, numberOfProducts, qty_card_products } from './header.js';
 
 const modal = document.querySelector('.js-modal');
 const content = document.querySelector('.modal-content');
@@ -106,13 +106,14 @@ export async function openModal(id) {
         removeFromStorageCart(id)
         addToCart.childNodes[0].data = "Add to"
         addToCart.style.minWidth = '130px';
+        handleCartItem(qty_card_products.outerText - 1)
       }
       else {
-        const newNum = Number(numberOfProducts) + 1;
-        handleCartItem(String(newNum))
+        handleCartItem(Number(qty_card_products.outerText) + Number(1))
         addToStorageCart(id)
         addToCart.childNodes[0].data = "Remove from"
         addToCart.style.minWidth = '175px';
+
       }
     }
 
