@@ -10,9 +10,9 @@
 	<title>Cart</title>
   <script type="module" crossorigin src="/fson-95-project-team_2/commonHelpers.js"></script>
   <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/vendor-b592f4c5.js">
-  <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/fetchAPI-4f2d7449.js">
+  <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/pagination-e2fa912a.js">
   <link rel="stylesheet" href="/fson-95-project-team_2/assets/vendor-a0b14d8a.css">
-  <link rel="stylesheet" href="/fson-95-project-team_2/assets/fetchAPI-01a93154.css">
+  <link rel="stylesheet" href="/fson-95-project-team_2/assets/pagination-01a93154.css">
   <link rel="stylesheet" href="/fson-95-project-team_2/assets/cart-e98dab87.css">
 </head>
 
@@ -236,6 +236,234 @@
   </div>
 </footer>
 
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/fson-95-project-team_2/assets/favicon-d83cd0d7.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Boutique</title>
+  
+</head>
+
+<body>
+  <!-- header start -->
+
+<header class="header container">
+
+	<a class="header-link logo-header" href="./index.html">
+		<svg width="32" height="32">
+			<use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-logo"></use>
+		</svg>
+		<span class="header__logo">Food Boutique</span></a>
+
+	<div class="header-nav">
+		<nav>
+
+			<ul class="nav-list">
+				<li><a class="nav-link" href="./index.html">Home</a></li>
+				<li><a class="header-link" href="./cart.html"><div class="buy-icon-container">
+					<svg width="18" height="18" class="buy-icon">
+								<use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-cart"></use>
+							</svg>
+				</div><p class="header-cart">CART (<span class='qty-card'>0</span>)</p></a></li>
+			</ul>
+
+		</nav>
+	</div>
+
+</header>
+
+<!-- header end -->
+  <main>
+    <!-- hero start -->
+
+<section class="hero-wrap container">
+	<div class="hero-content">
+		<h1 class="hero-title">Welcome to the <span class="title-accent">Food</span> Boutique!</h1>
+		<p class="hero-text">With Food Boutique, you're not just subscribing to food, you're signing up for a fresher,
+			fitter,
+			and happier you.
+		</p>
+	</div>
+	<div class="hero-banner">
+		<svg class="hero-label" width="100px" height="100px">
+			<use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-organic"></use>
+		</svg>
+	</div>
+</section>
+
+<!-- hero end -->
+    <section class="filter-section">
+    <form class="form-search">
+        <p class="filter">Filters:</p>
+        <div class="cont-input-search">
+        <input placeholder="Search for anything" class="input-search" type="text" name="search">
+        <button class="submit" type="submit">
+            <svg width="20" height="20">
+                <use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-search" multiple></use>
+            </svg>
+        </button>
+    </div>
+        <select name="selecteds" id="selected">
+          <option value="">Show all</option>
+        </select>
+       </form>
+       <div class="error">
+        <h3 class="errors">Nothing was found for the selected
+            <span class="text-error">filters...</span>
+        </h3>
+        <p class="text-error-false">
+            Try adjusting your search parameters or browse our range by other criteria to find the perfect product for you.
+        </p>
+    </div>
+</section>
+
+    <section class="product-content-section">
+      <ul class="list-product"></ul>
+      <aside>
+        <div class="popular-container">
+  <ul class="product-card">
+    <h1 class="product-subtitle">Popular products</h1>
+  </ul>
+</div>
+        <div class="discount">
+    <h2 class="discount-title">Discount products</h2>
+    <ul class="discount_container">
+        <li class="card"></li>
+    </ul>
+</div>
+      </aside>
+    </section>
+    <div id="pagination" class="tui-pagination"></div>
+  </main>
+  <footer class="footer">
+  <div class="footer-container container">
+    <div class="footer-nav">
+      <div class="footer-first">
+        <div class="footer-first-container">
+          <a href="./index.html" class="footer-block-logo">
+            <div class="footer-icon-logo">
+              <svg class="footer-logo" width="20" height="20">
+                <use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-cabbage"></use>
+              </svg>
+            </div>
+            <span class="footer-logo-text">Food Boutique</span></a
+          >
+        </div>
+        <ul class="list social-links">
+          <li class="social-links-item">
+            <a
+              class="social-links-item-link"
+              href="https://www.facebook.com/goITclub/"
+              target="_blank"
+              ><svg class="social-icon" width="24" height="24">
+                <use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-facebook"></use></svg
+            ></a>
+          </li>
+          <li class="social-links-item">
+            <a
+              class="social-links-item-link"
+              href="https://www.instagram.com/goitclub/ "
+              target="_blank"
+            >
+              <svg class="social-icon" width="24" height="24">
+                <use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-instagram"></use></svg
+            ></a>
+          </li>
+          <li class="social-links-item">
+            <a
+              class="social-links-item-link"
+              href="https://www.youtube.com/c/GoIT"
+              target="_blank"
+              ><svg class="social-icon" width="24" height="24">
+                <use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-youtube"></use></svg
+            ></a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-second">
+        <div class="footer-title">
+          <h3 class="footer-title-text">
+            Discover the Variety of Flavors and Quality
+          </h3>
+          <p class="footer-text-desc">
+            An online store where you will find fresh, natural and delicious
+            products for a healthy life and unforgettable gastronomic
+            adventures.
+          </p>
+        </div>
+        <div class="footer-form">
+          <p class="footer-form-title">
+            Subscribe and learn about new products!
+          </p>
+          <form
+            class="footer-form-authorization"
+            name="authorization_send"
+            autocomplete="off"
+          >
+            <label class="footer-label" for="email">
+              <input
+                class="form-input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                id="email"
+                required
+              />
+            </label>
+            <button class="btn-form" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-caption">
+      <p class="footer-privaci-text">Food Boutique. All rights reserved.</p>
+      <div class="footer-privacy">
+        <p>
+          <a href="" class="footer-privaci-text">Privacy Policy </a> /
+          <a href="" class="footer-privaci-text"> Terms of Service</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!--    MODAL WINDOW-->
+
+<div class="js-modal is-hidden">
+
+  <!-- Модальное содержание -->
+  <div class="modal-content">
+
+  </div>
+
+</div>
+
+
+<div class="js-modal-subscription is-hidden">
+
+  <!-- Модальное содержание -->
+  <div class="subscription-modal-content">
+
+  </div>
+
+</div>
+
+<div class="js-modal-order is-hidden">
+
+  <!-- Модальное содержание -->
+  <div class="subscription-order-content">
+
+  </div>
+
+</div>
+
+  
+</body>
+
+</html>
 	
 </body>
 
