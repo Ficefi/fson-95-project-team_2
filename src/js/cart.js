@@ -56,7 +56,7 @@ async function addItem(id) {
   await getProductById(id).then(response => {
     const { name, category, size, price, img, desc, _id } = response;
     itemPrice = price;
-    const markup = `<li class='basket-item' data-id="${_id}" data-price="${price}">
+    const markup = `<li class='basket-item-cart' data-id="${_id}" data-price="${price}">
   <button class='remove-item' data-modal-close aria-label='close modal button'>
         <svg class='remove-item-image' width='15' height='15'>
           <use href='./img/icons.svg#icon-close-btn'></use>
@@ -67,11 +67,11 @@ async function addItem(id) {
      <h2 class='product-name'>${name}</h2>
 		 <div class='prod-desc'>
 
-     <p class='prod-value'><span class='product-category'>Category:&nbsp;</span>${category.replace(
+     <p class='prod-value'><span class='product-category-cart'>Category:&nbsp;</span>${category.replace(
       '_',
       ' '
     )}</p>
-     <p class='prod-value'><span class='product-category'>Size:&nbsp;</span> ${size}</p>
+     <p class='prod-value'><span class='product-category-cart'>Size:&nbsp;</span> ${size}</p>
      </div>
 		 <p class='prod-price'>$${price}</p>
 
