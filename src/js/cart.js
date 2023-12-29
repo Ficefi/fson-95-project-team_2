@@ -10,7 +10,8 @@ const selectors = {
   delete_all_btn: document.querySelector('.del-all-btn'),
   order_total: document.querySelector('.order-total'),
   cart_form_authorization: document.querySelector('.cart-form-authorization'),
-  cart_label_wrap: document.querySelector('.cart-label-wrap')
+  cart_label_wrap: document.querySelector('.cart-label-wrap'),
+  qty_card: document.querySelector(".qty-card")
 };
 // function displayCart() {
 //   let j = 0;
@@ -121,6 +122,9 @@ function handleRemove(e) {
     return;
   }
 
+  const number = selectors.qty_card.textContent;
+  selectors.qty_card.textContent = String(number - 1)
+
   const item = e.target.closest('.basket-item');
 
   totalPrice = totalPrice - Number(item.dataset.price);
@@ -150,5 +154,11 @@ function deleteAllFromBasket() {
 }
 
 
-
+const content = document.querySelectorAll('main')
+const content1 = document.querySelectorAll('footer')
+const content2 = document.querySelectorAll('header')
+content[1].style.display = 'none'
+content1[1].style.display = 'none'
+content2[1].style.display = 'none'
+console.log(content[1]);
 
