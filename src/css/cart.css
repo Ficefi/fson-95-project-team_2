@@ -80,7 +80,11 @@
 
 .basket-item {
   display: flex;
-  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.basket-item:not(:last-child) {
+ border-bottom: rgba(1, 1, 1, 0.10) 1px solid ;
 }
 
 .basket-item:not(:first-child) {
