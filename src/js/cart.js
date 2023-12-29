@@ -1,6 +1,7 @@
 import { getProductById } from './fetchAPI.js';
 import { addToStorageCart, removeFromStorageCart } from './localStorage.js';
 
+
 const selectors = {
   cart: document.querySelector('.cart'),
   basket_items: document.querySelector('.basket-items'),
