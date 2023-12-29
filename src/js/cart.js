@@ -152,13 +152,3 @@ function deleteAllFromBasket() {
 
 
 
-
-
-// TESTS
-addToStorageCart("640c2dd963a319ea671e3825");
-addToStorageCart("640c2dd963a319ea671e37bf");
-addToStorageCart("640c2dd963a319ea671e3812");
-addToStorageCart("640c2dd963a319ea671e3661");
-addToStorageCart("640c2dd963a319ea671e3662");
-addToStorageCart("640c2dd963a319ea671e365f");
-addToStorageCart("640c2dd963a319ea671e3663");
