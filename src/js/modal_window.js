@@ -25,8 +25,8 @@ export async function openModal(id) {
   await getProductById(id).then(response => {
     const { img, name, desc, category, size, popularity, price } = response;
 
-    const descriptionTemp = desc.split(" ");
-
+    const descriptionTemp = desc.split("");
+    
     content.innerHTML = `<div class='image-wrap'>
    <button class='modal-close-btn' data-modal-close aria-label='close modal button'>
         <svg class='modal-window-close-button' width='15' height='15'>
@@ -56,7 +56,7 @@ export async function openModal(id) {
 
   `;
 
-    if (descriptionTemp.length > 48) {
+    if (descriptionTemp.length > 300) {
       const thing = document.querySelector(".modal-descr");
       thing.classList.add("modal-descr-fixed")
     } else {
