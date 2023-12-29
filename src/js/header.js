@@ -1,6 +1,10 @@
-const qtyCart = document.querySelector('.qty-card-products');
+export const qty_card_products = document.querySelector('.qty-card-products');
 
-const qtyProd = JSON.parse(localStorage.getItem('cart')) || [];
-let qtyProducts = qtyProd.length;
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+export let numberOfProducts = cart.length;
 
-qtyCart.textContent = String(qtyProducts);
+export function handleCartItem(num) {
+  qty_card_products.textContent = String(num);
+}
+
+handleCartItem(numberOfProducts);
