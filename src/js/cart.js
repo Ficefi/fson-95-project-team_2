@@ -154,6 +154,7 @@ function deleteAllFromBasket() {
 }
 
 
+///////////костилі///////////
 const content = document.querySelectorAll('main')
 const content1 = document.querySelectorAll('footer')
 const content2 = document.querySelectorAll('header')
