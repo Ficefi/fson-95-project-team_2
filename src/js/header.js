@@ -1,5 +1,7 @@
-document.querySelector('.qty-card-products')
-let qtyCardProducts = cart.length;
+const qtyCart = document.querySelector('.qty-card-products');
+let qtyCardProducts = qtyCart.length;
 
-const cart = JSON.parse(localStorage.getItem('qty-card-products')) || [];
-selector.qty-card-products.textContent = String(qtyCardProducts);
+function handleCart() {
+  const qtyCart = JSON.parse(localStorage.getItem('cart')) || [];
+  qtyCart.textContent = String(qtyCardProducts);
+}
