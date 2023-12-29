@@ -18,7 +18,6 @@ export async function getProducts(page) {
   localStorage.getItem("page")
   localStorage.setItem("limit", (limit))
   localStorage.getItem("limit")
-  console.log(response)                                         
   return response.data;
 }
 
@@ -40,9 +39,9 @@ async function getDiscountProducts() {
   const response = await axios.get(
     'https://food-boutique.b.goit.study/api/products/discount',
   );
-  
+
   return response.data;
-  
+
 
 }
 

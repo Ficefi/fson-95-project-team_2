@@ -136,7 +136,6 @@ function removeFromStorageCart(productId) {
 function isExistInCart(productId) {
   try {
     const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
-    console.log(currentCart);
     return currentCart.includes(productId);
   } catch (error) {
     console.error('Помилка парсингу JSON:', error);
