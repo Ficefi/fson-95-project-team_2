@@ -14,17 +14,44 @@ const selectors = {
 
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+// BASKET EMPTY
+
+function createMarkupCartEmpty() {
+  return `
+	<div class="cart-label-wrap">
+		<div class="icon-cart-wrap">
+			<svg class="icon-cart" width="38" height="38px">
+				<use href="../img/icons.svg#icon-cart"></use>
+			</svg>
+		</div>
+	</div>
+		<div class="cart-empty">
+		<div class="cart-label" id="cart-counter">CART (<span class="number-of-products">0</span>)</div>
+		<img class="basket-img" src="../img/shopping_cart.png" width="164px" height="140px" alt="Yellow shopping basket">
+		<h2 class="basket-title">
+			Your basket is <span class="accent-txt">empty...</span>
+		</h2>
+		<p class="basket-txt">Go to the main page to select your favorite products and add them to the cart.</p>
+	</div>
+  `;
+}
+
 //////////////// IF SOMETHING IN CART HIDE BASKET IMAGE///////////////
 
 if (cart.length > 0) {
   selectors.cart.style.display = 'none';
 } else if (cart.length === 0) {
-  selectors.cart.style.display = 'flex';
-  selectors.basket_items.style.display = 'none';
-  selectors.delete_all_btn.style.display = 'none';
-  selectors.order_total.style.display = 'none';
-  selectors.cart_form_authorization.style.display = 'none';
-  selectors.cart_label_wrap.style.display = 'none';
+  if (cartArr.length === 0) {
+    cart.innerHTML = createMarkupCartEmpty();
+    return;
+  }
+
+  // selectors.cart.style.display = 'flex';
+  // selectors.basket_items.style.display = 'none';
+  // selectors.delete_all_btn.style.display = 'none';
+  // selectors.order_total.style.display = 'none';
+  // selectors.cart_form_authorization.style.display = 'none';
+  // selectors.cart_label_wrap.style.display = 'none';
 }
 
 ///////////////NUMBER OF PRODUCTS IN CART///////////
