@@ -154,7 +154,7 @@
 
   .product-card {
     max-width: 100%;
-    margin: 0 20px 0 20px;
+    margin: 0 20px 40px 20px;
   }
 
   .product-content {
@@ -169,4 +169,8 @@
   box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
   transition: box-shadow 0.3s ease-in-out;
   cursor: pointer;
+}
+
+aside {
+  margin-bottom: 250px;
 }

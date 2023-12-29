@@ -65,7 +65,7 @@ async function addToBasket() {
     button.addEventListener("click", handleAddToCart);
     const id = button.dataset.id;
     if (isExistInCart(id)) {
-      button.setAttribute("disabled", true);
+      button.setAttribute("disabled", "true");
       button.innerHTML = `
         <svg class="basket-icon-check" width="18" height="18">
           <use href="${svg}#icon-check"></use>

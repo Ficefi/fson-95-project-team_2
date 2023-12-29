@@ -27,6 +27,7 @@
     border-radius: 20px;
     background: #FAFAFA;
     cursor: pointer;
+  height: 363px;
 }
 
 .item-product:hover {
