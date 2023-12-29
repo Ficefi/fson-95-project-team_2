@@ -1,6 +1,6 @@
 import { getAllProducts, getCategoriesProducts, getDiscountProducts, getPopularProducts, getProductById, createNewOrder, sendSubscription } from "./fetchAPI"
 import { openModal } from "./modal_window"
-import  svgIcon  from '../img/icons.svg'
+import svg from '../img/icons.svg';
 // import { addToStorageCart, removeFromStorageCart, isExistInCart } from "./localStorage"
 
 const card = document.querySelector('.card');
@@ -15,7 +15,7 @@ function createMarkup(images, names, startIndex = 0) {
     `<li class="card_item" data-id="${_id}">
       <div class="discount-icon-container">
         <svg class="discount-icon" width="60" height="60">
-          <use href="${svgIcon}#icon-discount"></use>
+          <use href="${svg}#icon-discount"></use>
         </svg>
       </div>
       <div class="card-content">
@@ -27,7 +27,7 @@ function createMarkup(images, names, startIndex = 0) {
       </div>
       <button class="basket" data-id="${_id}">
         <svg class="basket-icon" width="18" height="18">
-          <use href="${svgIcon}#icon-cart"></use>
+          <use href="${svg}#icon-cart"></use>
         </svg>
       </button>
     </li>`
@@ -68,7 +68,7 @@ async function addToBasket() {
       button.setAttribute("disabled", true);
       button.innerHTML = `
         <svg class="basket-icon-check" width="18" height="18">
-          <use href="${svgIcon}#icon-check"></use>
+          <use href="${svg}#icon-check"></use>
         </svg>
       `;
     }
@@ -85,7 +85,7 @@ function handleAddToCart(e) {
     button.removeAttribute("disabled");
     button.innerHTML = `
       <svg class="basket-icon" width="18" height="18">
-        <use href="${svgIcon}#icon-cart"></use>
+        <use href="${svg}#icon-cart"></use>
       </svg>
     `;
   } else {
@@ -93,7 +93,7 @@ function handleAddToCart(e) {
     button.setAttribute("disabled", true);
     button.innerHTML = `
       <svg class="basket-icon-check" width="18" height="18">
-        <use href="${svgIcon}#icon-check"></use>
+        <use href="${svg}#icon-check"></use>
       </svg>
     `;
   }

@@ -1,6 +1,6 @@
 import { getPopularProducts } from './fetchAPI';
 import { openModal } from './modal_window';
-import svg from '../img/icons.svg'
+import svg from '../img/icons.svg';
 
 const product_list = document.querySelector('.product-card');
 
