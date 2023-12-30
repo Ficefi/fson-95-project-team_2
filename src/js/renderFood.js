@@ -76,6 +76,7 @@ function renderFood() {
       } else {
         errors.style.display = "none"
       }
+    
       createMarkup(foodImages.results);
     })
     .catch(error => {
