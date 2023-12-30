@@ -19,7 +19,7 @@
 			<h1 hidden>Your basket</h1>
 			<div class="cart-label-wrap">
 				<div class="icon-cart-wrap">
-					<svg class="icon-cart" width="38" height="38px">
+					<svg class="icon-cart-cart" width="38" height="38px">
 						<use href="/img/icons.svg#icon-cart"></use>
 					</svg>
 				</div>
@@ -39,21 +39,23 @@
 			</div>
 
 			<!-- ПУСТА КОРЗИНА end-->
+
+
 			<div class="del-all-btn"><span class="del-all-txt">Delete all</span><button class="remove-all-item"
 					data-modal-close aria-label="close modal button">
 					<svg class="remove-item-image" width="24" height="24">
 						<use href="/img/icons.svg#icon-close-btn"></use>
 					</svg>
 				</button></div>
-			<ul class="basket-items"></ul>
-
+			<ul class="basket-items-cart"></ul>
+<div class='total-order-cart-wrap'>
 			<div class="order-total">
 				<h2 class="cart-label order-title">YOUR ORDER</h2>
 
 				<div class="total">
 					<p class="product-name">Total</p>
 					<div class="sum">
-						<p class="sum2"><span class="product-category">Sum:&nbsp;</span>
+						<p class="sum2"><span class="summ-cart">Sum:&nbsp;</span>
 							<span class="total-price"></span>
 						</p>
 					</div>
@@ -69,14 +71,8 @@
 				</label>
 				<button class="btn-form-cart" type="submit">Checkout</button>
 			</form>
-			<!-- <form>
-			<label>
-				<input placeholder='Mail: Enter your email'>
-			</label>
-			<button type='submit'>Checkout</button>
-		</form> -->
+</div>
 
-			<!-- form end -->
 		</section>
 
 		<!-- cart end -->

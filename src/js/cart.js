@@ -5,7 +5,7 @@ import { handleCartItem, qty_card_products } from './header.js';
 
 const selectors = {
   cart: document.querySelector('.cart'),
-  basket_items: document.querySelector('.basket-items'),
+  basket_items: document.querySelector('.basket-items-cart'),
   number_of_products: document.querySelector('.number-of-products'),
   total_price: document.querySelector('.total-price'),
   delete_all_btn: document.querySelector('.del-all-btn'),
@@ -71,7 +71,7 @@ async function addItem(id) {
      <p class='prod-value'><span class='product-category-cart'>Category:&nbsp;</span>${category.replace(
       '_',
       ' '
-    )}</p>
+    ).replace("&", "").replace("_", " ")}</p>
      <p class='prod-value'><span class='product-category-cart'>Size:&nbsp;</span> ${size}</p>
      </div>
 		 <p class='prod-price'>$${price}</p>
@@ -127,7 +127,7 @@ function handleRemove(e) {
   const number = selectors.qty_card.textContent;
   selectors.qty_card.textContent = String(number - 1)
 
-  const item = e.target.closest('.basket-item');
+  const item = e.target.closest('.basket-item-cart');
 
   totalPrice = totalPrice - Number(item.dataset.price);
 
@@ -164,5 +164,4 @@ const content2 = document.querySelectorAll('header')
 content[1].style.display = 'none'
 content1[1].style.display = 'none'
 content2[1].style.display = 'none'
-console.log(content[1]);
 
