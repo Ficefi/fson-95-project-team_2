@@ -3,6 +3,7 @@ import { addToStorageCart, removeFromStorageCart, isExistInCart} from './localSt
 import vegetables from "../img/2x/desktop/fruitCart@2x.png"
 import orderDone from "../img/check-mark.png"
 import { handleCartItem, numberOfProducts, qty_card_products } from './header.js';
+import svg from "../img/icons.svg";
 
 const modal = document.querySelector('.js-modal');
 const content = document.querySelector('.modal-content');
@@ -24,17 +25,20 @@ export async function openModal(id) {
   //ADD MARKUP FOR MODAL WINDOW///////
 
   await getProductById(id).then(response => {
-    const { img, name, desc, category, size, popularity, price } = response;
+    const { img, name, desc, category, size, popularity, price, is10PercentOff } = response;
 
     const descriptionTemp = desc.split("");
 
     content.innerHTML = `<div class='image-wrap'>
    <button class='modal-close-btn' data-modal-close aria-label='close modal button'>
         <svg class='modal-window-close-button' width='15' height='15'>
-          <use href='./img/icons.svg#icon-close-btn'></use>
+          <use href="${svg}#icon-close-btn"></use>
         </svg>
-      </button>
+      </button><div class='discount-icon-wrap'>
     <img src='${img}' alt='${desc}' class='modal-img'>
+          <svg class="discount-icon-modal is-hidden" width="60" height="60">
+          <use href="${svg}#icon-discount"></use>
+          </div>
     </div>
     <div class='modal-descr-together'>
     <div class='modal-descr-container'>
@@ -51,11 +55,19 @@ export async function openModal(id) {
     <p class='modal-price'>$${price}</p>
     <button type='submit' class='modal-cart-btn'>Add to
         <svg class='modal-window-cart-button' width='18' height='18'>
-          <use href='./img/icons.svg#icon-cart'></use>
+          <use href="${svg}#icon-cart"></use>
         </svg></button>
     </div>
 
   `;
+
+    console.log(is10PercentOff);
+
+    if (is10PercentOff === true) {
+      const discount = document.querySelector(".discount-icon-modal")
+      console.log(discount);
+      discount.classList.remove("is-hidden")
+    }
 
     if (descriptionTemp.length > 300) {
       const thing = document.querySelector(".modal-descr");
@@ -142,7 +154,7 @@ export async function subscriptionModal(email) {
     subscriptionModalContent.innerHTML = `<div class='success-text-wrap'>
    <button class='modal-close-btn' data-modal-close aria-label='close modal button'>
         <svg class='modal-window-close-button' width='15' height='15'>
-          <use href='./img/icons.svg#icon-close-btn'></use>
+          <use href='${svg}#icon-close-btn'></use>
         </svg>
       </button>
       <h2 class='subscription-success-header'>Thanks for subscribing for <span class='subscription-success-email'>new</span> products</h2>
@@ -155,7 +167,7 @@ export async function subscriptionModal(email) {
       subscriptionModalContent.innerHTML = `<div class='text-wrap'>
    <button class='modal-close-btn' data-modal-close aria-label='close modal button'>
         <svg class='modal-window-close-button' width='15' height='15'>
-          <use href='./img/icons.svg#icon-close-btn'></use>
+          <use href='${svg}#icon-close-btn'></use>
         </svg>
       </button>
       <h2 class='subscription-failed-header'>This <span class='subscription-failed-email'>email address</span> has already been entered</h2>
@@ -214,7 +226,7 @@ export function orderSuccessModal() {
   orderContent.innerHTML = `
   <button class='modal-close-btn' data-modal-close aria-label='close modal button'>
         <svg class='modal-window-close-button' width='20' height='20'>
-          <use href='./img/icons.svg#icon-close-btn'></use>
+          <use href='${svg}#icon-close-btn'></use>
         </svg>
       </button>
     <img src='${orderDone}' alt='order successful' class='order-success-img'>
