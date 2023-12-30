@@ -67,6 +67,8 @@ function renderFood() {
     .then(foodImages => {
       if (foodImages.results.length === 0) {
         errors.style.display = 'flex';
+      } else {
+        errors.style.display = "none";
       }
       createMarkup(foodImages.results);
     })
