@@ -171,6 +171,9 @@
   cursor: pointer;
 }
 
-aside {
-  margin-bottom: 250px;
+
+@media screen and (min-width: 1280px) {
+  aside {
+    margin-bottom: 250px;
+  }
 }

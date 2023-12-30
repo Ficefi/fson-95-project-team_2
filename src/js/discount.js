@@ -3,7 +3,7 @@ import { openModal } from "./modal_window"
 import svg from '../img/icons.svg';
 // import { addToStorageCart, removeFromStorageCart, isExistInCart } from "./localStorage"
 
-const card = document.querySelector('.card');
+const card = document.querySelector('.discount_container');
 // Ліміт карток на сторінці
 const cardsPerPage = 2;
 
