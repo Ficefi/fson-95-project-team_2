@@ -28,6 +28,7 @@
 footer {
     background: var(--light_green);
     font-family: Neue Montreal Regular;
+  min-width: 375px;
 }
 .footer-container {
     padding-top: 40px;
@@ -56,7 +57,7 @@ footer {
 }
 .footer-logo-text {
     color: var(--gray);
-    
+
         font-family: FONTSPRING DEMO Regular;
         font-size: 18px;
         font-style: normal;

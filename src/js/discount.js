@@ -3,7 +3,7 @@ import { openModal } from "./modal_window"
 import svg from '../img/icons.svg';
 // import { addToStorageCart, removeFromStorageCart, isExistInCart } from "./localStorage"
 
-const card = document.querySelector('.card');
+const card = document.querySelector('.discount_container');
 // Ліміт карток на сторінці
 const cardsPerPage = 2;
 
@@ -65,7 +65,7 @@ async function addToBasket() {
     button.addEventListener("click", handleAddToCart);
     const id = button.dataset.id;
     if (isExistInCart(id)) {
-      button.setAttribute("disabled", true);
+      button.setAttribute("disabled", "true");
       button.innerHTML = `
         <svg class="basket-icon-check" width="18" height="18">
           <use href="${svg}#icon-check"></use>

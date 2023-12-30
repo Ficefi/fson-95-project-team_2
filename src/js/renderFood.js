@@ -1,6 +1,7 @@
 import { getProducts, getCategoriesProducts } from './fetchAPI';
 import { openModal } from './modal_window';
 import svg from '../img/icons.svg';
+import { isExistInCart } from './localStorage.js';
 
 const list = document.querySelector('.list-product');
 
@@ -144,6 +145,10 @@ function createMarkup(array) {
     .join('');
   list.innerHTML = '';
   list.insertAdjacentHTML('beforeend', markup);
+
+
+
+
 }
 
 function callModal(event) {
@@ -153,8 +158,12 @@ function callModal(event) {
     const id = item.dataset.id;
     openModal(id);
   }
+
+ 
 }
 
 list.addEventListener('click', callModal);
+
+
 
 export { createMarkup };

@@ -26,6 +26,15 @@
     justify-content: center;
     border-radius: 20px;
     background: #FAFAFA;
+    cursor: pointer;
+  height: 363px;
+}
+
+.item-product:hover {
+  -webkit-box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
+  box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .product-container{
