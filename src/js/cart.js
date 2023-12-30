@@ -109,6 +109,8 @@ addAllItem().then(resp => {
     selectors.cart_form_authorization.reset();
     deleteAllFromBasket();
     handleCartItem(0)
+
+
   }
 
 })

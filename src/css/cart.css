@@ -440,6 +440,13 @@ input:focus::placeholder {
   .basket-items-cart {
     margin-bottom: 100px;
   }
+  .prod-price {
+
+    font-family: Neue Montreal Medium;
+    font-size: 20px;
+    font-style: normal;
+    line-height: 24px; /* 120% */
+  }
 }
 
 
