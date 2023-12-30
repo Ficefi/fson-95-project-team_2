@@ -10,10 +10,10 @@
 	<title>Cart</title>
   <script type="module" crossorigin src="/fson-95-project-team_2/commonHelpers.js"></script>
   <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/vendor-b592f4c5.js">
-  <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/pagination-e2fa912a.js">
+  <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/pagination-4e78ffbe.js">
   <link rel="stylesheet" href="/fson-95-project-team_2/assets/vendor-a0b14d8a.css">
-  <link rel="stylesheet" href="/fson-95-project-team_2/assets/pagination-01a93154.css">
-  <link rel="stylesheet" href="/fson-95-project-team_2/assets/cart-e98dab87.css">
+  <link rel="stylesheet" href="/fson-95-project-team_2/assets/pagination-833ecc6c.css">
+  <link rel="stylesheet" href="/fson-95-project-team_2/assets/cart-b9a31edb.css">
 </head>
 
 <body>
@@ -81,7 +81,7 @@
 			<div class="cart-label-wrap">
 				<div class="icon-cart-wrap">
 					<svg class="icon-cart" width="38" height="38px">
-						<use href="../img/icons.svg#icon-cart"></use>
+						<use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-cart"></use>
 					</svg>
 				</div>
 				<div class="cart-label" id="cart-counter">CART (<span class="number-of-products">0</span>)</div>
@@ -91,7 +91,7 @@
 			<!-- ПУСТА КОРЗИНА -->
 
 			<div class="cart">
-				<img class="basket-img" src="../img/shopping_cart.png" width="164px" height="140px"
+				<img class="basket-img" src="/fson-95-project-team_2/assets/shopping_cart-6400acde.png" width="164px" height="140px"
 					alt="Yellow shopping basket">
 				<h2 class="basket-title">
 					Your basket is <span class="accent-txt">empty...</span>
@@ -100,11 +100,10 @@
 			</div>
 
 			<!-- ПУСТА КОРЗИНА end-->
-
 			<div class="del-all-btn"><span class="del-all-txt">Delete all</span><button class="remove-all-item"
 					data-modal-close aria-label="close modal button">
 					<svg class="remove-item-image" width="24" height="24">
-						<use href="../img/icons.svg#icon-close-btn"></use>
+						<use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-close-btn"></use>
 					</svg>
 				</button></div>
 			<ul class="basket-items"></ul>
@@ -126,12 +125,11 @@
 
 			<form class="cart-form-authorization" name="authorization_send" autocomplete="off">
 				<label class="cart-form-label" for="email">
-					<input class="form-input" type="email" name="email" placeholder="Enter your email" id="email"
+          <input class="form-input-cart" type="email" name="email" placeholder="Enter your email" id="email"
 						required autofocus />
 				</label>
-				<button class="btn-form" type="submit">Checkout</button>
+				<button class="btn-form-cart" type="submit">Checkout</button>
 			</form>
-
 			<!-- <form>
 			<label>
 				<input placeholder='Mail: Enter your email'>
