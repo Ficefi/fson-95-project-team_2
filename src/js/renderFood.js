@@ -71,6 +71,7 @@ renderCategory();
 function renderFood() {
   getProducts()
     .then(foodImages => {
+      
       if (foodImages.results.length === 0) {
         errors.style.display = "flex"
       } else {
