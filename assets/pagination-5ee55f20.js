@@ -163,4 +163,4 @@ import{a as h,P as B}from"./vendor-b592f4c5.js";(function(){const t=document.cre
         <use href="../img/icons.svg#icon-check"></use>
       </svg>
     `)});export{ce as g,S as h,$e as o,z as r};
-//# sourceMappingURL=pagination-4e78ffbe.js.map
+//# sourceMappingURL=pagination-5ee55f20.js.map
