@@ -1,6 +1,7 @@
 import { getProductById } from './fetchAPI.js';
 import { addToStorageCart, removeFromStorageCart } from './localStorage.js';
 import { orderSuccessModal } from './modal_window.js';
+import { handleCartItem, qty_card_products } from './header.js';
 
 const selectors = {
   cart: document.querySelector('.cart'),
@@ -57,8 +58,8 @@ async function addItem(id) {
     const { name, category, size, price, img, desc, _id } = response;
     itemPrice = price;
     const markup = `<li class='basket-item-cart' data-id="${_id}" data-price="${price}">
-  <button class='remove-item' data-modal-close aria-label='close modal button'>
-        <svg class='remove-item-image' width='15' height='15'>
+  <button class='remove-item' data-modal-close aria-label='delete button'>
+        <svg class='remove-item-image' width='20' height='20'>
           <use href='./img/icons.svg#icon-close-btn'></use>
         </svg>
       </button>
@@ -107,6 +108,7 @@ addAllItem().then(resp => {
     orderSuccessModal();
     selectors.cart_form_authorization.reset();
     deleteAllFromBasket();
+    handleCartItem(0)
   }
 
 })
@@ -145,6 +147,7 @@ function handleRemove(e) {
 selectors.delete_all_btn.addEventListener('click', deleteAllFromBasket)
 function deleteAllFromBasket() {
   localStorage.removeItem('cart');
+  handleCartItem(0)
   selectors.cart.style.display = 'flex';
   selectors.basket_items.style.display = 'none';
   selectors.delete_all_btn.style.display = 'none';
