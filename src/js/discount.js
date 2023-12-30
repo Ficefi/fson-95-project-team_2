@@ -1,7 +1,7 @@
 import { getAllProducts, getCategoriesProducts, getDiscountProducts, getPopularProducts, getProductById, createNewOrder, sendSubscription } from "./fetchAPI"
 import { openModal } from "./modal_window"
 import svg from '../img/icons.svg';
-// import { addToStorageCart, removeFromStorageCart, isExistInCart } from "./localStorage"
+import { addToStorageCart, removeFromStorageCart, isExistInCart } from "./localStorage"
 
 const card = document.querySelector('.discount_container');
 // Ліміт карток на сторінці
@@ -80,9 +80,9 @@ function handleAddToCart(e) {
   const button = e.currentTarget;
   const id = button.dataset.id;
 
-  if (button.hasAttribute("disabled")) {
+  if (isExistInCart(id)) {
     removeFromStorageCart(id)
-    button.removeAttribute("disabled");
+    button.removeAttribute(id);
     button.innerHTML = `
       <svg class="basket-icon" width="18" height="18">
         <use href="${svg}#icon-cart"></use>
@@ -101,39 +101,5 @@ function handleAddToCart(e) {
 
 
 
-
-
-function addToStorageCart(productId) {
-  const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
-
-  if (!currentCart.includes(productId)) {
-    currentCart.push(productId);
-
-    localStorage.setItem('cart', JSON.stringify(currentCart));
-  }
-}
-
-
-function removeFromStorageCart(productId) {
-  const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
-
-  const index = currentCart.indexOf(productId);
-
-  if (index !== -1) {
-    currentCart.splice(index, 1);
-
-    localStorage.setItem('cart', JSON.stringify(currentCart));
-  }
-}
-
-function isExistInCart(productId) {
-  try {
-    const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
-    return currentCart.includes(productId);
-  } catch (error) {
-    console.error('Помилка парсингу JSON:', error);
-    return false;
-  }
-}
 
 
