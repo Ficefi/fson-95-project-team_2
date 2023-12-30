@@ -85,6 +85,7 @@
   display: flex;
   margin-bottom: 30px;
   padding-bottom: 40px;
+  position: relative;
 }
 
 
@@ -399,6 +400,42 @@ input:focus::placeholder {
     margin-top: 7px;
   }
 
+
+  .quantity-counter-wrapper {
+    position: absolute;
+    right: 20px;
+    display: inline-flex;
+    padding: 4px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border-radius: 100px;
+    border: 1px solid rgba(1, 1, 1, 0.10);
+  }
+
+  .decrement-button {
+    height: 14px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .quantity-cart {
+    color: #010101;
+    font-family: Neue Montreal Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 112.5% */
+  }
+
+  .increment-button {
+    height: 14px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+
 }
 
 
@@ -447,6 +484,7 @@ input:focus::placeholder {
     font-style: normal;
     line-height: 24px; /* 120% */
   }
+
 }
 
 

@@ -2,6 +2,7 @@ import { getProductById } from './fetchAPI.js';
 import { addToStorageCart, removeFromStorageCart } from './localStorage.js';
 import { orderSuccessModal } from './modal_window.js';
 import { handleCartItem, qty_card_products } from './header.js';
+import svg from '../img/icons.svg';
 
 const selectors = {
   cart: document.querySelector('.cart'),
@@ -60,7 +61,7 @@ async function addItem(id) {
     const markup = `<li class='basket-item-cart' data-id="${_id}" data-price="${price}">
   <button class='remove-item' data-modal-close aria-label='delete button'>
         <svg class='remove-item-image' width='20' height='20'>
-          <use href='./img/icons.svg#icon-close-btn'></use>
+          <use href='${svg}#icon-close-btn'></use>
         </svg>
       </button>
      <img class='product-img' src="${img}" alt="${desc}">
@@ -75,7 +76,16 @@ async function addItem(id) {
      <p class='prod-value'><span class='product-category-cart'>Size:&nbsp;</span> ${size}</p>
      </div>
 		 <p class='prod-price'>$${price}</p>
-
+<!--     <div class='quantity-counter-wrapper'>-->
+<!--     <button class='decrement-button'><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">-->
+<!--  <path d="M2.91797 7H11.0846" stroke="#010101" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>-->
+<!--</svg></button>-->
+<!--     <span class='quantity-cart'>1</span>-->
+<!--     <button class='increment-button'><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">-->
+<!--  <path d="M7 2.91669V11.0834" stroke="#010101" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>-->
+<!--  <path d="M2.91797 7H11.0846" stroke="#010101" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>-->
+<!--</svg></button>-->
+<!--</div>-->
      </div>
 
      </li>
@@ -109,8 +119,22 @@ addAllItem().then(resp => {
     selectors.cart_form_authorization.reset();
     deleteAllFromBasket();
     handleCartItem(0)
+  }
+
+  /////////////// INCREMENT AND DECREMENT /////////////////
 
 
+  const incrementBtn = document.querySelector('.increment-button')
+  incrementBtn.addEventListener('click', handleIncrement)
+
+  function handleIncrement(event) {
+    console.log(event.target.closest('.basket-item-cart'))
+
+   const cartArray = JSON.parse(localStorage.getItem('cart'));
+
+
+
+      console.log(cartArray);
   }
 
 })
