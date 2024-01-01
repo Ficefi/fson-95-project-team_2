@@ -1,20 +1,4 @@
 
-@media screen and (min-width: 320px) {
-.prod-desc {
-  flex-wrap: wrap;
-}
-
-
-  .form-input-cart::placeholder {
-    color: var(--black);
-    font-family: Neue Montreal Regular;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px; /* 128.571% */
-  }
-}
-
 .cart {
   display: flex;
   flex-direction: column;
@@ -32,13 +16,14 @@
   background-color: var(--light_green);
   border-radius: 50%;
 }
+
 .icon-cart {
   fill: var(--gray);
   padding: 10px;
 }
 
 .cart-label {
-  font-family: Neue Montreal, sans-serif;
+  font-family: Neue Montreal Medium;
   font-size: 32px;
   font-style: normal;
   font-weight: 500;
@@ -52,12 +37,12 @@
   justify-content: flex-end;
   margin-bottom: 40px;
   color: var(--black);
-  width: 700px;
   font-family: Neue Montreal Ragular, sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
 }
+
 .basket-img {
   margin-top: 135px;
   margin-bottom: 40px;
@@ -72,6 +57,7 @@
   text-align: center;
   color: var(--black);
 }
+
 .basket-txt {
   color: rgba(1, 1, 1, 0.7);
   padding-bottom: 120px;
@@ -85,9 +71,10 @@
 .accent-txt {
   color: var(--light_green);
 }
+
 /* .prod-items-wrap {
 } */
-.basket-items {
+.basket-items-cart {
   position: relative;
   height: 550px;
   width: 335px;
@@ -98,8 +85,8 @@
   display: flex;
   margin-bottom: 30px;
   padding-bottom: 40px;
+  position: relative;
 }
-
 
 
 .basket-item-cart:not(:last-child) {
@@ -111,6 +98,7 @@
   margin-top: 30px;
 
 }
+
 .product-img {
   width: 100px;
   height: 100px;
@@ -139,6 +127,7 @@
   font-weight: 400;
   line-height: 14px; /* 116.667% */
 }
+
 .prod-value {
   display: flex;
   margin-bottom: 3px;
@@ -165,9 +154,11 @@
   font-weight: 500;
   line-height: 20px;
 }
+
 .order-title {
   margin-top: 50px;
 }
+
 .del-all-btn {
   position: relative;
   display: flex;
@@ -203,9 +194,11 @@
   border: none;
   margin-right: 15px;
 }
+
 .remove-item-image {
   pointer-events: none;
 }
+
 .total {
   display: flex;
   align-items: center;
@@ -216,10 +209,11 @@
   border-radius: 8px;
   background-color: rgba(109, 132, 52, 0.05);
 }
+
 .total-price {
   color: var(--black);
 
-  font-family: Neue Montreal, sans-serif;
+  font-family: Neue Montreal Medium;
   font-size: 24px;
   font-weight: 500;
   line-height: 28px;
@@ -254,6 +248,7 @@
 .cart-form-label {
   width: 93.5%;
 }
+
 .form-input-cart {
   display: flex;
   padding-left: 18px;
@@ -271,11 +266,13 @@
   background-color: transparent;
   transition: color 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
 }
+
 input::placeholder {
   color: var(--light_green);
   font-family: Neue Montreal Regular;
   line-height: 1.28;
 }
+
 input:hover::placeholder,
 input:focus::placeholder {
   color: rgba(1, 1, 1, 0.3);
@@ -298,10 +295,12 @@ input:focus::placeholder {
   line-height: 1.28;
   transition: color 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
 }
+
 .btn-form-cart:hover,
 .btn-form-cart:focus {
   color: var(--black);
 }
+
 .cart-form-caption {
   display: flex;
   flex-direction: column;
@@ -311,26 +310,31 @@ input:focus::placeholder {
 /* card form styles end */
 
 @media only screen and (min-width: 768px) {
-  .basket-items {
+  .basket-items-cart {
     height: 550px;
     width: 728px;
     overflow: auto;
   }
+
   .cart-form-authorization {
     flex-direction: row;
     width: 591px;
   }
+
   .total {
     width: 535px;
   }
+
   .form-input-cart {
     width: 360px;
     margin-right: 16px;
   }
+
   .btn-form {
     width: 215px;
   }
 }
+
 /* @media only screen and (min-width: 768px) {
   .cart-form-form {
     padding-bottom: 120px;
@@ -355,7 +359,132 @@ input:focus::placeholder {
 } */
 
 @media only screen and (min-width: 320px) {
-  .cart-label-wrap{
+  .cart-label-wrap {
     padding-top: 85px;
   }
 }
+
+
+@media screen and (min-width: 320px) {
+  .prod-desc {
+    flex-wrap: wrap;
+  }
+
+  .form-input-cart::placeholder {
+    color: var(--black);
+    font-family: Neue Montreal Regular;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 128.571% */
+  }
+  .icon-cart-cart {
+    fill: var(--gray);
+    width: 24px;
+    height: 24px;
+    padding: 7px;
+  }
+
+  .icon-cart-wrap {
+    width: 38px;
+    height: 38px;
+  }
+
+  .summ-cart {
+    color: rgba(1, 1, 1, 0.30);
+    font-family: Neue Montreal Regular;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px; /* 116.667% */
+    margin-top: 7px;
+  }
+
+
+  .quantity-counter-wrapper {
+    position: absolute;
+    right: 20px;
+    display: inline-flex;
+    padding: 4px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border-radius: 100px;
+    border: 1px solid rgba(1, 1, 1, 0.10);
+  }
+
+  .decrement-button {
+    height: 14px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .quantity-cart {
+    color: #010101;
+    font-family: Neue Montreal Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 112.5% */
+  }
+
+  .increment-button {
+    height: 14px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+
+}
+
+
+@media screen and (min-width: 768px) {
+.total {
+  padding: 0 18px 0 18px;
+}
+
+  .remove-item {
+    margin-right: 35px;
+  }
+  .del-all-btn {
+    margin-right: 25px;
+  }
+
+  .prod-items-wrap {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+@media screen and (min-width: 1440px) {
+  .del-all-btn {
+    width: 700px
+  }
+
+  .total-order-cart-wrap {
+    position: absolute;
+    right: 5px;
+    top: 230px;
+  }
+
+  .container {
+    position: relative;
+  }
+
+  .basket-items-cart {
+    margin-bottom: 100px;
+  }
+  .prod-price {
+
+    font-family: Neue Montreal Medium;
+    font-size: 20px;
+    font-style: normal;
+    line-height: 24px; /* 120% */
+  }
+
+}
+
+
