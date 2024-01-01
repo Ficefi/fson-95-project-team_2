@@ -162,5 +162,5 @@ import{a as h,P as z}from"./vendor-b592f4c5.js";(function(){const t=document.cre
       <svg class="basket-icon-check" width="18" height="18">
         <use href="../img/icons.svg#icon-check"></use>
       </svg>
-    `)});export{ce as g,$ as h,ye as o,D as r};
-//# sourceMappingURL=pagination-2800433d.js.map
+    `)});export{ce as g,$ as h,ye as o,D as r,n as s};
+//# sourceMappingURL=pagination-51078f5b.js.map

@@ -10,10 +10,10 @@
 	<title>Cart</title>
   <script type="module" crossorigin src="/fson-95-project-team_2/commonHelpers.js"></script>
   <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/vendor-b592f4c5.js">
-  <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/pagination-2800433d.js">
+  <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/pagination-51078f5b.js">
   <link rel="stylesheet" href="/fson-95-project-team_2/assets/vendor-a0b14d8a.css">
-  <link rel="stylesheet" href="/fson-95-project-team_2/assets/pagination-83da1ae7.css">
-  <link rel="stylesheet" href="/fson-95-project-team_2/assets/cart-b9a31edb.css">
+  <link rel="stylesheet" href="/fson-95-project-team_2/assets/pagination-c9c75fe0.css">
+  <link rel="stylesheet" href="/fson-95-project-team_2/assets/cart-bb300f98.css">
 </head>
 
 <body>
@@ -80,7 +80,7 @@
 			<h1 hidden>Your basket</h1>
 			<div class="cart-label-wrap">
 				<div class="icon-cart-wrap">
-					<svg class="icon-cart" width="38" height="38px">
+					<svg class="icon-cart-cart" width="38" height="38px">
 						<use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-cart"></use>
 					</svg>
 				</div>
@@ -100,21 +100,23 @@
 			</div>
 
 			<!-- ПУСТА КОРЗИНА end-->
+
+
 			<div class="del-all-btn"><span class="del-all-txt">Delete all</span><button class="remove-all-item"
 					data-modal-close aria-label="close modal button">
 					<svg class="remove-item-image" width="24" height="24">
 						<use href="/fson-95-project-team_2/assets/icons-b3cb9da3.svg#icon-close-btn"></use>
 					</svg>
 				</button></div>
-			<ul class="basket-items"></ul>
-
+			<ul class="basket-items-cart"></ul>
+<div class='total-order-cart-wrap'>
 			<div class="order-total">
 				<h2 class="cart-label order-title">YOUR ORDER</h2>
 
 				<div class="total">
 					<p class="product-name">Total</p>
 					<div class="sum">
-						<p class="sum2"><span class="product-category">Sum:&nbsp;</span>
+						<p class="sum2"><span class="summ-cart">Sum:&nbsp;</span>
 							<span class="total-price"></span>
 						</p>
 					</div>
@@ -130,14 +132,8 @@
 				</label>
 				<button class="btn-form-cart" type="submit">Checkout</button>
 			</form>
-			<!-- <form>
-			<label>
-				<input placeholder='Mail: Enter your email'>
-			</label>
-			<button type='submit'>Checkout</button>
-		</form> -->
+</div>
 
-			<!-- form end -->
 		</section>
 
 		<!-- cart end -->
