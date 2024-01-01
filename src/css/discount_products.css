@@ -1,7 +1,7 @@
 /* Title */
 
 .discount {
-  margin: 0 auto;
+  margin: 80px 20px;
 }
 
 .discount-title {
@@ -32,16 +32,12 @@
   border-radius: 10px;
   margin: 16px;
   min-width: 304px;
-
-
 }
 
 .card-img {
   margin: 18px auto;
   height: 114px;
   min-width: 114px;
-
-
 }
 
 .title-box {
@@ -63,7 +59,6 @@
   margin-bottom: 20px;
   position: relative;
   cursor: pointer;
-
 }
 
 .card_item {
@@ -77,9 +72,7 @@
   margin-bottom: 20px;
   position: relative;
   cursor: pointer;
-
 }
-
 
 .card_item:hover {
   -webkit-box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
@@ -87,7 +80,6 @@
   box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
   transition: box-shadow 0.3s ease-in-out;
 }
-
 
 .discount-icon {
   position: absolute;
@@ -110,7 +102,6 @@
   line-height: 20px; /* 111.111% */
 }
 
-
 .basket {
   width: 34px;
   height: 34px;
@@ -120,7 +111,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 0 16px 8px
+  margin: 0 0 16px 8px;
 }
 
 .basket:hover {
@@ -129,19 +120,21 @@
 
 .basket:disabled:hover {
   background-color: var(--light_green);
-  cursor: auto
+  cursor: auto;
 }
 
 .basket-icon {
-  fill: var(--white)
+  fill: var(--white);
 }
 
 .basket-icon-check {
   stroke: var(--white);
 }
 
-
 @media only screen and (min-width: 768px) {
+  .discount {
+    margin: 64px 32px 100px;
+  }
   /* Title */
   .discount-title {
     font-size: 28px;
@@ -151,16 +144,8 @@
   /* Common */
   .discount_container {
     max-width: 336px;
-
-
-  }
-
-
-  .card {
-    flex-wrap: nowrap;
+    display: flex;
     gap: 32px;
-    justify-content: flex-start;
-
   }
 
   .card-title {
@@ -173,41 +158,31 @@
     line-height: 24px; /* 120% */
   }
 
-
   .discount-icon {
     position: absolute;
     z-index: 999;
     right: 10px;
     top: 3px;
   }
-
 }
 
-
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1240px) {
+  .discount {
+    margin: 40px;
+  }
   .discount_container {
     max-width: 275px;
-
-
+    display: block;
   }
 
   .discount-icon {
     top: -3px;
   }
 
-  .card {
-
-    flex-wrap: wrap;
-    gap: 0;
-
-  }
-
   .card-img {
     margin: 23px auto;
     height: 105px;
     min-width: 105px;
-
-
   }
 
   .card-content {
@@ -216,6 +191,5 @@
 
   .title-box {
     min-width: 73%;
-
   }
 }
