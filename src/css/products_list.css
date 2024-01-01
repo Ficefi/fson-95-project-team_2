@@ -1,19 +1,20 @@
-@media only screen and (min-width: 1240px) {
+@media only screen and (min-width: 1440px) {
     .product-content-section{
         display: flex;
         max-width: 1240px;
         margin: 0 auto;
+        justify-content: space-between;
     }
+
+
 }
 
 .list-product {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 40px 20px;
     justify-content: center;
-    margin-right: 25px;
-    margin: 0 auto;
 }
 @media only screen and (min-width: 1024px) {
     .list-product{
@@ -126,4 +127,23 @@
     z-index: 999;
     top: 5px;
     right: 5px;
+}
+
+
+@media screen and (max-width: 769px) {
+.item-product {
+  width: 335px;
+}
+
+  .img-product {
+    width: 295px;
+    height: 178px;
+  }
+
+  .features-container {
+    width: 295px;
+  }
+
+  .list-product {
+  }
 }

@@ -1,7 +1,7 @@
 /* Title */
 
 .discount {
-  margin: 80px 20px;
+  margin: 0 20px 80px 20px;
 }
 
 .discount-title {
@@ -166,13 +166,21 @@
   }
 }
 
-@media only screen and (min-width: 1240px) {
+@media only screen and (min-width: 1440px) {
   .discount {
-    margin: 40px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
   }
   .discount_container {
     max-width: 275px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card_item {
+    margin-bottom: 0;
   }
 
   .discount-icon {
@@ -192,4 +200,6 @@
   .title-box {
     min-width: 73%;
   }
+
+
 }
