@@ -1,4 +1,4 @@
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .header-cart {
     display: none;
   }
@@ -30,7 +30,7 @@
   margin-left: auto;
 }
 
-.logo-header{
+.logo-header {
   margin-top: 32px;
 }
 
@@ -46,7 +46,7 @@
   }
 }
 
-.buy-icon{
+.buy-icon {
   fill: var(--gray);
   padding: 10px;
 }
@@ -67,12 +67,12 @@
   background-color: var(--light_green);
 }
 
-.nav-link:hover{
+.nav-link:hover {
   background-color: var(--dark_green);
   color: var(--black);
 }
 
-.buy-icon-container{
+.buy-icon-container {
   background-color: var(--light_green);
   border-radius: 50%;
   width: 38px;
@@ -80,7 +80,7 @@
   transition: background-color 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
 }
 
-.buy-icon-container:hover{
+.buy-icon-container:hover {
   background-color: var(--dark_green);
 }
 
