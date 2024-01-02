@@ -1,7 +1,7 @@
 import { getProducts, getCategoriesProducts } from './fetchAPI';
 import { openModal } from './modal_window';
 import svg from '../img/icons.svg';
-import { isExistInCart } from './localStorage.js';
+import { addToStorageCart, isExistInCart, removeFromStorageCart } from './localStorage.js';
 
 const list = document.querySelector('.list-product');
 
@@ -71,6 +71,45 @@ function renderFood() {
         errors.style.display = "none";
       }
       createMarkup(foodImages.results);
+
+      /////////////////BUTTONS CHECK//////////
+      const btn = document.querySelectorAll('.basket');
+      btn.forEach((button) => {
+        button.addEventListener("click", handleAddToCart);
+        const id = button.dataset.id;
+        if (isExistInCart(id)) {
+          button.setAttribute("disabled", "true");
+          button.innerHTML = `
+        <svg class="basket-icon-check" width="18" height="18">
+          <use href="${svg}#icon-check"></use>
+        </svg>
+      `;
+        }
+      });
+
+      function handleAddToCart(e) {
+        const button = e.currentTarget;
+        const id = button.dataset.id;
+
+        if (isExistInCart(id)) {
+          removeFromStorageCart(id)
+          button.removeAttribute(id);
+          button.innerHTML = `
+      <svg class="basket-icon" width="18" height="18">
+        <use href="${svg}#icon-cart"></use>
+      </svg>
+    `;
+        } else {
+          addToStorageCart(id)
+          button.setAttribute("disabled", true);
+          button.innerHTML = `
+      <svg class="basket-icon-check" width="18" height="18">
+        <use href="${svg}#icon-check"></use>
+      </svg>
+    `;
+        }
+      }
+
     })
     .catch(error => {
       throw new Error(error);
@@ -106,11 +145,11 @@ function createMarkup(array) {
                   </div>
                   <div class="sell-container">
                       <p class="price-product">$${price}</p>
-                      <div class="svg-container">
-                          <svg class="svg" width="18" height="18">
-                            <use href="${svg}#icon-cart"></use>
-                          </svg>
-                      </div>
+                      <button class="basket" data-id="${_id}">
+        <svg class="basket-icon" width="18" height="18">
+          <use href="${svg}#icon-cart"></use>
+        </svg>
+      </button>
                   </div>
                 </div>
               </li>
@@ -132,11 +171,11 @@ function createMarkup(array) {
                   </div>
                   <div class="sell-container">
                       <p class="price-product">$${price}</p>
-                      <div class="svg-container">
-                          <svg class="svg" width="18" height="18">
-                            <use href="${svg}#icon-cart"></use>
-                          </svg>
-                      </div>
+                      <button class="basket" data-id="${_id}">
+        <svg class="basket-icon" width="18" height="18">
+          <use href="${svg}#icon-cart"></use>
+        </svg>
+      </button>
                   </div>
                 </div>
               </li>
@@ -147,11 +186,10 @@ function createMarkup(array) {
     .join('');
   list.innerHTML = '';
   list.insertAdjacentHTML('beforeend', markup);
-
-
-
-
 }
+
+
+
 
 function callModal(event) {
   const item = event.target.closest('.item-product');
@@ -161,7 +199,7 @@ function callModal(event) {
     openModal(id);
   }
 
- 
+
 }
 
 list.addEventListener('click', callModal);
