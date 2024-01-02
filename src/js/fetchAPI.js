@@ -1,10 +1,7 @@
 import axios from 'axios';
 import { keywords, selectedForm } from './renderFood';
 
-export async function getProducts(page) {
-
-  let limit = 9
-
+async function getProducts(page, limit) {
   const response = await axios.get(
     `https://food-boutique.b.goit.study/api/products?keyword=${keywords || ""}&category=${selectedForm || ""}&`, {
       params: {
@@ -21,13 +18,6 @@ export async function getProducts(page) {
   localStorage.getItem("page")
   localStorage.setItem("limit", (limit))
   localStorage.getItem("limit")
-  return response.data;
-}
-
-async function getAllProducts(page) {
-  const response = await axios.get(
-    `https://food-boutique.b.goit.study/api/products/?page=${page}`,
-  );
   return response.data;
 }
 
@@ -95,6 +85,6 @@ async function sendSubscription(email){
 
 }
 
-export { getAllProducts, getCategoriesProducts, getDiscountProducts,
+export { getProducts, getCategoriesProducts, getDiscountProducts,
   getPopularProducts, getProductById, createNewOrder, sendSubscription };
 

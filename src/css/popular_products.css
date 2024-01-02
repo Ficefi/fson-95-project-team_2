@@ -25,7 +25,6 @@
 }
 .product-card {
   max-width: 275px;
-  overflow: auto;
 }
 .product-subtitle {
   font-size: 28px;
@@ -168,7 +167,9 @@
   -moz-box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
   box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
   transition: box-shadow 0.3s ease-in-out;
+  transition: scale 0.5s ease-in-out;
   cursor: pointer;
+  scale: 1.02;
 }
 
 aside {

@@ -1,4 +1,4 @@
-import { getAllProducts, getCategoriesProducts, getDiscountProducts, getPopularProducts, getProductById, createNewOrder, sendSubscription } from "./fetchAPI"
+import { getDiscountProducts } from "./fetchAPI"
 import { openModal } from "./modal_window"
 import svg from '../img/icons.svg';
 import { addToStorageCart, removeFromStorageCart, isExistInCart } from "./localStorage"

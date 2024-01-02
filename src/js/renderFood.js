@@ -1,7 +1,7 @@
 import { getProducts, getCategoriesProducts } from './fetchAPI';
-import { openModal } from './modal_window';
-import svg from '../img/icons.svg';
+import { openModal } from './modal_window'; 
 import { addToStorageCart, isExistInCart, removeFromStorageCart } from './localStorage.js';
+import svg from '../img/icons.svg';
 
 const list = document.querySelector('.list-product');
 
@@ -15,6 +15,16 @@ export let keywords;
 export let selectedForm;
 
 formSearch.addEventListener('submit', handleSubmit);
+
+const screenWidth = window.innerWidth;
+let limit;
+if (screenWidth <= 767) {
+  limit = 6;
+} else if (screenWidth <= 1239) {
+  limit = 8;
+} else {
+  limit = 9;
+}
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -63,16 +73,15 @@ function renderCategory() {
 renderCategory();
 
 export async function renderFood() {
-  await getProducts()
+  await getProducts(1,limit)
     .then(foodImages => {
       if (foodImages.results.length === 0) {
         errors.style.display = 'flex';
       } else {
-        errors.style.display = "none";
+        errors.style.display = 'none';
       }
       createMarkup(foodImages.results);
 
-      /////////////////BUTTONS CHECK//////////
       const btn = document.querySelectorAll('.basket');
       btn.forEach((button) => {
         button.addEventListener("click", handleAddToCart);
@@ -146,10 +155,10 @@ function createMarkup(array) {
                   <div class="sell-container">
                       <p class="price-product">$${price}</p>
                       <button class="basket" data-id="${_id}">
-        <svg class="basket-icon" width="18" height="18">
-          <use href="${svg}#icon-cart"></use>
-        </svg>
-      </button>
+                          <svg class="svg" width="18" height="18">
+                            <use href="${svg}#icon-cart"></use>
+                          </svg>
+                      </button>
                   </div>
                 </div>
               </li>
@@ -172,10 +181,10 @@ function createMarkup(array) {
                   <div class="sell-container">
                       <p class="price-product">$${price}</p>
                       <button class="basket" data-id="${_id}">
-        <svg class="basket-icon" width="18" height="18">
-          <use href="${svg}#icon-cart"></use>
-        </svg>
-      </button>
+                          <svg class="svg" width="18" height="18">
+                            <use href="${svg}#icon-cart"></use>
+                          </svg>
+                      </button>
                   </div>
                 </div>
               </li>
@@ -198,12 +207,8 @@ function callModal(event) {
     const id = item.dataset.id;
     openModal(id);
   }
-
-
 }
 
 list.addEventListener('click', callModal);
-
-
 
 export { createMarkup };
