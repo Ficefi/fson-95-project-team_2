@@ -175,4 +175,4 @@ import{a as f,P as z}from"./vendor-b592f4c5.js";(function(){const t=document.cre
         <use href="../img/icons.svg#icon-check"></use>
       </svg>
     `)});export{ce as g,$ as h,ye as o,P as r,n as s};
-//# sourceMappingURL=pagination-dd880a75.js.map
+//# sourceMappingURL=pagination-5dc82ac4.js.map
