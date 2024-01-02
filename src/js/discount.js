@@ -73,12 +73,14 @@ async function addToBasket() {
       `;
     }
   });
+
+
 }
 addToBasket();
 
 function handleAddToCart(e) {
-  const button = e.currentTarget;
-  const id = button.dataset.id;
+  const button = e.target;
+  const id= button.dataset.id;
 
   if (isExistInCart(id)) {
     removeFromStorageCart(id)
