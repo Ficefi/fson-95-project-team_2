@@ -23,7 +23,7 @@
 }
 
 .cart-label {
-  font-family: Neue Montreal Medium;
+  font-family: Neue Montreal Regular;
   font-size: 32px;
   font-style: normal;
   font-weight: 500;
@@ -277,6 +277,11 @@ input:hover::placeholder,
 input:focus::placeholder {
   color: rgba(1, 1, 1, 0.3);
   transition: color 300ms cubic-bezier(0.3, 0.1, 0.2, 0.5);
+
+}
+
+input:valid {
+  border-color: green;
 }
 
 .btn-form-cart {
@@ -335,28 +340,6 @@ input:focus::placeholder {
   }
 }
 
-/* @media only screen and (min-width: 768px) {
-  .cart-form-form {
-    padding-bottom: 120px;
-    max-width: 336px;
-  }
-  .cart-form-authorization {
-    gap: 20px;
-  }
-  .form-input {
-    font-size: 16px;
-  }
-  .btn-form {
-    font-size: 16px;
-    height: 48px;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  .btn-form {
-    font-size: 16px;
-    width: 336px;
-  }
-} */
 
 @media only screen and (min-width: 320px) {
   .cart-label-wrap {
@@ -461,13 +444,38 @@ input:focus::placeholder {
 
 @media screen and (min-width: 1440px) {
   .del-all-btn {
-    width: 700px
+    width: 579px;
   }
 
   .total-order-cart-wrap {
     position: absolute;
-    right: 5px;
-    top: 230px;
+    right: 40px;
+    top: 153px;
+  }
+  .car-email-placeholder {
+    position: absolute;
+    left: 17px;
+    top: 17px;
+    color: rgba(1, 1, 1, 0.50);
+    font-family: Neue Montreal Medium;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 133.333% */
+  }
+
+  .cart-form-label {
+    position: relative;
+    width: auto;
+  }
+
+  .form-input-cart::placeholder {
+    color: #010101;
+    font-family: Neue Montreal Medium;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 133.333% */
   }
 
   .container {
@@ -476,15 +484,40 @@ input:focus::placeholder {
 
   .basket-items-cart {
     margin-bottom: 100px;
-  }
-  .prod-price {
+    max-width: 630px;
 
+  }
+
+  .prod-price {
     font-family: Neue Montreal Medium;
     font-size: 20px;
     font-style: normal;
     line-height: 24px; /* 120% */
   }
+  .form-input-cart {
+    color: var(--black);
+    font-family: Neue Montreal Medium;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 133.333% */
+    padding: 16px 20px 16px 57px;
+    width: 293px;
+    margin-right: 0;
+  }
+
+  .btn-form-cart {
+    padding: 15px 65px;
+    width: 200px;
+    height: auto;
+    color: var(--white);
+    font-family: Neue Montreal Regular;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 120% */
+  }
+
 
 }
-
 
