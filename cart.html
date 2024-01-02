@@ -5,15 +5,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/svg+xml" href="/fson-95-project-team_2/assets/favicon-d83cd0d7.svg" />
-	
-	
+  
 	<title>Cart</title>
   <script type="module" crossorigin src="/fson-95-project-team_2/commonHelpers.js"></script>
   <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/vendor-b592f4c5.js">
-  <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/pagination-1a51fe5b.js">
+  <link rel="modulepreload" crossorigin href="/fson-95-project-team_2/assets/pagination-dd880a75.js">
   <link rel="stylesheet" href="/fson-95-project-team_2/assets/vendor-a0b14d8a.css">
   <link rel="stylesheet" href="/fson-95-project-team_2/assets/pagination-eabd07cc.css">
-  <link rel="stylesheet" href="/fson-95-project-team_2/assets/cart-bb300f98.css">
+  <link rel="stylesheet" href="/fson-95-project-team_2/assets/cart-af96e0f0.css">
 </head>
 
 <body>
@@ -91,7 +90,7 @@
 			<!-- ПУСТА КОРЗИНА -->
 
 			<div class="cart">
-				<img class="basket-img" src="/fson-95-project-team_2/assets/shopping_cart-6400acde.png" width="164px" height="140px"
+				<img class="basket-img" src="/fson-95-project-team_2/assets/shopping_cart-6400acde.png"
 					alt="Yellow shopping basket">
 				<h2 class="basket-title">
 					Your basket is <span class="accent-txt">empty...</span>
@@ -126,8 +125,9 @@
 			<!-- form start -->
 
 			<form class="cart-form-authorization" name="authorization_send" autocomplete="off">
-				<label class="cart-form-label" for="email">
-          <input class="form-input-cart" type="email" name="email" placeholder="Enter your email" id="email"
+				<label class="cart-form-label" for="email_cart">
+          <span class='car-email-placeholder'>Mail:</span>
+          <input class="form-input-cart" type="email" name="email" placeholder="Enter your email" id="email_cart"
 						required autofocus />
 				</label>
 				<button class="btn-form-cart" type="submit">Checkout</button>
@@ -270,6 +270,7 @@
 </header>
 
 <!-- header end -->
+
   <main>
     <!-- hero start -->
 
@@ -319,8 +320,8 @@
       <div id="pagination" class="tui-pagination"></div>
       <aside>
         <div class="popular-container">
+  <h2 class="product-subtitle">Popular products</h2>
   <ul class="product-card">
-    <h1 class="product-subtitle">Popular products</h1>
   </ul>
 </div>
         <div class="discount">
@@ -455,7 +456,6 @@
   </div>
 
 </div>
-
   
 </body>
 
