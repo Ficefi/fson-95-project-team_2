@@ -66,7 +66,6 @@ export async function openModal(id) {
 
     if (is10PercentOff === true) {
       const discount = document.querySelector(".discount-icon-modal")
-      console.log(discount);
       discount.classList.remove("is-hidden")
     }
 
@@ -86,7 +85,6 @@ export async function openModal(id) {
       if (e.key === 'Escape') {
         modal.classList.add('is-hidden');
       }
-
       renderFood();
     }
 
