@@ -31,9 +31,10 @@ const selectors = {
 const content = document.querySelectorAll('main');
 const content1 = document.querySelectorAll('footer');
 const content2 = document.querySelectorAll('header');
-content[1].style.display = 'none';
-content1[1].style.display = 'none';
-content2[1].style.display = 'none';
+
+content[1].remove()
+content1[1].remove()
+content2[1].remove()
 
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
