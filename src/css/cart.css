@@ -461,7 +461,7 @@ input:focus::placeholder {
 
 @media screen and (min-width: 1440px) {
   .del-all-btn {
-    width: 700px
+    width: 579px;
   }
 
   .total-order-cart-wrap {
@@ -476,9 +476,10 @@ input:focus::placeholder {
 
   .basket-items-cart {
     margin-bottom: 100px;
+    max-width: 630px;
   }
-  .prod-price {
 
+  .prod-price {
     font-family: Neue Montreal Medium;
     font-size: 20px;
     font-style: normal;
@@ -486,5 +487,4 @@ input:focus::placeholder {
   }
 
 }
-
 
