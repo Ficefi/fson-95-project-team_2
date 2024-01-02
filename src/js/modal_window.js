@@ -44,7 +44,7 @@ export async function openModal(id) {
     <div class='modal-descr-container'>
     <h2 class='modal-name'>${name}</h2>
     <div class='modal-text-wrapper'>
-    <p class='modal-text'>Category:<p class='modal-text-descr'>${String(category).replace('_', ' ').replace("&", "").replace('_', " ")}</p>
+    <p class='modal-text'>Category:<p class='modal-text-descr'>${String(category).replace('_', ' ').replace('_', " ")}</p>
     <p class='modal-text'>Size:<p class='modal-text-descr'>${size}</p>
     <p class='modal-text'>Popularity:<p class='modal-text-descr'>${popularity}</p>
     </div>
