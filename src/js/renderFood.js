@@ -62,8 +62,8 @@ function renderCategory() {
 
 renderCategory();
 
-function renderFood() {
-  getProducts()
+export async function renderFood() {
+  await getProducts()
     .then(foodImages => {
       if (foodImages.results.length === 0) {
         errors.style.display = 'flex';

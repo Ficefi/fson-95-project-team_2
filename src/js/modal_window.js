@@ -4,6 +4,7 @@ import vegetables from "../img/2x/desktop/fruitCart@2x.png"
 import orderDone from "../img/check-mark.png"
 import { handleCartItem, numberOfProducts, qty_card_products } from './header.js';
 import svg from "../img/icons.svg";
+import { renderFood } from './renderFood.js';
 
 const modal = document.querySelector('.js-modal');
 const content = document.querySelector('.modal-content');
@@ -85,12 +86,15 @@ export async function openModal(id) {
       if (e.key === 'Escape') {
         modal.classList.add('is-hidden');
       }
+
+      renderFood();
     }
 
     window.onclick = function(event) {
       if (event.target === modal) {
         modal.classList.add('is-hidden');
       }
+      renderFood();
     };
 
     const closeBtn = document.querySelector('.modal-close-btn');
@@ -99,6 +103,7 @@ export async function openModal(id) {
       if (event.currentTarget === closeBtn) {
         modal.classList.add('is-hidden');
       }
+      renderFood();
     }
 
     /////////////////ADD TO CART LOGIC///////////////
