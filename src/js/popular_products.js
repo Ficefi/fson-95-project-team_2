@@ -1,5 +1,10 @@
 import { getPopularProducts } from './fetchAPI';
 import { openModal } from './modal_window';
+import {
+  addToStorageCart,
+  isExistInCart,
+  removeFromStorageCart,
+} from './localStorage.js';
 import svg from '../img/icons.svg';
 
 const product_list = document.querySelector('.product-card');
@@ -8,6 +13,51 @@ function createPopularList() {
   getPopularProducts()
     .then(result => {
       createPopularMarkup(result);
+      const button_list = document.querySelectorAll('.popular_basket');
+      button_list.forEach(button => {
+        button.addEventListener('click', handleAddToCart);
+        const id = button.dataset.id;
+        if (isExistInCart(id)) {
+          button.setAttribute('disabled', 'true');
+          button.innerHTML = `
+      <svg class="svg-item-check" width="12" height="12">
+        <use href="${svg}#icon-check"></use>
+      </svg>
+      `;
+        }
+      });
+
+      function handleAddToCart(event) {
+        const button = event.currentTarget;
+        const id = button.dataset.id;
+
+        if (isExistInCart(id)) {
+          removeFromStorageCart(id);
+          button.removeAttribute(id);
+          button.innerHTML = `
+    <svg class="svg-item" width="12" height="12">
+      <use href="${svg}#icon-cart"></use>
+    </svg>
+  `;
+        } else {
+          addToStorageCart(id);
+          button.setAttribute('disabled', true);
+          if (isExistInCart(id)) {
+            button.style.transform = `rotate(270deg)`;
+            setTimeout(() => {
+              {
+                button.innerHTML = `
+              <svg class="svg-item-check" width="12" height="12">
+                <use href="${svg}#icon-check"></use>
+              </svg>
+              `;
+                button.style.transform = `rotate(360deg)`;
+              }
+            }, 300);
+            button.setAttribute('disabled', 'true');
+          }
+        }
+      }
     })
     .catch(error => {
       throw new Error(error);
@@ -40,11 +90,11 @@ function createPopularMarkup(array) {
                 </p>
             </div>
         </div>
-        <div class="svg-svg">
+        <button class="popular_basket" data-id="${_id}">
             <svg class="svg-item" width="12" height="12">
                 <use href="${svg}#icon-cart"></use>
             </svg>
-        </div>
+        </button>
     </li>`;
     })
     .join('');
@@ -62,7 +112,7 @@ function modalCall(event) {
   }
 }
 
-product_list.addEventListener('click', modalCall)
+product_list.addEventListener('click', modalCall);
 
 createPopularList();
 

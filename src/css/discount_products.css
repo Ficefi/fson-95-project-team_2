@@ -114,6 +114,7 @@
   align-items: center;
   justify-content: center;
   margin: 0 0 16px 8px;
+  transition: transform 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
 }
 
 .basket:hover {
