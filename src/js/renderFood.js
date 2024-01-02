@@ -58,11 +58,12 @@ function renderCategory() {
     .then(data => {
       const category = data
         .map(data => {
-          return `<option value="${data}">${String(data)
+          return `<option value="${String(data).replace("_", "_").replace("&", "%26")}">${String(data)
             .replace('_', ' ')
             .replace('_', ' ')}</option>`;
         })
         .join('');
+        // console.log(category)
       selected.insertAdjacentHTML('beforeend', category);
     })
     .catch(error => {
