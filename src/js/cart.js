@@ -27,6 +27,14 @@ const selectors = {
 // `;
 // }
 
+///////////костилі///////////
+const content = document.querySelectorAll('main');
+const content1 = document.querySelectorAll('footer');
+const content2 = document.querySelectorAll('header');
+content[1].style.display = 'none';
+content1[1].style.display = 'none';
+content2[1].style.display = 'none';
+
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 
@@ -76,16 +84,6 @@ async function addItem(id) {
      <p class='prod-value'><span class='product-category-cart'>Size:&nbsp;</span> ${size}</p>
      </div>
 		 <p class='prod-price'>$${price}</p>
-<!--     <div class='quantity-counter-wrapper'>-->
-<!--     <button class='decrement-button'><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">-->
-<!--  <path d="M2.91797 7H11.0846" stroke="#010101" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>-->
-<!--</svg></button>-->
-<!--     <span class='quantity-cart'>1</span>-->
-<!--     <button class='increment-button'><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">-->
-<!--  <path d="M7 2.91669V11.0834" stroke="#010101" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>-->
-<!--  <path d="M2.91797 7H11.0846" stroke="#010101" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>-->
-<!--</svg></button>-->
-<!--</div>-->
      </div>
 
      </li>
@@ -118,6 +116,7 @@ addAllItem().then(resp => {
     selectors.cart_form_authorization.reset();
     deleteAllFromBasket();
     handleCartItem(0);
+    selectors.cart_form_authorization.removeEventListener('submit', submitForm)
   }
 
   /////////////// INCREMENT AND DECREMENT /////////////////
@@ -164,6 +163,7 @@ function handleRemove(e) {
   let numberOfProducts = cart.length;
 
   selectors.number_of_products.textContent = String(numberOfProducts);
+
 }
 
 ////////////DELETE ALL BUTTON LOGIC///////////
@@ -178,14 +178,9 @@ function deleteAllFromBasket() {
   selectors.order_total.style.display = 'none';
   selectors.cart_form_authorization.style.display = 'none';
   selectors.cart_label_wrap.style.display = 'none';
+  selectors.basket_items.removeEventListener('click', handleRemove);
 }
 
 
-///////////костилі///////////
-const content = document.querySelectorAll('main');
-const content1 = document.querySelectorAll('footer');
-const content2 = document.querySelectorAll('header');
-content[1].style.display = 'none';
-content1[1].style.display = 'none';
-content2[1].style.display = 'none';
+
 
