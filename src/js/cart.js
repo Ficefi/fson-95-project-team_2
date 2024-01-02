@@ -122,17 +122,17 @@ addAllItem().then(resp => {
   /////////////// INCREMENT AND DECREMENT /////////////////
 
 
-  const incrementBtn = document.querySelector('.increment-button');
-  incrementBtn.addEventListener('click', handleIncrement);
-
-  function handleIncrement(event) {
-    console.log(event.target.closest('.basket-item-cart'));
-
-    const cartArray = JSON.parse(localStorage.getItem('cart'));
-
-
-    console.log(cartArray);
-  }
+  // const incrementBtn = document.querySelector('.increment-button');
+  // incrementBtn.addEventListener('click', handleIncrement);
+  //
+  // function handleIncrement(event) {
+  //   console.log(event.target.closest('.basket-item-cart'));
+  //
+  //   const cartArray = JSON.parse(localStorage.getItem('cart'));
+  //
+  //
+  //   console.log(cartArray);
+  // }
 
 });
 
@@ -146,6 +146,11 @@ function handleRemove(e) {
     return;
   }
 
+
+
+
+
+
   const number = selectors.qty_card.textContent;
   selectors.qty_card.textContent = String(number - 1);
 
@@ -155,7 +160,12 @@ function handleRemove(e) {
 
   selectors.total_price.textContent = '$' + totalPrice.toFixed(2);
 
-  selectors.basket_items.removeChild(item);
+  e.target.closest('.basket-item-cart').classList.add("slide-out-elliptic-left-bck");
+ function removeFromDom() {
+   selectors.basket_items.removeChild(item);
+ }
+
+ setTimeout(removeFromDom, 500)
   removeFromStorageCart(item.dataset.id);
 
 
@@ -163,6 +173,8 @@ function handleRemove(e) {
   let numberOfProducts = cart.length;
 
   selectors.number_of_products.textContent = String(numberOfProducts);
+
+
 
 }
 
