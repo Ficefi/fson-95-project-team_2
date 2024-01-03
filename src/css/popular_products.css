@@ -116,12 +116,12 @@
   fill: var(--light_green);
 }
 
-.svg-item-check{
+.svg-item-check {
   transition: stroke 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
   stroke: var(--light_green);
 }
 
-.svg-item-check:hover{
+.svg-item-check:hover {
   stroke: var(--gray);
 }
 
@@ -134,6 +134,10 @@
 }
 
 @media (max-width: 1440px) {
+  .popular-container {
+    margin-left: 32px;
+  }
+
   .product-list-container {
     display: flex;
     flex-wrap: wrap;
@@ -144,7 +148,6 @@
   .product-card {
     max-width: 100%;
     /*width: calc();*/
-    margin-left: 32px;
   }
 
   .product-content {
@@ -152,18 +155,20 @@
     width: calc(50% - 10px);
     cursor: pointer;
   }
-
-
 }
 
 @media (max-width: 769px) {
+  .popular-container {
+    margin: 0 20px 40px 20px;
+  }
+
   .product-list-container {
     display: flex;
   }
 
   .product-card {
     max-width: 100%;
-    margin: 0 20px 40px 20px;
+    margin: 0;
   }
 
   .product-content {
@@ -200,10 +205,9 @@ aside {
 }
 
 @media screen and (max-width: 1440px) {
-aside {
-  align-items: flex-start;
-}
-
+  aside {
+    align-items: flex-start;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1440px) {
@@ -222,9 +226,9 @@ aside {
 }
 
 @media screen and (min-width: 375px) and (max-width: 768px) {
-aside {
-  align-items: center;
-}
+  aside {
+    align-items: center;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1440px) {
@@ -234,10 +238,10 @@ aside {
 }
 
 @media screen and (min-width: 1440px) {
-.product-card {
-  width: 275px;
-  overflow: hidden;
-}
+  .product-card {
+    width: 275px;
+    overflow: hidden;
+  }
   .product-list-container {
     flex-direction: column;
   }
