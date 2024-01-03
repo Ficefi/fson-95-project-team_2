@@ -31,7 +31,7 @@
   font-size: 28px;
   font-weight: 500;
   line-height: 32px;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   text-align: left;
   margin-bottom: 20px;
 }
@@ -238,3 +238,4 @@ aside {
     position: relative;
   }
 }
+
