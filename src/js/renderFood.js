@@ -1,6 +1,9 @@
 import { getProducts, getCategoriesProducts } from './fetchAPI';
-import { openModal } from './modal_window';
-import { addToStorageCart, isExistInCart, removeFromStorageCart } from './localStorage.js';
+import {
+  addToStorageCart,
+  isExistInCart,
+  removeFromStorageCart,
+} from './localStorage.js';
 import '../../node_modules/slim-select/dist/slimselect.css';
 import { disableScroll, openModal } from './modal_window';
 import svg from '../img/icons.svg';
@@ -19,6 +22,16 @@ export let keywords;
 export let selectedForm;
 
 formSearch.addEventListener('submit', handleSubmit);
+
+const screenWidth = window.innerWidth;
+let limit;
+if (screenWidth <= 767) {
+  limit = 6;
+} else if (screenWidth <= 1239) {
+  limit = 8;
+} else {
+  limit = 9;
+}
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -52,7 +65,10 @@ function renderCategory() {
     .then(data => {
       const category = data
         .map(data => {
-          return `<option value="${String(data).replace("_", "_").replace("&", "%26")}">${String(data)</option>`;
+          return `<option value="${String(data)
+            .replace('_', '_')
+            .replace('&', '%26')}">
+            ${String(data).replace('_', ' ').replace('_', ' ')}</option>`;
         })
         .join('');
       selected.insertAdjacentHTML('beforeend', category);
@@ -68,22 +84,22 @@ function renderCategory() {
 renderCategory();
 
 export async function renderFood() {
-  await getProducts()
+  await getProducts(1, limit)
     .then(foodImages => {
       if (foodImages.results.length === 0) {
         errors.style.display = 'flex';
       } else {
-        errors.style.display = "none";
+        errors.style.display = 'none';
       }
       createMarkup(foodImages.results);
 
       /////////////////BUTTONS CHECK//////////
       const btn = document.querySelectorAll('.basket');
-      btn.forEach((button) => {
-        button.addEventListener("click", handleAddToCart);
+      btn.forEach(button => {
+        button.addEventListener('click', handleAddToCart);
         const id = button.dataset.id;
         if (isExistInCart(id)) {
-          button.setAttribute("disabled", "true");
+          button.setAttribute('disabled', 'true');
           button.innerHTML = `
         <svg class="basket-icon-check" width="18" height="18">
           <use href="${svg}#icon-check"></use>
@@ -97,7 +113,7 @@ export async function renderFood() {
         const id = button.dataset.id;
 
         if (isExistInCart(id)) {
-          removeFromStorageCart(id)
+          removeFromStorageCart(id);
           button.removeAttribute(id);
           button.innerHTML = `
       <svg class="basket-icon" width="18" height="18">
@@ -105,17 +121,25 @@ export async function renderFood() {
       </svg>
     `;
         } else {
-          addToStorageCart(id)
-          button.setAttribute("disabled", true);
-          button.innerHTML = `
-      <svg class="basket-icon-check" width="18" height="18">
-        <use href="${svg}#icon-check"></use>
-      </svg>
-    `;
-          handleCartItem(Number(qty_card_products.outerText) + Number(1))
+          addToStorageCart(id);
+          button.setAttribute('disabled', true);
+          if (isExistInCart(id)) {
+            button.style.transform = `rotate(270deg)`;
+            setTimeout(() => {
+              {
+                button.innerHTML = `
+              <svg class="basket-icon-check" width="18" height="18">
+                <use href="${svg}#icon-check"></use>
+              </svg>
+              `;
+                button.style.transform = `rotate(360deg)`;
+              }
+            }, 300);
+            button.setAttribute('disabled', 'true');
+          }
+          handleCartItem(Number(qty_card_products.outerText) + Number(1));
         }
       }
-
     })
     .catch(error => {
       throw new Error(error);
@@ -194,18 +218,13 @@ function createMarkup(array) {
   list.insertAdjacentHTML('beforeend', markup);
 }
 
-
-
-
 function callModal(event) {
   const item = event.target.closest('.item-product');
 
   if (item) {
     const id = item.dataset.id;
-    openModal(id).then(disableScroll)
+    openModal(id).then(disableScroll);
   }
-
-
 }
 
 list.addEventListener('click', callModal);

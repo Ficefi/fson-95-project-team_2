@@ -1,7 +1,11 @@
-import { getAllProducts, getCategoriesProducts, getDiscountProducts, getPopularProducts, getProductById, createNewOrder, sendSubscription } from "./fetchAPI"
+import { getDiscountProducts } from './fetchAPI';
 import { disableScroll, openModal } from './modal_window';
 import svg from '../img/icons.svg';
-import { addToStorageCart, removeFromStorageCart, isExistInCart } from "./localStorage"
+import {
+  addToStorageCart,
+  removeFromStorageCart,
+  isExistInCart,
+} from './localStorage';
 import { handleCartItem, qty_card_products } from './header.js';
 
 const card = document.querySelector('.discount_container');
@@ -12,8 +16,10 @@ function createMarkup(images, names, startIndex = 0) {
   const endIndex = startIndex + cardsPerPage;
   const slicedImages = images.slice(startIndex, endIndex);
 
-  const res = slicedImages.map(({ img, price, _id, desc }, index) =>
-    `<li class="card_item" data-id="${_id}">
+  const res = slicedImages
+    .map(
+      ({ img, price, _id, desc }, index) =>
+        `<li class="card_item" data-id="${_id}">
       <div class="discount-icon-container">
         <svg class="discount-icon" width="60" height="60">
           <use href="${svg}#icon-discount"></use>
@@ -32,7 +38,8 @@ function createMarkup(images, names, startIndex = 0) {
         </svg>
       </button>
     </li>`
-  ).join('');
+    )
+    .join('');
   return res;
 }
 
@@ -40,7 +47,7 @@ async function addToBasket() {
   const result = await getDiscountProducts();
   const shortNames = result.reduce((acc, product) => {
     if (product.name.length > 10) {
-      acc.push(product.name.slice(0, 10) + "...");
+      acc.push(product.name.slice(0, 10) + '...');
     } else {
       acc.push(product.name);
     }
@@ -50,7 +57,7 @@ async function addToBasket() {
   card.innerHTML = createMarkup(result, shortNames);
 
   // Виклик модалки
-  card.addEventListener('click', (event) => {
+  card.addEventListener('click', event => {
     const item = event.target.closest('.card_item');
     if (item) {
       const id = item.dataset.id;
@@ -58,32 +65,29 @@ async function addToBasket() {
     }
   });
 
-
   // Зміна кнопки
   const btn = document.querySelectorAll('.basket');
 
-  btn.forEach((button) => {
-    button.addEventListener("click", handleAddToCart);
+  btn.forEach(button => {
+    button.addEventListener('click', handleAddToCart);
     const id = button.dataset.id;
     if (isExistInCart(id)) {
-      button.setAttribute("disabled", "true");
+      button.setAttribute('disabled', 'true');
       button.innerHTML = `
         <svg class="basket-icon-check" width="18" height="18">
           <use href="${svg}#icon-check"></use>
         </svg>
       `;
-      addToStorageCart(id)
+      addToStorageCart(id);
       handleCartItem(Number(qty_card_products.outerText) + Number(1));
     }
   });
-
-
 }
 addToBasket();
 
 function handleAddToCart(e) {
   const button = e.target;
-  const id= button.closest(".card_item").dataset.id;
+  const id = button.closest('.card_item').dataset.id;
 
   // if (isExistInCart(id)) {
   //   removeFromStorageCart(id)
@@ -103,8 +107,3 @@ function handleAddToCart(e) {
   //   `;
   // }
 }
-
-
-
-
-
