@@ -2,6 +2,9 @@ import { getProducts, getCategoriesProducts } from './fetchAPI';
 import { openModal } from './modal_window';
 import svg from '../img/icons.svg';
 import { addToStorageCart, isExistInCart, removeFromStorageCart } from './localStorage.js';
+import SlimSelect from 'slim-select';
+import '../../node_modules/slim-select/dist/slimselect.css';
+
 
 const list = document.querySelector('.list-product');
 
@@ -55,6 +58,9 @@ function renderCategory() {
         .join('');
         // console.log(category)
       selected.insertAdjacentHTML('beforeend', category);
+      new SlimSelect({
+        select: '.selected',
+      });
     })
     .catch(error => {
       console.log(error);
@@ -204,7 +210,5 @@ function callModal(event) {
 }
 
 list.addEventListener('click', callModal);
-
-
 
 export { createMarkup };
