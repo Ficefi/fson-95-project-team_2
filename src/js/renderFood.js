@@ -1,11 +1,8 @@
 import { getProducts, getCategoriesProducts } from './fetchAPI';
-import { openModal } from './modal_window';
-import {
-  addToStorageCart,
-  isExistInCart,
-  removeFromStorageCart,
-} from './localStorage.js';
+import { disableScroll, openModal } from './modal_window';
 import svg from '../img/icons.svg';
+import { addToStorageCart, isExistInCart, removeFromStorageCart } from './localStorage.js';
+import { handleCartItem, qty_card_products } from './header.js';
 
 const list = document.querySelector('.list-product');
 
@@ -20,16 +17,6 @@ export let selectedForm;
 
 formSearch.addEventListener('submit', handleSubmit);
 
-const screenWidth = window.innerWidth;
-let limit;
-if (screenWidth <= 767) {
-  limit = 6;
-} else if (screenWidth <= 1239) {
-  limit = 8;
-} else {
-  limit = 9;
-}
-
 function handleSubmit(event) {
   event.preventDefault();
 
@@ -38,7 +25,6 @@ function handleSubmit(event) {
 
   localStorage.setItem('SaveFilters', JSON.stringify(keywords) || null);
   renderFood();
-  formSearch.reset();
 }
 
 formSearch.elements.search.value = localStorage.getItem('savetext');
@@ -63,14 +49,11 @@ function renderCategory() {
     .then(data => {
       const category = data
         .map(data => {
-          return `<option value="${String(data)
-            .replace('_', '_')
-            .replace('&', '%26')}">${String(data)
+          return `<option value="${data}">${String(data)
             .replace('_', ' ')
             .replace('_', ' ')}</option>`;
         })
         .join('');
-      // console.log(category)
       selected.insertAdjacentHTML('beforeend', category);
     })
     .catch(error => {
@@ -81,21 +64,22 @@ function renderCategory() {
 renderCategory();
 
 export async function renderFood() {
-  await getProducts(1, limit)
+  await getProducts()
     .then(foodImages => {
       if (foodImages.results.length === 0) {
         errors.style.display = 'flex';
       } else {
-        errors.style.display = 'none';
+        errors.style.display = "none";
       }
       createMarkup(foodImages.results);
 
+      /////////////////BUTTONS CHECK//////////
       const btn = document.querySelectorAll('.basket');
-      btn.forEach(button => {
-        button.addEventListener('click', handleAddToCart);
+      btn.forEach((button) => {
+        button.addEventListener("click", handleAddToCart);
         const id = button.dataset.id;
         if (isExistInCart(id)) {
-          button.setAttribute('disabled', 'true');
+          button.setAttribute("disabled", "true");
           button.innerHTML = `
         <svg class="basket-icon-check" width="18" height="18">
           <use href="${svg}#icon-check"></use>
@@ -109,7 +93,7 @@ export async function renderFood() {
         const id = button.dataset.id;
 
         if (isExistInCart(id)) {
-          removeFromStorageCart(id);
+          removeFromStorageCart(id)
           button.removeAttribute(id);
           button.innerHTML = `
       <svg class="basket-icon" width="18" height="18">
@@ -117,24 +101,17 @@ export async function renderFood() {
       </svg>
     `;
         } else {
-          addToStorageCart(id);
-          button.setAttribute('disabled', true);
-          if (isExistInCart(id)) {
-            button.style.transform = `rotate(270deg)`;
-            setTimeout(() => {
-              {
-                button.innerHTML = `
-              <svg class="svg-item-check" width="12" height="12">
-                <use href="${svg}#icon-check"></use>
-              </svg>
-              `;
-                button.style.transform = `rotate(360deg)`;
-              }
-            }, 300);
-            button.setAttribute('disabled', 'true');
-          }
+          addToStorageCart(id)
+          button.setAttribute("disabled", true);
+          button.innerHTML = `
+      <svg class="basket-icon-check" width="18" height="18">
+        <use href="${svg}#icon-check"></use>
+      </svg>
+    `;
+          handleCartItem(Number(qty_card_products.outerText) + Number(1))
         }
       }
+
     })
     .catch(error => {
       throw new Error(error);
@@ -171,10 +148,10 @@ function createMarkup(array) {
                   <div class="sell-container">
                       <p class="price-product">$${price}</p>
                       <button class="basket" data-id="${_id}">
-                          <svg class="svg" width="18" height="18">
-                            <use href="${svg}#icon-cart"></use>
-                          </svg>
-                      </button>
+        <svg class="basket-icon" width="18" height="18">
+          <use href="${svg}#icon-cart"></use>
+        </svg>
+      </button>
                   </div>
                 </div>
               </li>
@@ -197,10 +174,10 @@ function createMarkup(array) {
                   <div class="sell-container">
                       <p class="price-product">$${price}</p>
                       <button class="basket" data-id="${_id}">
-                          <svg class="svg" width="18" height="18">
-                            <use href="${svg}#icon-cart"></use>
-                          </svg>
-                      </button>
+        <svg class="basket-icon" width="18" height="18">
+          <use href="${svg}#icon-cart"></use>
+        </svg>
+      </button>
                   </div>
                 </div>
               </li>
@@ -213,15 +190,22 @@ function createMarkup(array) {
   list.insertAdjacentHTML('beforeend', markup);
 }
 
+
+
+
 function callModal(event) {
   const item = event.target.closest('.item-product');
 
   if (item) {
     const id = item.dataset.id;
-    openModal(id);
+    openModal(id).then(disableScroll)
   }
+
+
 }
 
 list.addEventListener('click', callModal);
+
+
 
 export { createMarkup };

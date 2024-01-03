@@ -31,25 +31,34 @@ const selectors = {
 const content = document.querySelectorAll('main');
 const content1 = document.querySelectorAll('footer');
 const content2 = document.querySelectorAll('header');
-content[1].style.display = 'none';
-content1[1].style.display = 'none';
-content2[1].style.display = 'none';
+
+
+content[1].remove()
+content1[1].remove()
+content2[1].remove()
+
+
 
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 
-//////////////// IF SOMETHING IN CART HIDE BASKET IMAGE///////////////
 
-if (cart.length > 0) {
-  selectors.cart.style.display = 'none';
-
-} else if (cart.length === 0) {
+function hideAll() {
   selectors.cart.style.display = 'flex';
   selectors.basket_items.style.display = 'none';
   selectors.delete_all_btn.style.display = 'none';
   selectors.order_total.style.display = 'none';
   selectors.cart_form_authorization.style.display = 'none';
   selectors.cart_label_wrap.style.display = 'none';
+}
+
+
+//////////////// IF SOMETHING IN CART HIDE BASKET IMAGE///////////////
+
+if (cart.length === 0) {
+  hideAll();
+} else {
+  selectors.cart.style.display = 'none';
 }
 
 ///////////////NUMBER OF PRODUCTS IN CART///////////
@@ -141,6 +150,11 @@ selectors.basket_items.addEventListener('click', handleRemove);
 
 function handleRemove(e) {
   e.preventDefault();
+  const check = JSON.parse(localStorage.getItem('cart')) || [];
+  if (check.length === 1) {
+    hideAll();
+  }
+
 
   if (e.target.className !== 'remove-item') {
     return;
@@ -184,12 +198,7 @@ selectors.delete_all_btn.addEventListener('click', deleteAllFromBasket);
 function deleteAllFromBasket() {
   localStorage.removeItem('cart');
   handleCartItem(0);
-  selectors.cart.style.display = 'flex';
-  selectors.basket_items.style.display = 'none';
-  selectors.delete_all_btn.style.display = 'none';
-  selectors.order_total.style.display = 'none';
-  selectors.cart_form_authorization.style.display = 'none';
-  selectors.cart_label_wrap.style.display = 'none';
+  hideAll();
   selectors.basket_items.removeEventListener('click', handleRemove);
 }
 

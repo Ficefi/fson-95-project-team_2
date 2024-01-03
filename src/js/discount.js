@@ -1,7 +1,8 @@
-import { getDiscountProducts } from "./fetchAPI"
-import { openModal } from "./modal_window"
+import { getAllProducts, getCategoriesProducts, getDiscountProducts, getPopularProducts, getProductById, createNewOrder, sendSubscription } from "./fetchAPI"
+import { disableScroll, openModal } from './modal_window';
 import svg from '../img/icons.svg';
 import { addToStorageCart, removeFromStorageCart, isExistInCart } from "./localStorage"
+import { handleCartItem, qty_card_products } from './header.js';
 
 const card = document.querySelector('.discount_container');
 // Ліміт карток на сторінці
@@ -33,7 +34,7 @@ function createMarkup(images, names, startIndex = 0) {
     </li>`
   ).join('');
   return res;
-};
+}
 
 async function addToBasket() {
   const result = await getDiscountProducts();
@@ -53,7 +54,7 @@ async function addToBasket() {
     const item = event.target.closest('.card_item');
     if (item) {
       const id = item.dataset.id;
-      openModal(id);
+      openModal(id).then(disableScroll);
     }
   });
 
@@ -71,6 +72,8 @@ async function addToBasket() {
           <use href="${svg}#icon-check"></use>
         </svg>
       `;
+      addToStorageCart(id)
+      handleCartItem(Number(qty_card_products.outerText) + Number(1));
     }
   });
 
@@ -80,25 +83,25 @@ addToBasket();
 
 function handleAddToCart(e) {
   const button = e.target;
-  const id= button.dataset.id;
+  const id= button.closest(".card_item").dataset.id;
 
-  if (isExistInCart(id)) {
-    removeFromStorageCart(id)
-    button.removeAttribute(id);
-    button.innerHTML = `
-      <svg class="basket-icon" width="18" height="18">
-        <use href="${svg}#icon-cart"></use>
-      </svg>
-    `;
-  } else {
-    addToStorageCart(id)
-    button.setAttribute("disabled", true);
-    button.innerHTML = `
-      <svg class="basket-icon-check" width="18" height="18">
-        <use href="${svg}#icon-check"></use>
-      </svg>
-    `;
-  }
+  // if (isExistInCart(id)) {
+  //   removeFromStorageCart(id)
+  //   button.removeAttribute(id);
+  //   button.innerHTML = `
+  //     <svg class="basket-icon" width="18" height="18">
+  //       <use href="${svg}#icon-cart"></use>
+  //     </svg>
+  //   `;
+  // } else if (isExistInCart(id)) {
+  //   addToStorageCart(id)
+  //   button.setAttribute("disabled", true);
+  //   button.innerHTML = `
+  //     <svg class="basket-icon-check" width="18" height="18">
+  //       <use href="${svg}#icon-check"></use>
+  //     </svg>
+  //   `;
+  // }
 }
 
 
