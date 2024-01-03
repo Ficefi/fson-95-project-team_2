@@ -1,5 +1,5 @@
 import { getProducts, getCategoriesProducts } from './fetchAPI';
-import { openModal } from './modal_window';
+import { disableScroll, openModal } from './modal_window';
 import svg from '../img/icons.svg';
 import { addToStorageCart, isExistInCart, removeFromStorageCart } from './localStorage.js';
 
@@ -196,7 +196,7 @@ function callModal(event) {
 
   if (item) {
     const id = item.dataset.id;
-    openModal(id);
+    openModal(id).then(disableScroll)
   }
 
 
