@@ -1,10 +1,11 @@
 import { getProducts, getCategoriesProducts } from './fetchAPI';
 import { openModal } from './modal_window';
-import svg from '../img/icons.svg';
 import { addToStorageCart, isExistInCart, removeFromStorageCart } from './localStorage.js';
-import SlimSelect from 'slim-select';
 import '../../node_modules/slim-select/dist/slimselect.css';
-
+import { disableScroll, openModal } from './modal_window';
+import svg from '../img/icons.svg';
+import SlimSelect from 'slim-select';
+import { handleCartItem, qty_card_products } from './header.js';
 
 const list = document.querySelector('.list-product');
 
@@ -51,12 +52,9 @@ function renderCategory() {
     .then(data => {
       const category = data
         .map(data => {
-          return `<option value="${String(data).replace("_", "_").replace("&", "%26")}">${String(data)
-            .replace('_', ' ')
-            .replace('_', ' ')}</option>`;
+          return `<option value="${String(data).replace("_", "_").replace("&", "%26")}">${String(data)</option>`;
         })
         .join('');
-        // console.log(category)
       selected.insertAdjacentHTML('beforeend', category);
       new SlimSelect({
         select: '.selected',
@@ -114,6 +112,7 @@ export async function renderFood() {
         <use href="${svg}#icon-check"></use>
       </svg>
     `;
+          handleCartItem(Number(qty_card_products.outerText) + Number(1))
         }
       }
 
@@ -203,7 +202,7 @@ function callModal(event) {
 
   if (item) {
     const id = item.dataset.id;
-    openModal(id);
+    openModal(id).then(disableScroll)
   }
 
 

@@ -2,7 +2,7 @@ import { getProductById, sendSubscription } from './fetchAPI.js';
 import { addToStorageCart, removeFromStorageCart, isExistInCart} from './localStorage.js';
 import vegetables from "../img/2x/desktop/fruitCart@2x.png"
 import orderDone from "../img/check-mark.png"
-import { handleCartItem, numberOfProducts, qty_card_products } from './header.js';
+import { handleCartItem, qty_card_products } from './header.js';
 import svg from "../img/icons.svg";
 import { renderFood } from './renderFood.js';
 
@@ -11,18 +11,28 @@ const content = document.querySelector('.modal-content');
 const subsModal = document.querySelector('.js-modal-subscription');
 const subscriptionModalContent = document.querySelector('.subscription-modal-content');
 const orderModal = document.querySelector('.js-modal-order');
-const orderContent = document.querySelector('.subscription-order-content')
+const orderContent = document.querySelector('.subscription-order-content');
+const body = document.querySelector('body')
 
 
 /////////////////////////////////////////////////////
 ////////////////  ITEM MODAL //////////////////////////
 /////////////////////////////////////////////////////
 
+export function disableScroll() {
+  body.style.overflow = 'hidden'
+}
+
+export function enableScroll() {
+  body.style.overflow = 'auto'
+}
+
 export async function openModal(id) {
+
+
 
   ////////MODAL SHOW////////
   modal.classList.toggle('is-hidden');
-
   //ADD MARKUP FOR MODAL WINDOW///////
 
   await getProductById(id).then(response => {
@@ -62,8 +72,6 @@ export async function openModal(id) {
 
   `;
 
-    console.log(is10PercentOff);
-
     if (is10PercentOff === true) {
       const discount = document.querySelector(".discount-icon-modal")
       discount.classList.remove("is-hidden")
@@ -85,6 +93,7 @@ export async function openModal(id) {
       if (e.key === 'Escape') {
         modal.classList.add('is-hidden');
       }
+      body.style.overflow = 'auto';
       renderFood();
     }
 
@@ -92,6 +101,7 @@ export async function openModal(id) {
       if (event.target === modal) {
         modal.classList.add('is-hidden');
       }
+      body.style.overflow = 'auto';
       renderFood();
     };
 
@@ -101,6 +111,7 @@ export async function openModal(id) {
       if (event.currentTarget === closeBtn) {
         modal.classList.add('is-hidden');
       }
+      body.style.overflow = 'auto';
       renderFood();
     }
 
@@ -191,12 +202,14 @@ export async function subscriptionModal(email) {
       if (e.key === 'Escape') {
         subsModal.classList.add('is-hidden');
       }
+      enableScroll();
     }
 
     window.onclick = function(event) {
       if (event.target === subsModal) {
         subsModal.classList.add('is-hidden');
       }
+      enableScroll();
     };
 
     const closeBtn = document.querySelector('.modal-close-btn');
@@ -205,6 +218,7 @@ export async function subscriptionModal(email) {
       if (event.currentTarget === closeBtn) {
         subsModal.classList.add('is-hidden');
       }
+      enableScroll()
     }
 
 

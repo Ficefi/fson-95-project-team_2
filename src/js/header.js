@@ -1,7 +1,9 @@
 export const qty_card_products = document.querySelector('.qty-card')
 
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
-export let numberOfProducts = cart.length;
+
+const num = cart.length > 0 ? cart.length : 0;
+export let numberOfProducts = num;
 
 
 export function handleCartItem(num) {

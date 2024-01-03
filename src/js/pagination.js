@@ -1,39 +1,26 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import { getProducts } from './fetchAPI';
+import { getAllProducts, getProducts } from './fetchAPI';
 import { createMarkup } from './renderFood';
 
 const paginationContainer = document.querySelector('.pagination');
 
-let limit = 0;
-const primaryScreenWidth = window.innerWidth;
+let visiblePages = 0;
 
-function getVisiblePages(primaryScreenWidth) {
-  if (primaryScreenWidth <= 767) {
-    return 2;
-  } else {
-    return 4;
-  }
+const screenWidth = window.innerWidth;
+if (screenWidth <= 767) {
+  visiblePages = 2;
 }
-
-setInterval(() => {
-  console.log();
-}, 1000);
-
-if (primaryScreenWidth <= 767) {
-  limit = 6;
-} else if (primaryScreenWidth <= 1239) {
-  limit = 8;
-} else {
-  limit = 9;
+else {
+  visiblePages = 4;
 }
 
 let page = 1;
 
-function createPagination(data) {
+function createPagination(data, visiblePages) {
   const options = {
     totalItems: data.totalPages * 10,
-    visiblePages: getVisiblePages(primaryScreenWidth),
+    visiblePages: visiblePages,
     template: {
       page: '<a href="#" id="page-btn" class="tui-page-btn">{{page}}</a>',
       currentPage:
@@ -57,7 +44,7 @@ function createPagination(data) {
 
   pagination.on('afterMove', function (eventData) {
     page = eventData.page;
-    getProducts(page, limit)
+    getProducts(page)
       .then(foodArray => {
         createMarkup(foodArray.results);
       })
@@ -67,12 +54,56 @@ function createPagination(data) {
   });
 }
 
-getProducts(page, limit)
+getProducts(page)
   .then(data => {
-    createPagination(data);
+    createPagination(data, visiblePages);
   })
   .catch(error => {
     throw new Error(error);
   });
 
 export { createPagination };
+
+
+function handleAddToCart(e) {
+  const button = e.currentTarget;
+  console.log(button);
+  const id = button.dataset.id;
+  console.log(id);
+
+  if (button.hasAttribute("disabled")) {
+    removeFromStorageCart(id)
+    console.log(removeFromStorageCart(id));
+    button.removeAttribute("disabled");
+    button.innerHTML = `
+      <svg class="basket-icon" width="18" height="18">
+        <use href="../img/icons.svg#icon-cart"></use>
+      </svg>
+    `;
+  } else {
+    addToStorageCart(id)
+    console.log(addToStorageCart(id));
+    button.setAttribute("disabled", true);
+    button.innerHTML = `
+      <svg class="basket-icon-check" width="18" height="18">
+        <use href="../img/icons.svg#icon-check"></use>
+      </svg>
+    `;
+  }
+}
+
+
+const btn = document.querySelectorAll('.svg-container');
+
+btn.forEach((button) => {
+  button.addEventListener("click", handleAddToCart);
+  const id = button.dataset.id;
+  if (isExistInCart(id)) {
+    button.setAttribute("disabled", true);
+    button.innerHTML = `
+      <svg class="basket-icon-check" width="18" height="18">
+        <use href="../img/icons.svg#icon-check"></use>
+      </svg>
+    `;
+  }
+});
