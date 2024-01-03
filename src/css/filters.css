@@ -154,13 +154,20 @@
     }
     
     @media (min-width: 1440px) {
+        .filter {
+            margin-right: 1300px;
+        }
+        .cont-input-search {
+            margin-right: 1060px;
+        }
         .form-search {
-            align-items: flex-start;
+            /* align-items: flex-start; */
             margin-left: 100px;
             padding: 0 15px;
         }
         #selected {
-            left: 404px;
+            /* left: 404px; */
+            margin-right: 640px;
                 }
     }
     

@@ -9,7 +9,7 @@
 .product-size,
 .product-popularity,
 .product-txt-two,
-.svg-svg,
+.popular_basket,
 .svg-item {
   box-sizing: border-box;
 }
@@ -25,7 +25,6 @@
 }
 .product-card {
   max-width: 275px;
-  overflow: auto;
 }
 .product-subtitle {
   font-size: 28px;
@@ -95,20 +94,21 @@
   display: flex;
 }
 
-.svg-svg {
-  transition: background-color 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
+.popular_basket {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gray);
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  border-radius: 50%;
-  background-color: var(--gray);
-  margin-left: 40px;
   position: absolute;
   right: 12px;
   top: 12px;
+  padding: 4px;
+  transition: background-color 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
+  transition: transform 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
 }
 
 .svg-item {
@@ -116,11 +116,20 @@
   fill: var(--light_green);
 }
 
+.svg-item-check{
+  transition: stroke 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
+  stroke: var(--light_green);
+}
+
+.svg-item-check:hover{
+  stroke: var(--gray);
+}
+
 .svg-item:hover {
   fill: var(--gray);
 }
 
-.svg-svg:hover {
+.popular_basket:hover {
   background-color: var(--light_green);
 }
 
@@ -168,7 +177,9 @@
   -moz-box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
   box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
   transition: box-shadow 0.3s ease-in-out;
+  transition: scale 0.5s ease-in-out;
   cursor: pointer;
+  scale: 1.02;
 }
 
 aside {
