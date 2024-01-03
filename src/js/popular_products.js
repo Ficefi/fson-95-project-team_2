@@ -92,7 +92,7 @@ function createPopularMarkup(array) {
                 </p>
             </div>
         </div>
-        <button class="popular_basket" data-id="${_id}">
+        <button class="popular_basket" data-id="${_id}" data-modal-close>
             <svg class="svg-item" width="12" height="12">
                 <use href="${svg}#icon-cart"></use>
             </svg>
@@ -107,8 +107,9 @@ function createPopularMarkup(array) {
 
 function modalCall(event) {
   const item = event.target.closest('.product-content');
+  const btn = event.target.closest('.popular_basket');
 
-  if (item) {
+  if (item && !btn) {
     const id = item.dataset.id;
     openModal(id).then(disableScroll);
   }

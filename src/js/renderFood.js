@@ -220,8 +220,9 @@ function createMarkup(array) {
 
 function callModal(event) {
   const item = event.target.closest('.item-product');
+  const btn = event.target.closest('.basket');
 
-  if (item) {
+  if (item && !btn) {
     const id = item.dataset.id;
     openModal(id).then(disableScroll);
   }

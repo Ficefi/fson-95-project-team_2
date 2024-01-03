@@ -59,7 +59,8 @@ async function addToBasket() {
   // Виклик модалки
   card.addEventListener('click', event => {
     const item = event.target.closest('.card_item');
-    if (item) {
+    const btn = event.target.closest('.basket');
+    if (item && !btn) {
       const id = item.dataset.id;
       openModal(id).then(disableScroll);
     }
