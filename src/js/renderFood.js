@@ -2,6 +2,7 @@ import { getProducts, getCategoriesProducts } from './fetchAPI';
 import { disableScroll, openModal } from './modal_window';
 import svg from '../img/icons.svg';
 import { addToStorageCart, isExistInCart, removeFromStorageCart } from './localStorage.js';
+import { handleCartItem, qty_card_products } from './header.js';
 
 const list = document.querySelector('.list-product');
 
@@ -107,6 +108,7 @@ export async function renderFood() {
         <use href="${svg}#icon-check"></use>
       </svg>
     `;
+          handleCartItem(Number(qty_card_products.outerText) + Number(1))
         }
       }
 

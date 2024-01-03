@@ -256,6 +256,7 @@
 @media screen and (min-width: 320px) {
 
 .js-modal-subscription {
+  z-index: 999;
   background: rgba(1, 1, 1, 0.40);
   position: fixed;
   top: 0;

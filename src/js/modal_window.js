@@ -2,7 +2,7 @@ import { getProductById, sendSubscription } from './fetchAPI.js';
 import { addToStorageCart, removeFromStorageCart, isExistInCart} from './localStorage.js';
 import vegetables from "../img/2x/desktop/fruitCart@2x.png"
 import orderDone from "../img/check-mark.png"
-import { handleCartItem, numberOfProducts, qty_card_products } from './header.js';
+import { handleCartItem, qty_card_products } from './header.js';
 import svg from "../img/icons.svg";
 import { renderFood } from './renderFood.js';
 
@@ -202,12 +202,14 @@ export async function subscriptionModal(email) {
       if (e.key === 'Escape') {
         subsModal.classList.add('is-hidden');
       }
+      enableScroll();
     }
 
     window.onclick = function(event) {
       if (event.target === subsModal) {
         subsModal.classList.add('is-hidden');
       }
+      enableScroll();
     };
 
     const closeBtn = document.querySelector('.modal-close-btn');
@@ -216,6 +218,7 @@ export async function subscriptionModal(email) {
       if (event.currentTarget === closeBtn) {
         subsModal.classList.add('is-hidden');
       }
+      enableScroll()
     }
 
 

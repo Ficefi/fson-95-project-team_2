@@ -10,7 +10,7 @@ let visiblePages = 0;
 const screenWidth = window.innerWidth;
 if (screenWidth <= 767) {
   visiblePages = 2;
-} 
+}
 else {
   visiblePages = 4;
 }
@@ -94,7 +94,6 @@ function handleAddToCart(e) {
 
 
 const btn = document.querySelectorAll('.svg-container');
-console.log(btn);
 
 btn.forEach((button) => {
   button.addEventListener("click", handleAddToCart);
