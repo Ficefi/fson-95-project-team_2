@@ -1,0 +1,208 @@
+/* Title */
+
+.discount {
+  margin: 0 20px 80px 20px;
+}
+
+.discount-title {
+  color: var(--black);
+  font-family: Neue Montreal Medium;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px; /* 116.667% */
+  margin-bottom: 20px;
+}
+
+/* Common */
+.discount_container {
+  width: 335px;
+}
+
+.discount-icon {
+  position: absolute;
+  z-index: 999;
+  right: 10px;
+  top: -3px;
+}
+
+.card-content {
+  max-width: 100%;
+  height: 150px;
+  background-color: var(--gray);
+  border-radius: 10px;
+  margin: 16px;
+  min-width: 304px;
+}
+
+.card-img {
+  margin: 18px auto;
+  height: 114px;
+  min-width: 114px;
+}
+
+.title-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 5px 0px;
+  min-width: 78%;
+}
+
+.card {
+  border-radius: 15px;
+  background: var(--white);
+  width: 100%;
+  height: 232px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.card_item {
+  border-radius: 15px;
+  background: var(--white);
+  width: 100%;
+  height: 232px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.card_item:hover {
+  -webkit-box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
+  box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+  transition: scale 0.5s ease-in-out;
+  scale: 1.02;
+}
+
+.discount-icon {
+  position: absolute;
+  z-index: 999;
+  right: 10px;
+  top: 3px;
+}
+
+.card-title {
+  font-family: Neue Montreal Medium;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px; /* 111.111% */
+}
+
+.card-price {
+  font-family: Neue Montreal Medium;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px; /* 111.111% */
+}
+
+.basket {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--light_green);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 16px 8px;
+  transition: transform 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
+}
+
+.basket:hover {
+  background-color: var(--dark_green);
+}
+
+.basket:disabled:hover {
+  background-color: var(--light_green);
+  cursor: auto;
+}
+
+.basket-icon {
+  fill: var(--white);
+}
+
+.basket-icon-check {
+  stroke: var(--white);
+}
+
+@media only screen and (min-width: 768px) {
+  .discount {
+    margin: 64px 32px 100px;
+  }
+  /* Title */
+  .discount-title {
+    font-size: 28px;
+    line-height: 32px; /* 114.286% */
+  }
+
+  /* Common */
+  .discount_container {
+    max-width: 336px;
+    display: flex;
+    gap: 32px;
+  }
+
+  .card-title {
+    font-size: 20px;
+    line-height: 24px; /* 120% */
+  }
+
+  .card-price {
+    font-size: 20px;
+    line-height: 24px; /* 120% */
+  }
+
+  .discount-icon {
+    position: absolute;
+    z-index: 999;
+    right: 10px;
+    top: 3px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .discount {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .discount_container {
+    max-width: 275px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card_item {
+    margin-bottom: 0;
+  }
+
+  .discount-icon {
+    top: -3px;
+  }
+
+  .card-img {
+    margin: 23px auto;
+    height: 105px;
+    min-width: 105px;
+  }
+
+  .card-content {
+    min-width: 243px;
+  }
+
+  .title-box {
+    min-width: 73%;
+  }
+
+
+}

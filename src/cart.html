@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
+  <link rel="stylesheet" href="css/cart.css">
+	<title>Cart</title>
+</head>
+
+<body>
+	<load src="partials/header.html" />
+  <load src="partials/modal_window.html" />
+	<main>
+		<!-- cart start -->
+		<section class="container">
+			<h1 hidden>Your basket</h1>
+			<div class="cart-label-wrap">
+				<div class="icon-cart-wrap">
+					<svg class="icon-cart-cart" width="38" height="38px">
+						<use href="/img/icons.svg#icon-cart"></use>
+					</svg>
+				</div>
+				<div class="cart-label" id="cart-counter">CART (<span class="number-of-products">0</span>)</div>
+
+			</div>
+
+			<!-- ПУСТА КОРЗИНА -->
+
+			<div class="cart">
+				<img class="basket-img" src="/img/shopping_cart.png"
+					alt="Yellow shopping basket">
+				<h2 class="basket-title">
+					Your basket is <span class="accent-txt">empty...</span>
+				</h2>
+				<p class="basket-txt">Go to the main page to select your favorite products and add them to the cart.</p>
+			</div>
+
+			<!-- ПУСТА КОРЗИНА end-->
+
+
+			<div class="del-all-btn"><span class="del-all-txt">Delete all</span><button class="remove-all-item"
+					data-modal-close aria-label="close modal button">
+					<svg class="remove-item-image" width="24" height="24">
+						<use href="/img/icons.svg#icon-close-btn"></use>
+					</svg>
+				</button></div>
+			<ul class="basket-items-cart"></ul>
+<div class='total-order-cart-wrap'>
+			<div class="order-total">
+				<h2 class="cart-label order-title">YOUR ORDER</h2>
+
+				<div class="total">
+					<p class="product-name">Total</p>
+					<div class="sum">
+						<p class="sum2"><span class="summ-cart">Sum:&nbsp;</span>
+							<span class="total-price"></span>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- form start -->
+
+			<form class="cart-form-authorization" name="authorization_send" autocomplete="off">
+				<label class="cart-form-label" for="email_cart">
+          <span class='car-email-placeholder'>Mail:</span>
+          <input class="form-input-cart" type="email" name="email" placeholder="Enter your email" id="email_cart"
+						required autofocus />
+				</label>
+				<button class="btn-form-cart" type="submit">Checkout</button>
+			</form>
+</div>
+
+		</section>
+
+		<!-- cart end -->
+	</main>
+	<load src="partials/footer.html" />
+  <load src="index.html" />
+	<script type="module" src="./js/cart.js"></script>
+</body>
+
+</html>

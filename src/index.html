@@ -11,15 +11,22 @@
 
 <body>
   <load src="partials/header.html" />
-  <load src="partials/hero.html" />
-  <load src="partials/filters.html" />
-  <load src="partials/products_list.html" />
-  <load src="partials/popular_products.html" />
-  <load src="partials/discount_products.html" />
-  <load src="partials/pagination.html" />
+
+  <main>
+    <load src="partials/hero.html" />
+    <load src="partials/filters.html" />
+    <section class="product-content-section">
+      <load src="partials/products_list.html" />
+      <load src="partials/pagination.html" />
+      <aside>
+        <load src="partials/popular_products.html" />
+        <load src="partials/discount_products.html" />
+      </aside>
+    </section>
+
+  </main>
   <load src="partials/footer.html" />
   <load src="partials/modal_window.html" />
-
   <script type="module" src="./js/main.js"></script>
 </body>
 

@@ -1,27 +1,22 @@
 .container {
-    min-width: 320px;
-    max-width: 375px;
-    padding: 0 20px;
-    margin: 0 auto;
+  min-width: 320px;
+  max-width: 375px;
+  padding: 0 20px;
+  margin: 0 auto;
 }
 
 @media only screen and (min-width: 768px) {
-    .container {
-        max-width: 768px;
-        padding: 0 32px;
-    }
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
-    .container {
-        max-width: 1440px;
-        padding: 0 100px;
-    }
-}
-
-.hero-wrap {
-  max-width: 335px;
-  text-align: center;
+  .container {
+    max-width: 1440px;
+    padding: 0 100px;
+  }
 }
 
 .hero-content {
@@ -30,6 +25,7 @@
 }
 
 .hero-title {
+  text-align: center;
   padding-bottom: 16px;
   font-size: 42px;
   font-weight: 500;

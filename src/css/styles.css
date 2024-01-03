@@ -5,7 +5,6 @@
 @import url('./popular_products.css');
 @import url('./discount_products.css');
 @import url('./footer.css');
-@import url('./cart.css');
 @import url('./pagination.css');
 @import url('./modal_window.css');
 @import url('./reset.css');
@@ -78,3 +77,15 @@
 }
 
 /* transition: *argument* 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3); - standart animation delay for project  */
+
+
+.event-click{
+  display: flex;
+  margin: 0 auto;
+}
+.icon-cart-test{
+  transition: transform 300ms cubic-bezier(0.3, 0.1, 0.2, 0.3);
+}
+.stroke_mark{
+  stroke: red;
+}

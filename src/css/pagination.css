@@ -1,5 +1,6 @@
 #pagination {
-  margin-bottom: 260px;
+  margin-top: 40px;
+  margin-bottom: 80px;
 }
 
 #page-btn {
@@ -24,30 +25,23 @@
   background-color: #fff;
 }
 
-.loader-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 75%;
-  margin: 0 auto;
-  grid-column: 1 / -1;
-}
-
-.loader {
-  border: 7px solid #f3f3f3;
-  border-top: 7px solid var(--light_green);
+#page-btn:hover {
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 2s linear infinite;
+  transition: border-radius 0.3s ease-in-out;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
+#arrow-btn:hover {
+  -webkit-box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
+  box-shadow: 7px 6px 8px -1px rgba(34, 60, 80, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
 
-  100% {
-    transform: rotate(360deg);
-  }
+
+@media screen and (min-width: 1440px) {
+#pagination {
+  position: absolute;
+  bottom: -138px;
+  right: 600px;
+}
 }

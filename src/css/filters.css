@@ -1,144 +1,173 @@
 .filter {
-color: rgba(1, 1, 1, 0.30);
-font-family: Neue Montreal;
-font-size: 14px;
-line-height: 0.2px;
-/* margin-bottom: 8px;  */
-}
-
-.form-search {
+    color: rgba(1, 1, 1, 0.30);
+    font-family: Neue Montreal;
+    font-size: 14px;
+    line-height: 0.2px;
+    /* margin-bottom: 8px;  */
+    margin-right: 260px;
+    }
+    
+    .form-search {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        margin-top: 20px;
+        margin-bottom: 80px;
+    }
+    
+    .cont-input-search {
+        position: absolute;
+        margin-top: 20px;
+    }
+    
+    .input-search {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    margin-top: 20px;
-    margin-bottom: 80px;
-}
-
-.cont-input-search {
-    position: absolute;
-    margin-top: 20px;
-}
-
-.input-search {
-display: flex;
-min-width: 240px;
-display: flex;
-padding: 14px 20px;
-justify-content: center;
-align-items: center;
-gap: 159px;
-background-color: transparent;
-border-radius: 30px;
-border: 1px solid rgba(1, 1, 1, 0.30);
-}
-
-.input-search::placeholder {
-color: #010101;
-font-family: Neue Montreal;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 18px; /* 128.571% */
-}
-.submit {
-    position: absolute;
-    top: 20%;
-    right: 5%;
-    background-color: transparent;
-    border: transparent;
-}
-
-#selected {
-    position: relative;
+    min-width: 240px;
     display: flex;
-    margin-top: 10px;
-    top: 60px;  
-    width: 280px;
     padding: 14px 20px;
     justify-content: center;
     align-items: center;
-    gap: 209px;
-    border-radius: 30px;
+    gap: 159px;
     background-color: transparent;
+    border-radius: 30px;
     border: 1px solid rgba(1, 1, 1, 0.30);
-}
-
-.error {
-    flex-direction: column;
-    align-items: center;
-}
-
-.text-error-false {
-width: 279px;
-color: rgba(1, 1, 1, 0.70);
-text-align: center;
-font-family: Neue Montreal;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 18px; /* 128.571% */
-}
-
-.text-error {
-color: #6D8434;
-font-family: Neue Montreal;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: 20px;
-}
-
-.errors {
-width: 261px;
-color: #010101;
-text-align: center;
-font-family: Neue Montreal;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: 20px; /* 111.111% */
-}
-
-@media (min-width: 768px) {
-    .input-search {
-        width: 227px;
-        gap: 60px;
     }
-    .form-search {
-        align-items: flex-start;
-        margin-left: 32px;
-
+    
+    .input-search::placeholder {
+    color: #010101;
+    font-family: Neue Montreal;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 128.571% */
     }
+    .submit {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        background-color: transparent;
+        border: transparent;
+    }
+    
     #selected {
-position: sticky;
-gap: 44px;
-width: 189px;
-top: 0%;
-left: 330px;
+        position: relative;
+        display: flex;
+        margin-top: 10px;
+        top: 60px;  
+        width: 280px;
+        padding: 14px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 209px;
+        border-radius: 30px;
+        background-color: transparent;
+        border: 1px solid rgba(1, 1, 1, 0.30);
     }
-    .errors {
-font-size: 20px;
-line-height: 24px; /* 120% */
+    
+    .error {
+        flex-direction: column;
+        align-items: center;
     }
-    .text-error {
-font-size: 20px;
-line-height: 24px;
-    }
+    
     .text-error-false {
-font-size: 18px;
-line-height: 24px; /* 133.333% */
+    width: 279px;
+    color: rgba(1, 1, 1, 0.70);
+    text-align: center;
+    font-family: Neue Montreal;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 128.571% */
     }
-
-}
-
-@media (min-width: 1440px) {
-    .form-search {
-        align-items: flex-start;
-        margin-left: 100px;
+    
+    .text-error {
+    color: #6D8434;
+    font-family: Neue Montreal;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
     }
-    #selected {
-        left: 398px;
-            }
-}
+    
+    .errors {
+    width: 261px;
+    color: #010101;
+    text-align: center;
+    font-family: Neue Montreal;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 111.111% */
+    }
+    
+    @media (min-width: 768px) {
+        .filter {
+            margin-right: 680px;
+        }
+        .cont-input-search {
+            margin-right: 420px;
+        }
+        .input-search {
+            width: 227px;
+            gap: 60px;
+        }
+        .form-search {
+            /* align-items: flex-start; */
+            margin-left: 32px;
+            padding: 0 32px;
+        }
+        #selected {
+    position: sticky;
+    gap: 44px;
+    width: 189px;
+    top: 0%;
+    /* left: 330px; */
+    margin-left: 60px;
+        }
+        .errors {
+    font-size: 20px;
+    line-height: 24px; /* 120% */
+        }
+        .text-error {
+    font-size: 20px;
+    line-height: 24px;
+        }
+        .text-error-false {
+    font-size: 18px;
+    line-height: 24px; /* 133.333% */
+        }
+    
+    }
+    
+    @media (min-width: 1240px) {
+        .filter {
+            margin-right: 770px;
+        }
+        .cont-input-search {
+            margin-right: 532px;
+        }
+        #selected {
+            margin-right: 110px;
+        }
+    }
+    
+    @media (min-width: 1440px) {
+        .filter {
+            margin-right: 1300px;
+        }
+        .cont-input-search {
+            margin-right: 1060px;
+        }
+        .form-search {
+            /* align-items: flex-start; */
+            margin-left: 100px;
+            padding: 0 15px;
+        }
+        #selected {
+            /* left: 404px; */
+            margin-right: 640px;
+                }
+    }
+    
